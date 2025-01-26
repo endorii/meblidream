@@ -1,4 +1,4 @@
-import Steps from "../../../assets/img/steps.jpg";
+import Steps from "../../../../../assets/img/steps.jpg";
 import Container from "./Container";
 
 const Process = () => {

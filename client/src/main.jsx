@@ -7,15 +7,22 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import { StrictMode } from "react";
-import MainPage from "./pages/MainPage/MainPage";
+import Wrapper from "./pages/User/Wrapper";
 import Admin from "./pages/Admin/Admin";
+import WelcomeContent from "./pages/User/pages/WelcomePage/WelcomeContent";
+import About from "./pages/User/pages/AboutPage/About";
+import Gallery from "./pages/User/pages/GalleryPage/Gallery";
 // import { Provider } from "react-redux";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-            <Route path="/" element={<MainPage />}></Route>
-            <Route path="admin" element={<Admin />}></Route>
+            <Route path="/" element={<Wrapper />}>
+                <Route path="" element={<WelcomeContent />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/gallery" element={<Gallery />} />
+            </Route>
+            <Route path="/admin" element={<Admin />}></Route>
         </>
     )
 );

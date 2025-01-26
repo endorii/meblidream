@@ -1,8 +1,8 @@
 import Container from "./Container";
-import Alta from "../../../assets/img/logo_alta.png";
-import Madot from "../../../assets/img/logo_madot.png";
-import Velam from "../../../assets/img/logo_velam.png";
-import Viyar from "../../../assets/img/logo_viyar.png";
+import Alta from "../../../../../assets/img/logo_alta.png";
+import Madot from "../../../../../assets/img/logo_madot.png";
+import Velam from "../../../../../assets/img/logo_velam.png";
+import Viyar from "../../../../../assets/img/logo_viyar.png";
 
 const Partners = () => {
     return (

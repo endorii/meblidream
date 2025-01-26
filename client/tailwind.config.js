@@ -9,6 +9,7 @@ export default {
             black: "#000000",
             dark: "#6B7280",
             gray: "#D1D5DB",
+            darkgray: "#545454",
             transperent: "#00000000",
             light: "#F7F7F7",
         },

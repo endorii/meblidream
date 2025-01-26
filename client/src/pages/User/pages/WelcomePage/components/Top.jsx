@@ -1,4 +1,4 @@
-import BGImage from "../../../assets/img/bg.jpg";
+import BGImage from "../../../../../assets/img/bg.jpg";
 
 const Top = () => {
     console.log(BGImage);

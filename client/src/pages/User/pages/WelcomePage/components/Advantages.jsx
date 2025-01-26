@@ -1,8 +1,8 @@
 import Container from "./Container";
 
-import Adv1 from "../../../assets/img/adv1.jpg";
-import Adv2 from "../../../assets/img/adv2.jpg";
-import Adv3 from "../../../assets/img/adv3.jpg";
+import Adv1 from "../../../../../assets/img/adv1.jpg";
+import Adv2 from "../../../../../assets/img/adv2.jpg";
+import Adv3 from "../../../../../assets/img/adv3.jpg";
 
 const Advantages = () => {
     return (
@@ -18,7 +18,7 @@ const Advantages = () => {
                     <div className="flex items-center gap-[100px]">
                         <div className="w-[50%] p-[30px]">
                             <div className="text-[45px] font-semibold text-darkblue leading-[50px] mb-[25px]">
-                                Виготовляємо меблі під замовлення протягом 15-ти
+                                Виготовляємо меблі під замовлення понад 15-ть
                                 років!
                             </div>
                             <div className="text-dark text-[20px] font-[300]">

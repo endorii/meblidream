@@ -1,7 +1,7 @@
 import Container from "./Container";
-import Wardrobe from "../../../assets/img/wardrobe.jpg";
-import Garderob from "../../../assets/img/garderob.jpg";
-import Kitchen from "../../../assets/img/kitchen.jpg";
+import Wardrobe from "../../../../../assets/img/wardrobe.jpg";
+import Garderob from "../../../../../assets/img/garderob.jpg";
+import Kitchen from "../../../../../assets/img/kitchen.jpg";
 
 const Products = () => {
     return (
