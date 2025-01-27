@@ -5,7 +5,7 @@ const Request = () => {
         <div>
             <div className="flex items-center justify-between py-[50px]">
                 <hr className="w-[20%] border text-darkblue" />
-                <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px] m-[50px]">
+                <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px]">
                     Зв&apos;яжіться з нами
                 </h2>
                 <hr className="w-[20%] border text-darkblue" />
