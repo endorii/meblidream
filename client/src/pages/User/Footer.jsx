@@ -1,5 +1,5 @@
 import Container from "./pages/WelcomePage/components/Container";
-import Logo from "../../assets/svg/logo.svg";
+import Logo from "../../assets/logo.png";
 
 const Footer = () => {
     return (
@@ -12,14 +12,7 @@ const Footer = () => {
                 <div className="flex justify-between p-[20px_100px]">
                     <div>
                         <div className="flex items-center">
-                            <img
-                                className="w-[50px] h-[50px]"
-                                src={Logo}
-                                alt=""
-                            />
-                            <div className="text-main font-semibold text-2xl">
-                                Mebli Dream
-                            </div>
+                            <img className="w-[200px]" src={Logo} alt="" />
                         </div>
                     </div>
                     <div>
@@ -67,7 +60,7 @@ const Footer = () => {
                             <li>+380 99 443 12 80</li>
                             <li>
                                 <button className="mt-[10px] border border-main text-main font-semibold rounded-xl px-[30px] py-[15px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
-                                    Замовити консультацію
+                                    Залишити заявку
                                 </button>
                             </li>
                         </ul>

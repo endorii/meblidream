@@ -12,6 +12,8 @@ import Admin from "./pages/Admin/Admin";
 import WelcomeContent from "./pages/User/pages/WelcomePage/WelcomeContent";
 import About from "./pages/User/pages/AboutPage/About";
 import Gallery from "./pages/User/pages/GalleryPage/Gallery";
+import Contacts from "./pages/User/pages/ContactsPage/Contacts";
+import Product from "./pages/User/pages/ProductsPage/Product";
 // import { Provider } from "react-redux";
 
 const router = createBrowserRouter(
@@ -21,6 +23,8 @@ const router = createBrowserRouter(
                 <Route path="" element={<WelcomeContent />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/gallery" element={<Gallery />} />
+                <Route path="/products" element={<Product />} />
+                <Route path="/contacts" element={<Contacts />} />
             </Route>
             <Route path="/admin" element={<Admin />}></Route>
         </>

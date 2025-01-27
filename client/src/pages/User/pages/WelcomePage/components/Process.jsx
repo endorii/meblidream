@@ -6,7 +6,7 @@ const Process = () => {
         <>
             <Container>
                 <div className="flex items-center justify-between">
-                    <h2 className="text-[70px] uppercase font-semibold text-darkblue tracking-[1px] mx-[50px]">
+                    <h2 className="text-[70px] uppercase font-semibold text-darkblue tracking-[1px] my-[50px]">
                         Як проходить процес
                     </h2>
                     <hr className="w-[45%] border text-darkblue" />

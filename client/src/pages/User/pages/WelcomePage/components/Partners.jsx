@@ -10,7 +10,7 @@ const Partners = () => {
             <Container>
                 <div className="flex items-center justify-between">
                     <hr className="w-[30%] border text-darkblue" />
-                    <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px] m-[50px]">
+                    <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px] my-[50px]">
                         Наші партнери
                     </h2>
                     <hr className="w-[30%] border text-darkblue" />

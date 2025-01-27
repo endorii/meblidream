@@ -1,5 +1,5 @@
 const Container = ({ children }) => {
-    return <div className="px-[50px] py-[50px]">{children}</div>;
+    return <div className="py-[50px] px-[100px]">{children}</div>;
 };
 
 export default Container;

@@ -8,12 +8,12 @@ const Products = () => {
         <>
             <Container>
                 <div className="flex items-center justify-between">
-                    <h2 className="text-[70px] uppercase font-semibold text-darkblue tracking-[1px] m-[50px]">
+                    <h2 className="text-[70px] uppercase font-semibold text-darkblue tracking-[1px] my-[50px]">
                         Виготовлення меблевої продукції
                     </h2>
                     <hr className="w-[20%] border text-darkblue" />
                 </div>
-                <ul className="flex my-[50px] justify-center gap-[40px] flex-wrap">
+                <ul className="flex mt-[50px] justify-center gap-[25px] flex-wrap">
                     <li className="shadow-md w-[400px] border-b-4 border-white rounded-md hover:border-main hover:shadow-xl flex flex-col transition duration-300 ease-in-out">
                         <img
                             className="w-full h-[250px] object-cover object-[0px_60%] rounded-t-md"
