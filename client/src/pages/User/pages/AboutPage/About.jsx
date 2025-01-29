@@ -29,7 +29,7 @@ const About = () => {
                             </div>
                         </div>
                         <img
-                            className="w-[240px] animate-[bounce_2s_ease-in-out_infinite]"
+                            className="w-[210px] animate-[bounce_2s_ease-in-out_infinite]"
                             src={Arowdown}
                             alt=""
                         />
