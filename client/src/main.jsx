@@ -17,6 +17,10 @@ import Product from "./pages/User/pages/ProductsPage/Product";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import ProductsItem from "./pages/User/pages/ProductsPage/ProductsItem/ProductsItem";
+import Panel from "./pages/Admin/Panel/Panel";
+import Welcome from "./pages/Admin/Panel/Welcome/Welcome";
+import CallBook from "./pages/Admin/Panel/CallBook/CallBook";
+import Categories from "./pages/Admin/Panel/Categories/Categories";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -33,6 +37,11 @@ const router = createBrowserRouter(
                 <Route path="/contacts" element={<Contacts />} />
             </Route>
             <Route path="/admin" element={<Admin />}></Route>
+            <Route path="/admin/panel" element={<Panel />}>
+                <Route path="" element={<Welcome />}></Route>
+                <Route path="callbook" element={<CallBook />}></Route>
+                <Route path="categories" element={<Categories />}></Route>
+            </Route>
         </>
     )
 );
