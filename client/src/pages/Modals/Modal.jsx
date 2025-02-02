@@ -12,14 +12,14 @@ export default function Modal({ isOpen, onClose, children }) {
     if (!isOpen) return null;
 
     return createPortal(
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white p-[40px] rounded-lg shadow-lg relative">
-                <button
-                    onClick={onClose}
-                    className="absolute top-[15px] right-[15px] text-darkblue hover:text-gray-700"
-                >
-                    ✕
-                </button>
+        <div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 cursor-pointer h-full overflow-y-auto"
+            onClick={onClose}
+        >
+            <div
+                className="cursor-default"
+                onClick={(e) => e.stopPropagation()}
+            >
                 {children}
             </div>
         </div>,

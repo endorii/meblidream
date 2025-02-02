@@ -1,10 +1,8 @@
 import Trash from "../../../../assets/svg/trash.svg";
-import Edit from "../../../../assets/svg/edit.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
-import EditOrderModalContent from "../../../Modals/Orders/EditOrderModalContent";
 import DeleteOrderModalContent from "../../../Modals/Orders/DeleteOrderModalContent";
 
 const CallBook = () => {
@@ -78,13 +76,6 @@ const CallBook = () => {
                                             <img
                                                 className="w-[30px]"
                                                 src={Trash}
-                                                alt=""
-                                            />
-                                        </button>
-                                        <button className="p-[10px] hover:bg-main/10 rounded-md">
-                                            <img
-                                                className="w-[30px]"
-                                                src={Edit}
                                                 alt=""
                                             />
                                         </button>
