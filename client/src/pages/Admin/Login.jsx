@@ -1,4 +1,4 @@
-const Admin = () => {
+const Login = () => {
     return (
         <div className="flex justify-center items-center h-[100vh]">
             <div className="shadow-xl p-[50px] w-[35%]">
@@ -44,4 +44,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default Login;

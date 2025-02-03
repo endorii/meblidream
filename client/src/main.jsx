@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { StrictMode } from "react";
 import Wrapper from "./pages/User/Wrapper";
-import Admin from "./pages/Admin/Admin";
+import Login from "./pages/Admin/Login";
 import WelcomeContent from "./pages/User/pages/WelcomePage/WelcomeContent";
 import About from "./pages/User/pages/AboutPage/About";
 import Gallery from "./pages/User/pages/GalleryPage/Gallery";
@@ -36,12 +36,12 @@ const router = createBrowserRouter(
                 />
                 <Route path="/contacts" element={<Contacts />} />
             </Route>
-            <Route path="/admin" element={<Admin />}></Route>
-            <Route path="/admin/panel" element={<Panel />}>
+            <Route path="/admin" element={<Panel />}>
                 <Route path="" element={<Welcome />}></Route>
                 <Route path="callbook" element={<CallBook />}></Route>
                 <Route path="categories" element={<Categories />}></Route>
             </Route>
+            <Route path="/admin/login" element={<Login />}></Route>
         </>
     )
 );

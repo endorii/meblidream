@@ -1,4 +1,4 @@
-import Trash from "../../../../assets/svg/trash.svg";
+import TrashIcon from "../../../../assets/svg/trash.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
@@ -16,70 +16,78 @@ const CallBook = () => {
     }, []);
 
     return (
-        <div className="overflow-y-auto">
-            <div className="py-[15px] flex justify-between">
-                <div className="text-[50px] text-main uppercase font-[500]">
+        <div>
+            <div className="py-[30px] flex justify-between">
+                <div className="text-[30px] text-darkblue font-bold">
                     Список замовлених дзвінків
                 </div>
                 <div className="flex items-center gap-[10px]">
                     <div>Фільтрація: </div>
-                    <button className="border border-main text-main font-semibold rounded-xl px-[30px] py-[10px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                    <button className="border flex gap-[10px] items-center text-white font-semibold rounded-xl px-[20px] py-[10px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
                         Спочатку новіші
                     </button>
-                    <button className="border border-main text-main font-semibold rounded-xl px-[30px] py-[10px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                    <button className="border flex gap-[10px] items-center text-white font-semibold rounded-xl px-[20px] py-[10px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
                         Спочатку старіші
                     </button>
                 </div>
             </div>
             <hr className="border border-gray" />
             <div className="mt-[30px]">
-                <ul className="flex flex-col gap-[30px] p-[20px]">
+                <ul className="flex flex-wrap gap-[30px]">
                     {orders.map((order, i) => {
                         return (
-                            <li key={i} className="shadow-md rounded-xl flex ">
-                                <div className="text-white font-bold w-[5%] bg-main rounded-l-xl text-center flex justify-center items-center">
-                                    №<span>{i}</span>
+                            <li
+                                key={i}
+                                className="shadow-custom rounded-xl flex flex-col  basis-[31%] flex-1"
+                            >
+                                <div className="text-white font-bold bg-main rounded-t-md text-center p-[10px] flex justify-center items-center">
+                                    №<span>{i + 1}</span>
                                 </div>
 
-                                <div className="flex justify-between items-center py-[30px] px-[50px] w-full">
-                                    <div className="w-[80%]">
-                                        <div className="text-[16px]">
-                                            Ім&apos;я та прізвище:{" "}
-                                            <span className="text-main font-bold text-[20px]">
+                                <div className="flex flex-col justify-between items-center bg-white py-[30px] px-[30px] w-full">
+                                    <div className="flex flex-col gap-[10px]">
+                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[15px] w-[25%]">
+                                                Ім&apos;я та прізвище:{" "}
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
                                                 {order.name}
-                                            </span>
+                                            </div>
                                         </div>
-                                        <div className="text-[16px]">
-                                            Номер телефону:{" "}
-                                            <span className="text-main font-bold text-[20px]">
+                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[15px] w-[25%]">
+                                                Номер телефону:{" "}
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
                                                 {order.phone}
-                                            </span>
+                                            </div>
                                         </div>
-                                        <div className="text-[16px]">
-                                            Додаток/повідомлення: <br />
-                                            <span className="text-main font-bold text-[20px]">
+                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[15px] w-[25%]">
+                                                Додаток/повідомлення:
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
                                                 {order.message}
-                                            </span>
+                                            </div>
                                         </div>
-                                        <div className="text-[16px]">
-                                            Дата відправлення заявки: <br />
-                                            <span className="text-main font-bold text-[20px]">
+                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[15px] w-[25%]">
+                                                Дата відправлення заявки:
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
                                                 {order.date}
-                                            </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex gap-[2px]">
-                                        <button
-                                            className="p-[10px] hover:bg-main/10 rounded-md"
-                                            onClick={() => setIsModalOpen(true)}
-                                        >
-                                            <img
-                                                className="w-[30px]"
-                                                src={Trash}
-                                                alt=""
-                                            />
-                                        </button>
-                                    </div>
+                                </div>
+                                <hr className="border-gray border-dashed" />
+                                <div className="flex justify-around items-center w-full h-[70px] mt-auto rounded-b-md">
+                                    <button
+                                        className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
+                                        onClick={() => setIsModalOpen(true)}
+                                    >
+                                        <TrashIcon className="stroke-main w-[27px]" />
+                                    </button>
                                 </div>
                             </li>
                         );

@@ -1,44 +1,94 @@
-import LogoAdmin from "../../../assets/logo-admin.png";
-import Categories from "../../../assets/svg/categories.svg";
-import CallBook from "../../../assets/svg/callbook.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import CallBookIcon from "../../../assets/svg/callbook.svg?react";
+import CategoriesIcon from "../../../assets/svg/categories.svg?react";
+import BurgerIcon from "../../../assets/svg/burger.svg?react";
+import LogoutIcon from "../../../assets/svg/logout.svg?react";
+import HomePageIcon from "../../../assets/svg/home.svg?react";
 
 const NavBar = () => {
     return (
-        <div className="absolute left-0 top-0 w-[120px] h-[100vh] bg-main p-[10px] flex flex-col items-center gap-[20px]">
-            <div className="mt-[10px]">
-                <img className="w-[80px]" src={LogoAdmin} alt="" />
+        <div className="absolute left-0 top-0 w-[100px] h-[100vh] bg-white flex flex-col items-center justify-between gap-[20px] py-[30px] shadow-custom">
+            <div className="flex flex-col gap-[15px] items-center w-full">
+                <div className="flex justify-center w-[100%]">
+                    <div>
+                        <BurgerIcon className="w-[40px] h-[27px] text-blue-500 stroke-black" />
+                    </div>
+                </div>
             </div>
-            <hr className="border border-[#5376ea] w-[70%]" />
-            <div className="flex flex-col gap-[15px]">
-                <NavLink to="callbook">
-                    {({ isActive }) => (
-                        <img
-                            className="w-[40px] transition duration-300 ease-in-out"
-                            src={CallBook}
-                            alt="Callbook Icon"
-                            style={{
-                                filter: isActive
-                                    ? "brightness(0) invert(1)"
-                                    : "none",
-                            }}
+            <div className="flex flex-col gap-[20px] items-center w-full mb-[250px]">
+                <div className="relative flex justify-center w-full">
+                    <NavLink to="/admin" end>
+                        {({ isActive }) => (
+                            <div className="flex">
+                                <span
+                                    className={`absolute h-[80%] mt-[5%] left-0 top-0 bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 ${
+                                        isActive ? "block" : "hidden"
+                                    }`}
+                                ></span>
+
+                                <HomePageIcon
+                                    className={`w-[65px] h-[55px] p-[15px] rounded-xl hover:bg-mainbg hover:fill-white hover:shadow-custom transition duration-300 ease-in-out ${
+                                        isActive
+                                            ? "bg-mainbg fill-white"
+                                            : "fill-lightgray"
+                                    }`}
+                                />
+                            </div>
+                        )}
+                    </NavLink>
+                </div>
+                <div className="relative flex justify-center w-full">
+                    <NavLink to="callbook">
+                        {({ isActive }) => (
+                            <div className="flex">
+                                <span
+                                    className={`absolute h-[80%] mt-[5%] left-0 top-0 bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 ${
+                                        isActive ? "block" : "hidden"
+                                    }`}
+                                ></span>
+
+                                <CallBookIcon
+                                    className={`w-[65px] h-[55px] p-[15px] rounded-xl hover:bg-mainbg hover:fill-white hover:shadow-custom transition duration-300 ease-in-out ${
+                                        isActive
+                                            ? "bg-mainbg fill-white"
+                                            : "fill-lightgray"
+                                    }`}
+                                />
+                            </div>
+                        )}
+                    </NavLink>
+                </div>
+
+                <div className="relative flex justify-center w-full">
+                    <NavLink to="categories">
+                        {({ isActive }) => (
+                            <div className="flex">
+                                <span
+                                    className={`absolute h-[80%] mt-[5%] left-0 top-0 bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 ${
+                                        isActive ? "block" : "hidden"
+                                    }`}
+                                ></span>
+
+                                <CategoriesIcon
+                                    className={`w-[65px] h-[55px] p-[15px] rounded-xl hover:bg-mainbg hover:fill-white hover:shadow-custom transition duration-300 ease-in-out ${
+                                        isActive
+                                            ? "bg-mainbg fill-white"
+                                            : "fill-lightgray"
+                                    }`}
+                                />
+                            </div>
+                        )}
+                    </NavLink>
+                </div>
+            </div>
+            <div className="flex flex-col gap-[15px] items-center w-full">
+                <div className="flex justify-center w-[100%]">
+                    <Link to="/">
+                        <LogoutIcon
+                            className={`w-[65px] h-[55px] stroke-black p-[15px] bg-white rounded-xl hover:bg-mainbg hover:stroke-white hover:shadow-custom transition-colors duration-300 ease-in-out`}
                         />
-                    )}
-                </NavLink>
-                <NavLink to="categories">
-                    {({ isActive }) => (
-                        <img
-                            className="w-[40px] transition duration-300 ease-in-out"
-                            src={Categories}
-                            alt="Categories Icon"
-                            style={{
-                                filter: isActive
-                                    ? "brightness(0) invert(1)"
-                                    : "none",
-                            }}
-                        />
-                    )}
-                </NavLink>
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
 import TrashWhite from "../../../assets/svg/trash-white.svg";
-import PlusBlue from "../../../assets/svg/plus-blue.svg";
 import PlusWhite from "../../../assets/svg/plus-white.svg";
 
 const EditCategoryModalContent = ({ onClose, currentCategory }) => {
