@@ -30,10 +30,7 @@ const Login = () => {
                                 className="border-b-2 text-[18px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                             />
                         </div>
-                        <button
-                            // type="submit"
-                            className="border bg-main text-white p-2 h-[60px] rounded-md mt-[40px] text-bold text-[18px] hover:bg-white hover:text-main hover:border-main hover:border-main transition duration-300 ease-in-out"
-                        >
+                        <button className="border h-[60px] text-center text-white font-semibold rounded-xl py-[10px] mt-[20px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
                             Увійти
                         </button>
                     </form>
