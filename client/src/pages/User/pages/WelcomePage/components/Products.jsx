@@ -1,9 +1,12 @@
 import Container from "./Container";
 import { useEffect } from "react";
+import GlassIcon from "../../../../../assets/svg/glass.svg?react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../../../../store/slices/categories.slice";
 import { useNavigate } from "react-router";
+import MainButton from "../../../../ui/buttons/MainButton";
+import SecondaryButton from "../../../../ui/buttons/SecondaryButton";
 
 const Products = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -44,20 +47,20 @@ const Products = () => {
                                         {category.displayName}
                                     </div>
                                 </div>
-                                <div className="flex justify-between w-full px-[30px] pb-[30px]">
-                                    <button
-                                        className="w-[43%] border border-main text-main font-semibold rounded-xl py-[10px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out"
+                                <div className="flex w-full gap-[15px] px-[30px] pb-[25px] ">
+                                    <SecondaryButton
+                                        bonusStyles="group"
                                         onClick={() => {
                                             navigate(
                                                 `/products/${category.pathName}`
                                             );
                                         }}
                                     >
-                                        Переглянути
-                                    </button>
-                                    <button className="w-[55%] border border-main text-main font-semibold rounded-xl py-[10px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                                        <GlassIcon className="w-[32px] h-[23px] stroke-main group-hover:stroke-white cursor-pointer" />
+                                    </SecondaryButton>
+                                    <MainButton bonusStyles="w-full">
                                         Замовити
-                                    </button>
+                                    </MainButton>
                                 </div>
                             </li>
                         );

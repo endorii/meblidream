@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
 import OrdersChart from "../../components/OrdersChart";
+import MainButton from "../../../ui/buttons/MainButton";
 
 const Welcome = () => {
     const { orders } = useSelector((state) => state.orders);
@@ -38,9 +39,12 @@ const Welcome = () => {
                                 </span>{" "}
                                 замовлень дзвінків
                             </div>
-                            <button className="border text-center text-white font-semibold rounded-xl py-[10px] mt-[20px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
-                                <Link to="callbook">Переглянути</Link>
-                            </button>
+
+                            <Link to="callbook">
+                                <MainButton bonusStyles={"mt-[20px] w-full"}>
+                                    Переглянути
+                                </MainButton>
+                            </Link>
                         </div>
                         <img
                             className="absolute bottom-0 right-[30px] w-[530px] h-[300px] object-cover"

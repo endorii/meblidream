@@ -3,6 +3,7 @@ import Mail from "../../assets/svg/mail.svg";
 import Phone from "../../assets/svg/phone.svg";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import MainButton from "../ui/buttons/MainButton";
 
 const Header = () => {
     const links = [
@@ -51,9 +52,7 @@ const Header = () => {
                     ))}
                 </ul>
                 <div className="flex items-center gap-[30px]">
-                    <button className="border border-main text-main font-semibold rounded-xl px-[30px] py-[15px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
-                        Залишити заявку
-                    </button>
+                    <MainButton>Залишити заявку</MainButton>
 
                     <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[2px]">
                         <li className="flex gap-[5px] items-center">

@@ -1,26 +1,22 @@
 import TrashWhite from "../../../assets/svg/trash-white.svg";
 import PlusWhite from "../../../assets/svg/plus-white.svg";
+import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
 const EditCategoryModalContent = ({ onClose, currentCategory }) => {
     return (
         <div className="bg-white p-[40px] rounded-lg shadow-lg relative w-[95vw] h-[95vh] overflow-y-auto">
             <div className="relative flex flex-col gap-[20px] relative pt-[100px] p-[30px]">
-                <div className="fixed top-[0px] left-[50%] translate-x-[-50%] flex justify-between mt-[22px] w-[93vw] bg-white p-[30px] rounded-xl">
+                <div className="fixed top-[0px] left-[50%] translate-x-[-50%] flex justify-between mt-[23px] w-[93vw] bg-white p-[30px] rounded-xl">
                     <div className="text-center text-[30px] font-semibold">
                         Редагування інформації категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <button
-                            className="border border-main text-main font-semibold rounded-xl px-[30px] py-[12px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out"
-                            onClick={() => {
-                                onClose();
-                            }}
-                        >
+                        <SecondaryButton bonusStyles={""} onClose={onClose}>
                             Повернутися назад без змін
-                        </button>
-                        <button className="border border-main text-main font-semibold rounded-xl px-[30px] py-[12px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                        </SecondaryButton>
+                        <SecondaryButton bonusStyles={""} onClose={onClose}>
                             Зберегти зміни
-                        </button>
+                        </SecondaryButton>
                     </div>
                 </div>
                 <div className="flex justify-between">

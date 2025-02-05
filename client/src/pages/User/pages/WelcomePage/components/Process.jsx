@@ -14,7 +14,7 @@ const Process = () => {
             </Container>
             <div className="relative">
                 <img src={Steps} alt="" />
-                <div className="absolute top-[21%] left-[27%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[21%] left-[27%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     1
                 </div>
 
@@ -28,9 +28,9 @@ const Process = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[22.5%] left-[29%] w-[450px] h-[2px] bg-main text-main text-[18px] font-bold text-center border-[2px] flex justify-center items-center"></div>
+                <div className="absolute top-[22.5%] left-[29%] w-[450px] h-[2px] bg-mainbg text-main text-[18px] font-bold text-center border-[2px] flex justify-center items-center"></div>
 
-                <div className="absolute top-[21%] left-[52%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[21%] left-[52%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     2
                 </div>
 
@@ -41,9 +41,9 @@ const Process = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[23%] left-[53.2%] w-[2px] h-[850px] bg-main text-main text-[18px] font-bold text-center border-[2px] flex justify-center items-center z-[0]"></div>
+                <div className="absolute top-[23%] left-[53.2%] w-[2px] h-[850px] bg-mainbg text-main text-[18px] font-bold text-center border-[2px] flex justify-center items-center z-[0]"></div>
 
-                <div className="absolute top-[33%] left-[52%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[33%] left-[52%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     3
                 </div>
 
@@ -57,7 +57,7 @@ const Process = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[48%] left-[52%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[48%] left-[52%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     4
                 </div>
 
@@ -70,7 +70,7 @@ const Process = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[62%] left-[52%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[62%] left-[52%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     5
                 </div>
 
@@ -83,7 +83,7 @@ const Process = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[78%] left-[52%] w-[50px] h-[50px] bg-main text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
+                <div className="absolute top-[78%] left-[52%] w-[50px] h-[50px] bg-mainbg text-white text-[18px] font-bold text-center rounded-[50%] border-2 flex justify-center items-center z-[10]">
                     6
                 </div>
 

@@ -1,4 +1,5 @@
 import Why1 from "../../assets/img/about/why1.jpg";
+import MainButton from "../ui/buttons/MainButton";
 
 const Request = () => {
     return (
@@ -86,9 +87,7 @@ const Request = () => {
                                         ></textarea>
                                     </div>
                                 </div>
-                                <button className="border border-main text-main font-semibold rounded-xl px-[30px] py-[15px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
-                                    Відправити
-                                </button>
+                                <MainButton>Відправити</MainButton>
                             </div>
 
                             {/* Права частина з картинкою */}

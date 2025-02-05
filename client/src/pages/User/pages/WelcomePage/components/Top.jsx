@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import BGImage from "../../../../../assets/img/bg.jpg";
 
 const Top = () => {
-    console.log(BGImage);
     return (
         <>
             <div className="relative">
@@ -15,15 +15,21 @@ const Top = () => {
                         створюємо меблі вашої мрії з турботою про кожну деталь!
                     </div>
                 </div>
-                <button className="absolute bottom-[32%] right-[9%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
-                    Замовити кухню
-                </button>
-                <button className="absolute bottom-[48%] right-[30%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
-                    Замовити шафу
-                </button>
-                <button className="absolute bottom-[18%] right-[63%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
-                    Замовити інші меблі
-                </button>
+                <Link to="/products/kukhni">
+                    <button className="absolute bottom-[32%] right-[9%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                        Замовити кухню
+                    </button>
+                </Link>
+                <Link to="/products/shafy">
+                    <button className="absolute bottom-[48%] right-[30%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                        Замовити шафу
+                    </button>
+                </Link>
+                <Link to="/products">
+                    <button className="absolute bottom-[18%] right-[63%] border-2 border-white text-white font-semibold rounded-xl p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                        Замовити інші меблі
+                    </button>
+                </Link>
             </div>
         </>
     );

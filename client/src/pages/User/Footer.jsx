@@ -1,5 +1,6 @@
 import Container from "./pages/WelcomePage/components/Container";
 import Logo from "../../assets/logo.png";
+import MainButton from "../ui/buttons/MainButton";
 
 const Footer = () => {
     return (
@@ -59,9 +60,9 @@ const Footer = () => {
 
                             <li>+380 99 443 12 80</li>
                             <li>
-                                <button className="mt-[10px] border border-main text-main font-semibold rounded-xl px-[30px] py-[15px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                                <MainButton bonusStyles={"w-full mt-[15px]"}>
                                     Залишити заявку
-                                </button>
+                                </MainButton>
                             </li>
                         </ul>
                     </div>

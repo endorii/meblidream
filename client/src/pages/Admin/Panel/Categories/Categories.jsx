@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { fetchCategories } from "../../../../store/slices/categories.slice";
 
 import Modal from "../../../Modals/Modal";
-import DeleteCategoryModalContent from "../../../Modals/Categories/DeleteCategoryModalContent";
+import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
 import EditCategoryModalContent from "../../../Modals/Categories/EditCategoryModalContent";
 import PreviewCategoryModalContent from "../../../Modals/Categories/PreviewCategoryModalContent";
 
@@ -147,7 +147,8 @@ const Categories = () => {
                 isOpen={isDeleteModalOpen}
                 onClose={() => setIsDeleteModalOpen(false)}
             >
-                <DeleteCategoryModalContent
+                <DeleteModalContent
+                    title={"цю категорію"}
                     onClose={() => setIsDeleteModalOpen(false)}
                 />
             </Modal>

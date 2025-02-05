@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
-import DeleteOrderModalContent from "../../../Modals/Orders/DeleteOrderModalContent";
+import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
+import SecondaryButton from "../../../ui/buttons/SecondaryButton";
 
 const CallBook = () => {
     const { orders } = useSelector((state) => state.orders);
@@ -21,14 +22,10 @@ const CallBook = () => {
                 <div className="text-[30px] text-darkblue font-bold">
                     Список замовлених дзвінків
                 </div>
-                <div className="flex items-center gap-[10px]">
+                <div className="flex items-center gap-[15px]">
                     <div>Фільтрація: </div>
-                    <button className="border flex gap-[10px] items-center text-white font-semibold rounded-xl px-[20px] py-[10px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
-                        Спочатку новіші
-                    </button>
-                    <button className="border flex gap-[10px] items-center text-white font-semibold rounded-xl px-[20px] py-[10px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
-                        Спочатку старіші
-                    </button>
+                    <SecondaryButton>Спочатку новіші</SecondaryButton>
+                    <SecondaryButton>Спочатку старіші</SecondaryButton>
                 </div>
             </div>
             <hr className="border border-gray" />
@@ -95,7 +92,8 @@ const CallBook = () => {
                 </ul>
             </div>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <DeleteOrderModalContent
+                <DeleteModalContent
+                    title={"це замовлення"}
                     onClose={() => setIsModalOpen(false)}
                 />
             </Modal>
