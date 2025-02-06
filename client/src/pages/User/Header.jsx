@@ -1,6 +1,7 @@
 import Logo from "../../assets/logo.png";
 import Mail from "../../assets/svg/mail.svg";
 import Phone from "../../assets/svg/phone.svg";
+import BurgerIcon from "../../assets/svg/burger.svg?react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import MainButton from "../ui/buttons/MainButton";
@@ -12,6 +13,11 @@ const Header = () => {
         { name: "Галерея робіт", path: "/gallery" },
         { name: "Меблева продукція", path: "/products" },
         { name: "Контакти", path: "/contacts" },
+    ];
+
+    const infoData = [
+        { title: "meblidream@i.com", photo: Mail },
+        { title: "+380 99 443 12 80", photo: Phone },
     ];
 
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -30,11 +36,11 @@ const Header = () => {
 
     return (
         <>
-            <header className="py-[10px] px-[35px] h-[80px] flex justify-between items-center fixed w-[100%] bg-white z-[100]">
+            <header className="py-[10px] px-[20px] md:px-[35px] h-[70px] md:h-[80px] flex justify-between items-center fixed w-[100%] bg-white z-[100]">
                 <div className="flex items-center">
-                    <img className="w-[200px]" src={Logo} alt="" />
+                    <img className="w-[170px] xl:w-[200px]" src={Logo} alt="" />
                 </div>
-                <ul className="flex gap-[25px] text-black font-semibold ml-[8%]">
+                <ul className="flex gap-[25px] text-black font-semibold hidden xl:flex 2xl:ml-[8%] 2xl:text-[16px]">
                     {links.map((link, i) => (
                         <NavLink
                             key={i}
@@ -52,22 +58,32 @@ const Header = () => {
                     ))}
                 </ul>
                 <div className="flex items-center gap-[30px]">
-                    <MainButton>Залишити заявку</MainButton>
+                    <MainButton bonusStyles="hidden sm:block">
+                        Залишити заявку
+                    </MainButton>
 
-                    <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[2px]">
-                        <li className="flex gap-[5px] items-center">
-                            <img className="w-[25px]" src={Mail} alt="" />
-                            meblidream@i.com
-                        </li>
-                        <li className="flex gap-[5px] items-center">
-                            <img className="w-[25px]" src={Phone} alt="" />
-                            +380 99 443 12 80
-                        </li>
+                    <ul className="hidden md:flex text-darkgray text-[15px] font-semibold flex-col gap-[2px]">
+                        {infoData.map((elem, i) => {
+                            return (
+                                <li
+                                    key={i}
+                                    className="flex gap-[5px] items-center"
+                                >
+                                    <img
+                                        className="w-[25px]"
+                                        src={elem.photo}
+                                        alt=""
+                                    />
+                                    {elem.title}
+                                </li>
+                            );
+                        })}
                     </ul>
+                    <BurgerIcon className="w-[40px] h-[27px] text-blue-500 stroke-black cursor-pointer block xl:hidden" />
                 </div>
             </header>
             <progress
-                className="fixed top-[80px] w-[100%] h-[3px] z-[100]"
+                className="fixed top-[70px] md:top-[80px] w-[100%] h-[3px] z-[100]"
                 max="100"
                 value={scrollProgress}
             ></progress>

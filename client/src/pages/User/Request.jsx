@@ -6,12 +6,12 @@ const Request = () => {
         <div>
             <div className="flex items-center justify-between py-[50px]">
                 <hr className="w-[20%] border text-darkblue" />
-                <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px]">
+                <h2 className="text-[40px] sm:text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px]">
                     Зв&apos;яжіться з нами
                 </h2>
                 <hr className="w-[20%] border text-darkblue" />
             </div>
-            <div className="text-center text-[24px]">
+            <div className="text-center text-[24px] px-[30px]">
                 <div>
                     <div className="text-[40px] text-main font-semibold ">
                         Маєте ідею або готовий проєкт?
@@ -28,13 +28,12 @@ const Request = () => {
                 </div>
                 <div className="flex justify-center items-center mt-[50px]">
                     <form
-                        className="shadow-xl rounded-xl text-left w-[70%] h-[700px]"
+                        className="shadow-xl rounded-xl text-left w-full sm:w-[70%] h-[800px]"
                         action=""
                     >
                         <div className="flex justify-between h-full">
-                            {/* Ліва частина з текстом і полями */}
-                            <div className="flex flex-col p-[50px] gap-[50px]">
-                                <h3 className="text-[50px] font-[300] text-main uppercase">
+                            <div className="flex flex-col px-[20px] py-[50px] sm:p-[50px] gap-[50px]">
+                                <h3 className="text-[40px] text-center sm:text-left sm:text-[50px] font-[300] text-main uppercase">
                                     Залишити заявку
                                 </h3>
                                 <div className="flex flex-col gap-[20px]">
@@ -46,7 +45,7 @@ const Request = () => {
                                             Ім&apos;я та прізвище:
                                         </label>
                                         <input
-                                            className="border-b border-darkgray h-[50px] w-[450px]"
+                                            className="border-b border-darkgray h-[50px] w-full"
                                             type="text"
                                             id="firstName"
                                             name="firstName"
@@ -62,7 +61,7 @@ const Request = () => {
                                             Номер телефону:
                                         </label>
                                         <input
-                                            className="border-b border-darkgray h-[50px] w-[450px]"
+                                            className="border-b border-darkgray h-[50px] w-full"
                                             type="tel"
                                             id="phone"
                                             name="phone"
@@ -79,7 +78,7 @@ const Request = () => {
                                             Повідомлення:
                                         </label>
                                         <textarea
-                                            className="border-b border-darkgray h-[50px] w-[450px]"
+                                            className="border-b border-darkgray h-[140px] w-full"
                                             id="message"
                                             name="message"
                                             rows="4"
@@ -90,8 +89,7 @@ const Request = () => {
                                 <MainButton>Відправити</MainButton>
                             </div>
 
-                            {/* Права частина з картинкою */}
-                            <div className="w-[50%] h-full">
+                            <div className="hidden md:block md:w-[50%] h-full">
                                 <img
                                     className="w-full h-full object-cover rounded-r-xl"
                                     src={Why1}

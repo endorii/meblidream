@@ -7,6 +7,7 @@ import { fetchCategories } from "../../../../../store/slices/categories.slice";
 import { useNavigate } from "react-router";
 import MainButton from "../../../../ui/buttons/MainButton";
 import SecondaryButton from "../../../../ui/buttons/SecondaryButton";
+import Title from "../../../../ui/Title";
 
 const Products = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -22,12 +23,7 @@ const Products = () => {
     return (
         <>
             <Container>
-                <div className="flex items-center justify-between">
-                    <h2 className="text-[70px] uppercase font-semibold text-darkblue tracking-[1px] my-[50px]">
-                        Виготовлення меблевої продукції
-                    </h2>
-                    <hr className="w-[20%] border text-darkblue" />
-                </div>
+                <Title title={"Виготовлення меблевої продукції"} />
                 <ul className="flex mt-[50px] justify-center gap-[25px] flex-wrap">
                     {categories.map((category, i) => {
                         return (
@@ -37,7 +33,6 @@ const Products = () => {
                             >
                                 <img
                                     className="w-full h-[250px] object-cover object-[0px_60%] rounded-t-md"
-                                    // src={Wardrobe}
                                     src={category.images[0]}
                                     alt=""
                                 />
