@@ -8,51 +8,50 @@ import Arowdown from "../../../../assets/svg/arrowdown.svg";
 
 const Product = () => {
     return (
-        <div>
+        <div className="pt-[70px]">
             <Container>
-                <div className="flex justify-between gap-[30px] pt-[80px] w-full">
-                    <div className="flex flex-col pt-[50px] w-[70%] items-left justify-between">
+                <div className="flex justify-center text-center lg:text-left lg:justify-between gap-[30px]">
+                    <div className="flex flex-col pt-[50px] w-[70%] items-center lg:items-start">
                         <div>
-                            <div className="text-[70px] font-[500] leading-[70px] ">
+                            <h2 className="text-4xl lg:text-5xl xl:text-[70px] font-medium leading-tight">
                                 Виготовляємо будь-яку меблеву продукцію
-                            </div>
-                            <div className="text-[20px] mt-[30px] text-darkgray">
+                            </h2>
+                            <div className="text-[18px] mt-[30px] text-darkgray">
                                 Пропонуємо виготовлення меблів на замовлення за
                                 вашими індивідуальними розмірами та дизайном.
-                                <br />
                                 Створюємо унікальні рішення для дому та офісу,
                                 враховуючи всі ваші побажання. Гарантуємо
                                 якість, стиль і функціональність кожного виробу!
                             </div>
                         </div>
                         <img
-                            className="w-[210px] animate-[bounce_2s_ease-in-out_infinite]"
+                            className="w-[100px] sm:w-[120px] lg:w-[150px] animate-bounce mt-[50px]"
                             src={Arowdown}
-                            alt=""
+                            alt="Arrow down"
                         />
                     </div>
-                    <div className="flex w-[70%] gap-[15px]">
+                    <div className="flex w-[70%] gap-[15px] hidden lg:flex">
                         <img
-                            className="w-[45%] object-cover"
+                            className="w-[45%] object-cover shadow-custom"
                             src={Product2}
                             alt=""
                         />
                         <div className=" flex flex-col gap-[15px] h-full">
                             <img
-                                className="h-1/2 object-cover"
+                                className="h-1/2 object-cover shadow-custom"
                                 src={Product3}
                                 alt=""
                             />
                             <img
-                                className="h-1/2 object-cover"
+                                className="h-1/2 object-cover shadow-custom"
                                 src={Product1}
                                 alt=""
                             />
                         </div>
                     </div>
                 </div>
+                <Products />
             </Container>
-            <Products />
         </div>
     );
 };

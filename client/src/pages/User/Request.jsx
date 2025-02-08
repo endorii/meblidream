@@ -1,39 +1,34 @@
 import Why1 from "../../assets/img/about/why1.jpg";
 import MainButton from "../ui/buttons/MainButton";
+import TitleCentered from "../ui/TitleCentered";
 
 const Request = () => {
     return (
         <div>
-            <div className="flex items-center justify-between py-[50px]">
-                <hr className="w-[20%] border text-darkblue" />
-                <h2 className="text-[40px] sm:text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px]">
-                    Зв&apos;яжіться з нами
-                </h2>
-                <hr className="w-[20%] border text-darkblue" />
-            </div>
+            <TitleCentered title={"Зв'яжіться з нами"} />
             <div className="text-center text-[24px] px-[30px]">
-                <div>
-                    <div className="text-[40px] text-main font-semibold ">
+                <div className="flex flex-col">
+                    <div className="text-[35px] md:text-[40px] text-main font-semibold ">
                         Маєте ідею або готовий проєкт?
                     </div>
-                    <div className="text-darkgray">
+                    <div className="text-[18px] sm:text-[20px] mt-[10px] text-darkgray">
                         Залиште заявку, і ми допоможемо втілити вашу мрію в
                         життя! Разом ми створимо меблі, які зроблять ваш простір
                         унікальним.
                     </div>
-
+                    <hr className="m-[25px] self-center border-main border w-[20%]" />
                     <div className="text-darkgray">
                         Ми завжди раді бачити вас у числі наших клієнтів!
                     </div>
                 </div>
                 <div className="flex justify-center items-center mt-[50px]">
                     <form
-                        className="shadow-xl rounded-xl text-left w-full sm:w-[70%] h-[800px]"
+                        className="shadow-custom rounded-xl text-left w-full sm:w-[70%] h-[800px]"
                         action=""
                     >
-                        <div className="flex justify-between h-full">
-                            <div className="flex flex-col px-[20px] py-[50px] sm:p-[50px] gap-[50px]">
-                                <h3 className="text-[40px] text-center sm:text-left sm:text-[50px] font-[300] text-main uppercase">
+                        <div className="flex justify-center sm:justify-between h-full">
+                            <div className="flex flex-col px-[27px] py-[50px] sm:p-[50px] gap-[50px]">
+                                <h3 className="text-[40px] text-center md:text-left sm:text-[50px] font-[300] text-main uppercase">
                                     Залишити заявку
                                 </h3>
                                 <div className="flex flex-col gap-[20px]">
