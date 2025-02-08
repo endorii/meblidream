@@ -2,7 +2,7 @@ import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
 const DeleteModalContent = ({ title, onClose }) => {
     return (
-        <div className="bg-white p-[40px] rounded-lg shadow-lg relative w-[40vw]">
+        <div className="bg-white p-[40px] rounded-lg shadow-custom relative w-[40vw]">
             <div className="flex flex-col gap-[40px]">
                 <div className="flex flex-col gap-[10px]">
                     <h2 className="text-[30px] font-semibold">

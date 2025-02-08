@@ -36,7 +36,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="py-[10px] px-[20px] md:px-[35px] h-[70px] md:h-[80px] flex justify-between items-center fixed w-[100%] bg-white z-[100]">
+            <header className="py-[10px] px-[20px] md:px-[35px] h-[70px] md:h-[80px] flex justify-between items-center fixed w-[100%] bg-white z-[100] shadow-custom">
                 <div className="flex items-center">
                     <img className="w-[170px] xl:w-[200px]" src={Logo} alt="" />
                 </div>

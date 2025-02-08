@@ -55,7 +55,7 @@ const ProductsItem = () => {
                             {category.images.map((image, index) => (
                                 <img
                                     key={index}
-                                    className="w-full h-auto rounded-lg shadow-md break-inside-avoid"
+                                    className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
                                     src={image}
                                     alt={`Image ${index + 1}`}
                                 />

@@ -5,7 +5,7 @@ import MainButton from "../ui/buttons/MainButton";
 const Footer = () => {
     return (
         <div className="mt-[70px]">
-            <div className="bg-main p-[10px] sm:p-[0px] h-[50px] text-center text-[16px] text-white flex items-center justify-center">
+            <div className="bg-main p-[10px] sm:p-[0px] h-[70px] sm:h-[50px] text-center text-[16px] text-white flex items-center justify-center">
                 Робочі години: Понеділок - П&apos;ятниця (09:00 - 18:00) /
                 Субота - Неділя (Вихідний)
             </div>

@@ -4,7 +4,7 @@ import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
 const EditCategoryModalContent = ({ onClose, currentCategory }) => {
     return (
-        <div className="bg-white p-[40px] rounded-lg shadow-lg relative w-[95vw] h-[95vh] overflow-y-auto">
+        <div className="bg-white p-[40px] rounded-lg shadow-custom relative w-[95vw] h-[95vh] overflow-y-auto">
             <div className="relative flex flex-col gap-[20px] relative pt-[100px] p-[30px]">
                 <div className="fixed top-[0px] left-[50%] translate-x-[-50%] flex justify-between mt-[23px] w-[93vw] bg-white p-[30px] rounded-xl">
                     <div className="text-center text-[30px] font-semibold">
@@ -86,7 +86,7 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                         Картинки
                     </h3>
                     <ul className="flex flex-wrap gap-[30px]">
-                        <li className="relative flex shadow-xl rounded-xl items-center">
+                        <li className="relative flex shadow-custom rounded-xl items-center">
                             <div
                                 className="w-[250px] h-[250px] rounded-md bg-gray/100 object-cover"
                                 alt="{image}"
@@ -102,7 +102,7 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                         {currentCategory.images.map((image, i) => (
                             <li
                                 key={i}
-                                className="relative flex shadow-xl rounded-xl items-center"
+                                className="relative flex shadow-custom rounded-xl items-center"
                             >
                                 <img
                                     className="w-[250px] h-[250px] rounded-md object-cover"

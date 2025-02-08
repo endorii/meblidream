@@ -37,12 +37,12 @@ const AdvantageItem = ({ title, subtitle, img, reverse }) => {
                     {title}
                 </h3>
                 <hr className="my-[10px] border-main border w-[20%]" />
-                <p className="text-dark text-[18px] xl:text-[22px]">
+                <div className="text-dark text-[18px] xl:text-[22px]">
                     {subtitle}
-                </p>
+                </div>
             </div>
             <img
-                className="w-full xl:w-[50%] h-[450px] object-cover"
+                className="w-full xl:w-[45%] h-[450px] object-cover shadow-custom"
                 src={img}
                 alt={title}
             />

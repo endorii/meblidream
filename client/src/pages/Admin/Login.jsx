@@ -3,7 +3,7 @@ import MainButton from "../ui/buttons/MainButton";
 const Login = () => {
     return (
         <div className="flex justify-center items-center h-[100vh]">
-            <div className="shadow-xl p-[50px] w-[35%]">
+            <div className="shadow-custom p-[50px] w-[35%]">
                 <div>
                     <div className="text-[26px]">
                         Вітаємо в{" "}
