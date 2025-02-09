@@ -4,30 +4,30 @@ import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
 const EditCategoryModalContent = ({ onClose, currentCategory }) => {
     return (
-        <div className="bg-white p-[40px] rounded-lg shadow-custom relative w-[95vw] h-[95vh] overflow-y-auto">
-            <div className="relative flex flex-col gap-[20px] relative pt-[100px] p-[30px]">
-                <div className="fixed top-[0px] left-[50%] translate-x-[-50%] flex justify-between mt-[23px] w-[93vw] bg-white p-[30px] rounded-xl">
-                    <div className="text-center text-[30px] font-semibold">
+        <div className="bg-white p-[20px] md:p-[40px] rounded-lg shadow-custom relative w-[95vw] h-[95vh] overflow-y-auto">
+            <div className="relative flex flex-col gap-[20px] relative pt-[270px] max-[220px]:mt-[190px] sm:pt-[170px] md:pt-[130px] p-[10px] md:p-[30px]">
+                <div className="fixed flex flex-col items-center gap-[10px] md:flex-row top-[-2px] left-[48%] translate-x-[-49%] flex justify-between mt-[23px] w-[92vw] bg-white p-[30px] rounded-t-xl z-[10] shadow-custom">
+                    <div className="text-center text-[24px] sm:text-[30px] font-semibold">
                         Редагування інформації категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <SecondaryButton bonusStyles={""} onClose={onClose}>
+                        <SecondaryButton onClose={onClose}>
                             Повернутися назад без змін
                         </SecondaryButton>
-                        <SecondaryButton bonusStyles={""} onClose={onClose}>
+                        <SecondaryButton onClose={onClose}>
                             Зберегти зміни
                         </SecondaryButton>
                     </div>
                 </div>
-                <div className="flex justify-between">
-                    <div className="w-[45%] flex flex-col gap-[25px]">
+                <div className="flex justify-between flex-col md:flex-row">
+                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
                         <div>
                             <label className="text-[17px] font-bold">
                                 Відображувана назва
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.displayName}
                             />
                         </div>
@@ -38,20 +38,20 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.pathName}
                             />
                         </div>
                     </div>
 
-                    <div className="w-[45%] flex flex-col gap-[25px]">
+                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
                         <div>
                             <label className="text-[17px] font-bold">
                                 Заголовок
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.filling.title}
                             />
                         </div>
@@ -62,7 +62,7 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.filling.subtitle}
                             />
                         </div>
@@ -72,7 +72,7 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                                 Опис
                             </label>
                             <textarea
-                                className="border-b-2 text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[150px] transition duration-300 ease-in-out"
+                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[150px] transition duration-300 ease-in-out"
                                 defaultValue={
                                     currentCategory.filling.description
                                 }
@@ -85,10 +85,10 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                     <h3 className="text-lg font-semibold text-gray-800">
                         Картинки
                     </h3>
-                    <ul className="flex flex-wrap gap-[30px]">
+                    <ul className="flex flex-wrap gap-[30px] items-center justify-center md:justify-start">
                         <li className="relative flex shadow-custom rounded-xl items-center">
                             <div
-                                className="w-[250px] h-[250px] rounded-md bg-gray/100 object-cover"
+                                className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] rounded-md bg-gray/100 object-cover"
                                 alt="{image}"
                             />
                             <button className="absolute inset-0 flex items-center justify-center hover:bg-black/30 rounded-md transition duration-300 ease-in-out">
@@ -105,7 +105,7 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                                 className="relative flex shadow-custom rounded-xl items-center"
                             >
                                 <img
-                                    className="w-[250px] h-[250px] rounded-md object-cover"
+                                    className="w-[200px] md:w-[250px] h-[200px] md:h-[250px] rounded-md object-cover"
                                     src={image}
                                     alt="{image}"
                                 />

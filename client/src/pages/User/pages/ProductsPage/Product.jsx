@@ -11,7 +11,7 @@ const Product = () => {
         <div className="pt-[70px]">
             <Container>
                 <div className="flex justify-center text-center lg:text-left lg:justify-between gap-[30px]">
-                    <div className="flex flex-col pt-[50px] w-[70%] items-center lg:items-start">
+                    <div className="flex flex-col pt-[20px] w-[70%] items-center lg:items-start">
                         <div>
                             <h2 className="text-4xl lg:text-5xl xl:text-[70px] font-medium leading-tight">
                                 Виготовляємо будь-яку меблеву продукцію

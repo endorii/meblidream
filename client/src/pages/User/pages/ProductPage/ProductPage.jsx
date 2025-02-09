@@ -1,12 +1,12 @@
-import Container from "../../../User/pages/WelcomePage/components/Container";
+import Container from "../WelcomePage/components/Container";
 
-const PreviewComponent = ({ currentCategory }) => {
-    if (!currentCategory) {
-        return <div className="py-[80px]">Категорію не знайдено :(</div>;
+const ProductPage = ({ category }) => {
+    if (!category) {
+        return <div className="pt-[70px]">Категорію не знайдено :(</div>;
     }
 
     return (
-        <div className="py-[80px]">
+        <div className="pt-[70px]">
             <div className="relative">
                 <img
                     className="w-[100vw] h-[40vh] object-cover"
@@ -14,20 +14,20 @@ const PreviewComponent = ({ currentCategory }) => {
                     alt=""
                 />
                 <div className="absolute top-0 text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
-                    <div className="text-[100px] font-[500] leading-[100px] text-white uppercase">
-                        {currentCategory.displayName}
-                    </div>
+                    <h2 className="mt-[0px] lg:mt-[40px] text-center lg:text-right font-bold text-[60px] lg:text-[120px] leading-[70px] lg:leading-[140px] text-white">
+                        {category.displayName}
+                    </h2>
                 </div>
             </div>
             <Container>
                 <div className="flex flex-col">
                     <div className="text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
-                        <div className="text-[50px] font-[500] leading-[100px] text-darkblue uppercase">
-                            {currentCategory.filling.title}
+                        <div className="text-4xl lg:text-5xl xl:text-[70px] font-medium leading-tight">
+                            {category.filling.title}
                         </div>
-                        <hr className="border-darkblue w-[15%]" />
-                        <div className="text-[24px] w-[70%] text-darkgray font-[200]">
-                            {currentCategory.filling.subtitle}
+                        <hr className="border-darkgray w-[10%] m-[20px]" />
+                        <div className=" text-[20px] lg:text-[24px] w-[90%] font-[200]">
+                            {category.filling.subtitle}
                         </div>
                     </div>
                     <div className="flex justify-center">
@@ -35,7 +35,7 @@ const PreviewComponent = ({ currentCategory }) => {
                             className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
                             style={{ columnGap: "20px" }}
                         >
-                            {currentCategory.images.map((image, index) => (
+                            {category.images.map((image, index) => (
                                 <img
                                     key={index}
                                     className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
@@ -45,10 +45,10 @@ const PreviewComponent = ({ currentCategory }) => {
                             ))}
                         </div>
                     </div>
-                    <div className="text-[26px] p-[100px] text-darkblue font-[300] text-center">
-                        {currentCategory.filling.description}
+                    <div className=" text-[20px] lg:text-[24px] text-center font-[200] m-[50px_20px] sm:m-[100px]">
+                        {category.filling.description}
                     </div>
-                    <button className="border border-main w-[30%] m-[0_auto] text-[24px] text-main font-semibold rounded-xl px-[40px] py-[20px] hover:border-white hover:text-white hover:bg-main transition duration-300 ease-in-out">
+                    <button className="border border-main w-[90%] md:w-[40%] sm:w-[50%] xl:w-[30%] m-[0_auto] text-[24px] text-white bg-mainbg font-semibold rounded-xl px-[40px] py-[20px] hover:border-main hover:text-main hover:bg-whitebg transition duration-300 ease-in-out">
                         Залишити заявку
                     </button>
                 </div>
@@ -57,4 +57,4 @@ const PreviewComponent = ({ currentCategory }) => {
     );
 };
 
-export default PreviewComponent;
+export default ProductPage;

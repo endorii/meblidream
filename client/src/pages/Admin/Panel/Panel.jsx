@@ -10,10 +10,10 @@ const Panel = () => {
     };
 
     return (
-        <div className="relative h-[100vh]">
+        <div className="relative h-[100vh] ">
             <NavBar panelIsOpen={panelIsOpen} setPanelIsOpen={setPanelIsOpen} />
             <div
-                className="ml-[100px] px-[50px] py-[25px] h-full overflow-y-auto"
+                className="pt-[70px] p-[20px] md:ml-[100px] md:px-[50px] md:py-[25px] h-full overflow-y-auto"
                 onClick={handleClosePanel}
             >
                 <Outlet />

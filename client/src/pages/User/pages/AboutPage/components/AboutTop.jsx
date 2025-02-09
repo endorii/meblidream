@@ -4,8 +4,8 @@ import Arowdown from "../../../../../assets/svg/arrowdown.svg";
 const AboutTop = () => {
     return (
         <div className="flex justify-center text-center lg:text-left lg:justify-between gap-[30px]">
-            <div className="flex flex-col pt-[10px] w-[95%] lg:w-[70%] lg:w-full items-center lg:items-start justify-between">
-                <div className="flex flex-col pt-[50px] w-[90%] items-left">
+            <div className="flex flex-col pt-[20px] w-[95%] lg:w-[70%] lg:w-full items-center lg:items-start justify-between">
+                <div className="flex flex-col w-[90%] items-left">
                     <h2 className="text-4xl lg:text-5xl xl:text-[70px] font-medium leading-tight">
                         <span className="text-main font-bold">Mebli Dream</span>{" "}
                         — ваш надійний партнер у створенні меблів

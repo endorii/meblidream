@@ -26,12 +26,12 @@ const Gallery = () => {
                     src={GalleryBg}
                     alt=""
                 />
-                <div className="absolute top-0 text-center w-full p-[50px] flex items-center justify-center h-full flex-col pb-[200px] gap-[20px]">
+                <div className="absolute top-0 text-center w-full px-[50px] flex items-center justify-center h-full flex-col pb-[200px] gap-[20px]">
                     <h2 className="mt-[0px] lg:mt-[40px] text-center lg:text-right font-bold text-[60px] lg:text-[120px] leading-[70px] lg:leading-[140px] text-white">
                         Галерея робіт
                     </h2>
                     <hr className="border-white w-[20%]" />
-                    <div className=" text-[20px] lg:text-[24px] w-[90%] text-light font-[200]">
+                    <div className="text-[20px] lg:text-[24px] w-[90%] text-light font-[200]">
                         Це яскравий приклад того, як ми втілюємо ваші мрії у
                         реальність. Кожен проєкт унікальний, адже створений з
                         урахуванням індивідуальних потреб, стилю та простору

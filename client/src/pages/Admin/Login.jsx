@@ -1,9 +1,10 @@
 import MainButton from "../ui/buttons/MainButton";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className="flex justify-center items-center h-[100vh]">
-            <div className="shadow-custom p-[50px] w-[35%]">
+        <div className="flex justify-center items-center h-[90vh]">
+            <div className="shadow-custom p-[50px] w-[90%] sm:w-[75%] md:w-[65%] xl:w-[40%]">
                 <div>
                     <div className="text-[26px]">
                         Вітаємо в{" "}
@@ -33,9 +34,11 @@ const Login = () => {
                             />
                         </div>
                         <MainButton bonusStyles={"h-[65px]"}>Увійти</MainButton>
+                        <Link to="/" className="underline text-darkgray/70">
+                            Повернутися назад
+                        </Link>
                     </form>
                 </div>
-                <img src="" alt="" />
             </div>
         </div>
     );

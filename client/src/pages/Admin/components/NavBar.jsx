@@ -8,11 +8,11 @@ import HomePageIcon from "../../../assets/svg/home.svg?react";
 const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
     return (
         <div
-            className={`absolute z-[10] left-0 top-0  transition-all duration-300 ${
-                panelIsOpen ? "w-[230px]" : "w-[100px]"
-            } h-[100vh] bg-white flex flex-col items-center justify-between gap-[20px] py-[30px] shadow-custom`}
+            className={`fixed z-[10] left-0 top-0 transition-all duration-300 h-[70px] w-full items-center md:h-[100vh] bg-white flex md:flex-col md:items-center justify-between md:justify-between gap-[20px] px-[20px] md:py-[30px] md:px-[0px] shadow-custom ${
+                panelIsOpen ? " md:w-[230px]" : " md:w-[100px]"
+            }`}
         >
-            <div className="flex flex-col gap-[15px] items-center w-full">
+            <div className="flex md:flex-col gap-[15px] items-center md:w-full">
                 <div className="flex justify-center w-[100%]">
                     <div>
                         <BurgerIcon
@@ -24,13 +24,13 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col gap-[20px] w-full mb-[250px]">
+            <div className="flex md:flex-col gap-[20px] md:mb-[250px] md:w-full">
                 <div className="relative flex justify-center w-full">
                     <NavLink to="/admin" end>
                         {({ isActive }) => (
                             <div className="flex items-center">
                                 <span
-                                    className={`absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
+                                    className={`hidden md:absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
                                         isActive ? "block" : "hidden"
                                     }`}
                                 ></span>
@@ -54,7 +54,7 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                                         ""
                                     )}
                                     <HomePageIcon
-                                        className={`w-[65px] h-[55px] p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
+                                        className={`w-[40px] h-[40px] p-[7px] md:w-[65px]  md:h-[55px]  md:p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
                                             ${
                                                 isActive
                                                     ? "fill-white"
@@ -71,7 +71,7 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                         {({ isActive }) => (
                             <div className="flex items-center">
                                 <span
-                                    className={`absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
+                                    className={`hidden md:absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
                                         isActive ? "block" : "hidden"
                                     }`}
                                 ></span>
@@ -95,7 +95,7 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                                         ""
                                     )}
                                     <CallBookIcon
-                                        className={`w-[65px] h-[55px] p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
+                                        className={`w-[40px] h-[40px] p-[7px] md:w-[65px]  md:h-[55px]  md:p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
                                             ${
                                                 isActive
                                                     ? "fill-white"
@@ -113,7 +113,7 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                         {({ isActive }) => (
                             <div className="flex items-center">
                                 <span
-                                    className={`absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
+                                    className={`hidden md:absolute h-[80%] left-0 top-[50%] translate-y-[-50%] bottom-0 w-[6px] bg-mainbg rounded-r-[20px] transition-all duration-300 duration-400 ease-in-out ${
                                         isActive ? "block" : "hidden"
                                     }`}
                                 ></span>
@@ -137,7 +137,7 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                                         ""
                                     )}
                                     <CategoriesIcon
-                                        className={`w-[65px] h-[55px] p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
+                                        className={`w-[40px] h-[40px] p-[7px] md:w-[65px]  md:h-[55px]  md:p-[15px] rounded-xl group-hover:fill-white transition duration-300 ease-in-out
                                             ${
                                                 isActive
                                                     ? "fill-white"
@@ -150,11 +150,11 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                     </NavLink>
                 </div>
             </div>
-            <div className="flex flex-col gap-[15px] items-center w-full">
+            <div className="flex flex-col gap-[15px] items-center md:w-full">
                 <div className="flex justify-center w-[100%]">
                     <Link to="/">
                         <LogoutIcon
-                            className={`w-[65px] h-[55px] stroke-black p-[15px] bg-white rounded-xl hover:bg-mainbg hover:stroke-white hover:shadow-custom transition-colors duration-300 ease-in-out`}
+                            className={`w-[40px] h-[40px] stroke-black p-[9px] bg-white rounded-xl hover:bg-mainbg hover:stroke-white hover:shadow-custom transition-colors duration-300 ease-in-out`}
                         />
                     </Link>
                 </div>

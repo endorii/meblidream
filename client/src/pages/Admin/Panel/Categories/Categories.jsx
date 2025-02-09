@@ -11,6 +11,7 @@ import Modal from "../../../Modals/Modal";
 import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
 import EditCategoryModalContent from "../../../Modals/Categories/EditCategoryModalContent";
 import PreviewCategoryModalContent from "../../../Modals/Categories/PreviewCategoryModalContent";
+import MainButton from "../../../ui/buttons/MainButton";
 
 const Categories = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -29,88 +30,88 @@ const Categories = () => {
 
     return (
         <div>
-            <div className="py-[30px] flex justify-between">
+            <div className="md:py-[30px] flex flex-col gap-[20px] md:flex-row justify-between">
                 <div className="text-[30px] text-darkblue font-bold">
                     Дії з категоріями
                 </div>
                 <div className="flex items-center gap-[10px]">
-                    <button className="border border-main flex gap-[10px] items-center text-white font-semibold rounded-xl px-[20px] py-[10px] hover:border-main hover:text-main hover:bg-whitebg bg-mainbg group transition duration-300 ease-in-out">
+                    <MainButton bonusStyles="flex gap-[10px] items-center w-full justify-center">
                         Додати категорію
                         <Plus className="w-[25px] stroke-white group-hover:stroke-main transition-colors duration-300" />
-                    </button>
+                    </MainButton>
                 </div>
             </div>
-            <hr className="border border-gray" />
+            <hr className="border border-gray my-[30px] md:my-[0px]" />
             <div className="mt-[30px]">
                 <ul className="flex flex-wrap gap-[30px]">
                     {categories.map((category, i) => {
                         return (
                             <li
                                 key={i}
-                                className="shadow-custom rounded-xl flex flex-col basis-[31%] flex-1"
+                                className="shadow-custom rounded-xl flex flex-col basis-[45%] flex-1"
                             >
                                 <div className="text-white font-bold bg-main rounded-t-md text-center p-[10px] flex justify-center items-center">
                                     №<span>{i + 1}</span>
                                 </div>
 
-                                <div className="flex flex-col justify-between items-center bg-white py-[30px] px-[30px] w-full">
+                                <div className="flex flex-col justify-between items-center bg-white py-[30px] px-[10px] md:px-[30px] w-full">
                                     <div className="flex flex-col gap-[10px]">
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Відображувана назва категорії:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" " + category.displayName}
                                             </div>
                                         </div>
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Назва посилання/шляху до
                                                 категорії:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" /" + category.pathName}
                                             </div>
                                         </div>
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Заголовок:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" " + category.filling.title}
                                             </div>
                                         </div>
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Підзаголовок:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" " +
                                                     category.filling.subtitle}
                                             </div>
                                         </div>
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Опис:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" " +
                                                     category.filling
                                                         .description}
                                             </div>
                                         </div>
-                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                            <div className="text-[15px] w-[25%]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
                                                 Кількість світлин:
                                             </div>
-                                            <div className="w-[70%] text-darkblue text-right font-bold text-[18px]">
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                 {" " + category.images.length}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr className="border-gray border-dashed" />
-                                <div className="flex justify-around items-center w-full h-[70px] mt-auto rounded-b-md">
+                                <div className="flex justify-around items-center w-full h-[50px] md:h-[70px] mt-auto rounded-b-md">
                                     <button
                                         className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
                                         onClick={() => {
