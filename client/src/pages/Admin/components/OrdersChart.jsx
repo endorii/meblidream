@@ -8,10 +8,9 @@ const OrdersChart = ({ orders = [] }) => {
     useEffect(() => {
         if (!orders || orders.length === 0) return;
 
-        // Отримуємо унікальні дати та підраховуємо кількість замовлень на кожну дату
         const orderCounts = orders.reduce((acc, order) => {
-            if (!order?.date) return acc; // Перевірка, чи є дата
-            const date = order.date.split(" / ")[0]; // Беремо лише дату без часу
+            if (!order?.date) return acc;
+            const date = order.date.split(" / ")[0];
             acc[date] = (acc[date] || 0) + 1;
             return acc;
         }, {});

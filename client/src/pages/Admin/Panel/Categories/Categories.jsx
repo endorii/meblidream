@@ -12,6 +12,8 @@ import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
 import EditCategoryModalContent from "../../../Modals/Categories/EditCategoryModalContent";
 import PreviewCategoryModalContent from "../../../Modals/Categories/PreviewCategoryModalContent";
 import MainButton from "../../../ui/buttons/MainButton";
+import AddCategoryModalContent from "../../../Modals/Categories/AddCategoryModalContant";
+import ScrollToTop from "../../../ui/ScrollToTop/ScrollToTop";
 
 const Categories = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -23,6 +25,7 @@ const Categories = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -30,12 +33,18 @@ const Categories = () => {
 
     return (
         <div>
+            <ScrollToTop />
             <div className="md:py-[30px] flex flex-col gap-[20px] md:flex-row justify-between">
                 <div className="text-[30px] text-darkblue font-bold">
                     Дії з категоріями
                 </div>
                 <div className="flex items-center gap-[10px]">
-                    <MainButton bonusStyles="flex gap-[10px] items-center w-full justify-center">
+                    <MainButton
+                        bonusStyles="flex gap-[10px] items-center w-full justify-center"
+                        onClick={() => {
+                            setIsAddModalOpen(true);
+                        }}
+                    >
                         Додати категорію
                         <Plus className="w-[25px] stroke-white group-hover:stroke-main transition-colors duration-300" />
                     </MainButton>
@@ -169,6 +178,14 @@ const Categories = () => {
                 <PreviewCategoryModalContent
                     currentCategory={currentCategory}
                     onClose={() => setIsPreviewModalOpen(false)}
+                />
+            </Modal>
+            <Modal
+                isOpen={isAddModalOpen}
+                onClose={() => setIsAddModalOpen(false)}
+            >
+                <AddCategoryModalContent
+                    onClose={() => setIsAddModalOpen(false)}
                 />
             </Modal>
         </div>

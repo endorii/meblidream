@@ -1,8 +1,17 @@
-import TrashWhite from "../../../assets/svg/trash-white.svg";
-import PlusWhite from "../../../assets/svg/plus-white.svg";
+import { useState } from "react";
 import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
-const EditCategoryModalContent = ({ onClose, currentCategory }) => {
+const AddCategoryModalContent = ({ onClose }) => {
+    const [name, setName] = useState("");
+    const [path, setPath] = useState("");
+    const [title, setTitle] = useState("");
+    const [subtitle, setSubtitle] = useState("");
+    const [description, setDescription] = useState("");
+
+    const handleChange = (value, setValue) => {
+        setValue(value);
+    };
+
     return (
         <div className="bg-white p-[20px] md:p-[40px] rounded-lg shadow-custom relative w-[95vw] h-[95vh] overflow-y-auto">
             <div className="relative flex flex-col gap-[20px] relative pt-[270px] max-[220px]:mt-[190px] sm:pt-[170px] md:pt-[130px] p-[10px] md:p-[30px]">
@@ -12,10 +21,10 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                     </div>
                     <div className="flex justify-end gap-[10px]">
                         <SecondaryButton onClose={onClose}>
-                            Повернутися назад без змін
+                            Повернутися назад
                         </SecondaryButton>
                         <SecondaryButton onClose={onClose}>
-                            Зберегти зміни
+                            Додати категорію
                         </SecondaryButton>
                     </div>
                 </div>
@@ -28,7 +37,11 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             <input
                                 type="text"
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                defaultValue={currentCategory.displayName}
+                                placeholder="Введіть назву"
+                                onChange={(e) =>
+                                    handleChange(e.target.value, setName)
+                                }
+                                value={name}
                             />
                         </div>
 
@@ -39,7 +52,11 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             <input
                                 type="text"
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                defaultValue={currentCategory.pathName}
+                                placeholder="Введіть шлях"
+                                onChange={(e) =>
+                                    handleChange(e.target.value, setPath)
+                                }
+                                value={path}
                             />
                         </div>
                     </div>
@@ -52,7 +69,11 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             <input
                                 type="text"
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                defaultValue={currentCategory.filling.title}
+                                placeholder="Введіть заголовок"
+                                onChange={(e) =>
+                                    handleChange(e.target.value, setTitle)
+                                }
+                                value={title}
                             />
                         </div>
 
@@ -63,7 +84,11 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             <input
                                 type="text"
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                defaultValue={currentCategory.filling.subtitle}
+                                placeholder="Введіть підзаголовок"
+                                onChange={(e) =>
+                                    handleChange(e.target.value, setSubtitle)
+                                }
+                                value={subtitle}
                             />
                         </div>
 
@@ -73,56 +98,18 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                             </label>
                             <textarea
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[150px] transition duration-300 ease-in-out"
-                                defaultValue={
-                                    currentCategory.filling.description
+                                placeholder="Введіть опис"
+                                onChange={(e) =>
+                                    handleChange(e.target.value, setDescription)
                                 }
+                                value={description}
                             />
                         </div>
                     </div>
-                </div>
-
-                <div className="flex flex-col gap-[25px]">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                        Картинки
-                    </h3>
-                    <ul className="flex flex-wrap gap-[30px] items-center justify-center md:justify-start">
-                        <li className="relative flex shadow-custom rounded-xl items-center">
-                            <div
-                                className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] rounded-md bg-gray/100 object-cover"
-                                alt="{image}"
-                            />
-                            <button className="absolute inset-0 flex items-center justify-center hover:bg-black/30 rounded-md transition duration-300 ease-in-out">
-                                <img
-                                    className="w-[70px]"
-                                    src={PlusWhite}
-                                    alt="Trash"
-                                />
-                            </button>
-                        </li>
-                        {currentCategory.images.map((image, i) => (
-                            <li
-                                key={i}
-                                className="relative flex shadow-custom rounded-xl items-center"
-                            >
-                                <img
-                                    className="w-[200px] md:w-[250px] h-[200px] md:h-[250px] rounded-md object-cover"
-                                    src={image}
-                                    alt="{image}"
-                                />
-                                <button className="absolute inset-0 flex items-center justify-center opacity-0 hover:bg-black/50 hover:opacity-100 rounded-md transition duration-300 ease-in-out backdrop-blur-[2px]">
-                                    <img
-                                        className="w-[60px]"
-                                        src={TrashWhite}
-                                        alt="Trash"
-                                    />
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
         </div>
     );
 };
 
-export default EditCategoryModalContent;
+export default AddCategoryModalContent;

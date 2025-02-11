@@ -27,11 +27,11 @@ const router = createBrowserRouter(
         <>
             <Route path="/" element={<Wrapper />}>
                 <Route path="" element={<WelcomeContent />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/products" element={<Product />} />
+                <Route path="about" element={<About />} />
+                <Route path="gallery" element={<Gallery />} />
+                <Route path="products" element={<Product />} />
                 <Route
-                    path="/products/:categoryName"
+                    path="products/:categoryName"
                     element={<ProductsItem />}
                 />
                 <Route path="/contacts" element={<Contacts />} />

@@ -5,19 +5,19 @@ import { useEffect, useState } from "react";
 const Loader = () => {
     const location = useLocation();
     const [loading, setLoading] = useState(false);
-    const [prevPath, setPrevPath] = useState(location.pathname); // Зберігаємо попередній шлях
+    const [prevPath, setPrevPath] = useState(location.pathname);
 
     useEffect(() => {
         if (location.pathname !== prevPath) {
             setLoading(true);
-            setPrevPath(location.pathname); // Оновлюємо попередній шлях
+            setPrevPath(location.pathname);
 
-            const timeout = setTimeout(() => setLoading(false), 500); // Імітуємо затримку
+            const timeout = setTimeout(() => setLoading(false), 500);
             return () => clearTimeout(timeout);
         }
-    }, [location.pathname]); // Тепер слідкуємо лише за `location.pathname`
+    }, [location.pathname]);
 
-    if (!loading) return null; // Якщо `loading === false`, нічого не рендеримо
+    if (!loading) return null;
 
     return (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-[20px] bg-white/30 z-50">

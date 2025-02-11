@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import TrashIcon from "../../../../assets/svg/trash.svg?react";
-import InfoIcon from "../../../../assets/svg/info.svg?react";
 import DoneIcon from "../../../../assets/svg/done.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -23,8 +21,8 @@ const Welcome = () => {
                     Головна сторінка
                 </div>
             </div>
-            <hr className="border border-gray" />
-            <div className="mt-[50px] flex flex-col flex-wrap gap-[20px]">
+            <hr className="border border-gray my-[30px] md:my-[0px]" />
+            <div className="mt-[30px] flex flex-col flex-wrap gap-[20px]">
                 <div className="flex flex-wrap md:flex-nowrap gap-[20px] w-full">
                     <div className="relative flex flex-1 bg-white shadow-custom rounded-xl p-[50px] md:w-[50%]">
                         <div className="flex flex-col gap-[5px]">
@@ -76,34 +74,6 @@ const Welcome = () => {
                         <div className="mt-[30px]">
                             <OrdersChart orders={orders} />
                         </div>
-                    </div>
-                    <div className="shadow-custom bg-white w-full rounded-xl p-[10px] md:p-[50px]">
-                        <div className="text-[18px] md:text-[26px] text-darkblue font-bold p-[10px]">
-                            Список замовлених дзвінків
-                        </div>
-                        <ul className="flex flex-col gap-[5px] mt-[15px] md:mt-[30px]">
-                            {orders.slice(0, 5).map((order, i) => (
-                                <li
-                                    className="flex flex-1 gap-[15px] justify-between items-center p-[10px] md:p-[17px] hover:bg-main/5 rounded-md"
-                                    key={i}
-                                >
-                                    <div className="w-[45%] text-[14px] md:text-[18px] text-darkblue font-semibold">
-                                        {order.name}
-                                    </div>
-                                    <div className="w-[45%] text-[14px] md:text-[18px] text-darkblue">
-                                        {order.phone}
-                                    </div>
-                                    <div className="flex gap-[5px] md:gap-[15px]">
-                                        <button>
-                                            <InfoIcon className="stroke-main w-[24px] md:w-[27px]" />
-                                        </button>
-                                        <button>
-                                            <TrashIcon className="stroke-main w-[24px] md:w-[27px]" />
-                                        </button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
                     </div>
                 </div>
             </div>

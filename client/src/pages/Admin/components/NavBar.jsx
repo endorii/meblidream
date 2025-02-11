@@ -8,7 +8,7 @@ import HomePageIcon from "../../../assets/svg/home.svg?react";
 const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
     return (
         <div
-            className={`fixed z-[10] left-0 top-0 transition-all duration-300 h-[70px] w-full items-center md:h-[100vh] bg-white flex md:flex-col md:items-center justify-between md:justify-between gap-[20px] px-[20px] md:py-[30px] md:px-[0px] shadow-custom ${
+            className={`fixed z-[110] left-0 top-0 transition-all duration-300 h-[70px] w-full items-center md:h-[100vh] bg-white flex md:flex-col md:items-center justify-between md:justify-between gap-[20px] px-[20px] md:py-[30px] md:px-[0px] shadow-custom ${
                 panelIsOpen ? " md:w-[230px]" : " md:w-[100px]"
             }`}
         >

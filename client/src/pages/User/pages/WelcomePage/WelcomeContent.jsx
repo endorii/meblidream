@@ -1,7 +1,7 @@
 import Top from "./components/Top";
 import Products from "./components/Products";
-// import Process from "./components/Process";
-// import Partners from "./components/Partners";
+import Process from "./components/Process";
+import Partners from "./components/Partners";
 import Advantages from "./components/Advantages";
 
 const WelcomeContent = () => {
@@ -9,8 +9,8 @@ const WelcomeContent = () => {
         <>
             <Top></Top>
             <Products></Products>
-            {/* <Process></Process> */}
-            {/* <Partners></Partners> */}
+            <Process></Process>
+            <Partners></Partners>
             <Advantages></Advantages>
         </>
     );

@@ -13,7 +13,7 @@ export default function Modal({ isOpen, onClose, children }) {
 
     return createPortal(
         <div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 cursor-pointer h-full overflow-y-auto"
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[150] cursor-pointer h-full overflow-y-auto"
             onClick={onClose}
         >
             <div

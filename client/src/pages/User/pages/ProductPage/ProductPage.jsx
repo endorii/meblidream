@@ -2,7 +2,11 @@ import Container from "../WelcomePage/components/Container";
 
 const ProductPage = ({ category }) => {
     if (!category) {
-        return <div className="pt-[70px]">Категорію не знайдено :(</div>;
+        return (
+            <div className="pt-[130px] text-center text-[50px]">
+                Категорію не знайдено :(
+            </div>
+        );
     }
 
     return (
