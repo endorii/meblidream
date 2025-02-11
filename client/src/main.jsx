@@ -37,11 +37,11 @@ const router = createBrowserRouter(
                 <Route path="/contacts" element={<Contacts />} />
             </Route>
             <Route path="/admin" element={<Panel />}>
-                <Route path="" element={<Welcome />}></Route>
-                <Route path="callbook" element={<CallBook />}></Route>
-                <Route path="categories" element={<Categories />}></Route>
+                <Route path="" element={<Welcome />} />
+                <Route path="callbook" element={<CallBook />} />
+                <Route path="categories" element={<Categories />} />
             </Route>
-            <Route path="/admin/login" element={<Login />}></Route>
+            <Route path="/admin/login" element={<Login />} />
         </>
     )
 );
