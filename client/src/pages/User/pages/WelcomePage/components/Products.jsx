@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import GlassIcon from "../../../../../assets/svg/glass.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../../../../store/slices/categories.slice";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import MainButton from "../../../../ui/buttons/MainButton";
 import SecondaryButton from "../../../../ui/buttons/SecondaryButton";
 import Title from "../../../../ui/Title";
@@ -12,8 +12,6 @@ const Products = () => {
     const { categories } = useSelector((state) => state.categories);
 
     const dispatch = useDispatch();
-
-    let navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchCategories());

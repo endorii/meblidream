@@ -1,8 +1,28 @@
 import Container from "./pages/WelcomePage/components/Container";
 import Logo from "../../assets/logo.png";
 import MainButton from "../ui/buttons/MainButton";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCategories } from "../../store/slices/categories.slice";
 
-const Footer = () => {
+const Footer = ({ setIsOrderModalOpen }) => {
+    const links = [
+        { name: "Головна", path: "/" },
+        { name: "Про нас", path: "/about" },
+        { name: "Галерея робіт", path: "/gallery" },
+        { name: "Меблева продукція", path: "/products" },
+        { name: "Контакти", path: "/contacts" },
+    ];
+
+    const { categories } = useSelector((state) => state.categories);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCategories());
+    }, []);
+
     return (
         <div className="mt-[70px]">
             <div className="bg-main p-[10px] sm:p-[0px] h-[70px] sm:h-[50px] text-center text-[16px] text-white flex items-center justify-center">
@@ -21,11 +41,22 @@ const Footer = () => {
                             Навігація
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[7px]">
-                            <li className="hover:text-darkblue">Головна</li>
-                            <li className="hover:text-darkblue">Про нас</li>
-                            <li className="hover:text-darkblue">Наші роботи</li>
-                            <li className="hover:text-darkblue">Заглушка</li>
-                            <li className="hover:text-darkblue">Контакти</li>
+                            {links.map((link, i) => (
+                                <li key={i}>
+                                    <NavLink
+                                        to={link.path}
+                                        className={({ isActive, isPending }) =>
+                                            isPending
+                                                ? "pending"
+                                                : isActive
+                                                ? "underline text-main"
+                                                : ""
+                                        }
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div>
@@ -33,22 +64,27 @@ const Footer = () => {
                             Що ми створюємо
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[7px]">
-                            <li className="hover:text-darkblue">Шафи</li>
-                            <li className="hover:text-darkblue">Кухні</li>
-                            <li className="hover:text-darkblue">Прихожі</li>
-                            <li className="hover:text-darkblue">Спальні</li>
-                            <li className="hover:text-darkblue">
-                                Торгове обладняння
-                            </li>
-                            <li className="hover:text-darkblue">
-                                Спеціалізовані меблі
-                            </li>
-                            <li className="hover:text-darkblue">
-                                Офісні меблі
-                            </li>
-                            <li className="hover:text-darkblue">
-                                Елітні меблі
-                            </li>
+                            {categories.map((category, i) => {
+                                return (
+                                    <li key={i}>
+                                        <NavLink
+                                            to={`/products/${category.pathName}`}
+                                            className={({
+                                                isActive,
+                                                isPending,
+                                            }) =>
+                                                isPending
+                                                    ? "pending"
+                                                    : isActive
+                                                    ? "underline text-main"
+                                                    : ""
+                                            }
+                                        >
+                                            {category.displayName}
+                                        </NavLink>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                     <div>
@@ -60,7 +96,10 @@ const Footer = () => {
 
                             <li>+380 99 443 12 80</li>
                             <li>
-                                <MainButton bonusStyles={"w-full mt-[15px]"}>
+                                <MainButton
+                                    bonusStyles={"w-full mt-[15px]"}
+                                    onClick={() => setIsOrderModalOpen(true)}
+                                >
                                     Залишити заявку
                                 </MainButton>
                             </li>

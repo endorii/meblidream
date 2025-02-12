@@ -3,7 +3,7 @@ import Title from "../../../../ui/Title";
 
 const ProcessCard = ({ title, description, value }) => {
     return (
-        <div className="relative text-white z-[10] bg-white p-[30px] md:p-[50px] shadow-custom rounded-xl flex flex-col flex-1 basis-[30%] gap-[10px] border hover:border-main/40">
+        <div className="relative text-white z-[10] bg-white p-[30px] md:p-[50px] shadow-custom rounded-xl flex flex-col flex-1 basis-[30%] gap-[10px] border hover:border-main/40 transition duration-300 ease-in-out">
             <div className="text-[22px] pr-[50px] sm:text-[24px] xl:text-[28px] font-bold text-main leading-[26px]">
                 {title}
             </div>

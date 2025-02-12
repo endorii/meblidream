@@ -1,17 +1,17 @@
 import Top from "./components/Top";
 import Products from "./components/Products";
 import Process from "./components/Process";
-import Partners from "./components/Partners";
+// import Partners from "./components/Partners";
 import Advantages from "./components/Advantages";
 
-const WelcomeContent = () => {
+const WelcomeContent = ({ setIsOrderModalOpen }) => {
     return (
         <>
-            <Top></Top>
-            <Products></Products>
-            <Process></Process>
-            <Partners></Partners>
-            <Advantages></Advantages>
+            <Top />
+            <Products setIsOrderModalOpen={setIsOrderModalOpen} />
+            <Process />
+            {/* <Partners></Partners> */}
+            <Advantages />
         </>
     );
 };

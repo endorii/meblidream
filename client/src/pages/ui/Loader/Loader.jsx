@@ -21,7 +21,7 @@ const Loader = () => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-[20px] bg-white/30 z-50">
-            <ImSpinner2 className="animate-spin text-5xl text-blue-500" />
+            <ImSpinner2 className="animate-spin text-5xl text-main" />
         </div>
     );
 };

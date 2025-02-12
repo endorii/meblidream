@@ -1,13 +1,13 @@
 import Logo from "../../assets/logo.png";
-import Mail from "../../assets/svg/mail.svg";
-import Phone from "../../assets/svg/phone.svg";
+import MailIcon from "../../assets/svg/mail.svg?react";
+import PhoneIcon from "../../assets/svg/phone.svg?react";
 import CloseIcon from "../../assets/svg/close.svg?react";
 import BurgerIcon from "../../assets/svg/burger.svg?react";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MainButton from "../ui/buttons/MainButton";
 
-const Header = () => {
+const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
     const links = [
         { name: "Головна", path: "/" },
         { name: "Про нас", path: "/about" },
@@ -16,13 +16,7 @@ const Header = () => {
         { name: "Контакти", path: "/contacts" },
     ];
 
-    const infoData = [
-        { title: "meblidream@i.com", photo: Mail },
-        { title: "+380 99 443 12 80", photo: Phone },
-    ];
-
     const [scrollProgress, setScrollProgress] = useState(0);
-
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     useEffect(() => {
@@ -41,7 +35,13 @@ const Header = () => {
         <>
             <header className="py-[10px] px-[20px] md:px-[35px] h-[70px] md:h-[80px] flex justify-between items-center fixed w-[100%] bg-white z-[100] shadow-custom">
                 <div className="flex items-center">
-                    <img className="w-[170px] xl:w-[200px]" src={Logo} alt="" />
+                    <Link to="/">
+                        <img
+                            className="w-[170px] xl:w-[200px]"
+                            src={Logo}
+                            alt=""
+                        />
+                    </Link>
                 </div>
                 <ul className="hidden flex gap-[25px] text-black font-semibold hidden xl:visible xl:flex 2xl:ml-[8%] 2xl:text-[16px]">
                     {links.map((link, i) => (
@@ -61,26 +61,34 @@ const Header = () => {
                     ))}
                 </ul>
                 <div className="flex items-center gap-[30px]">
-                    <MainButton bonusStyles="hidden sm:block">
+                    <MainButton
+                        bonusStyles="hidden sm:block"
+                        onClick={() => {
+                            setIsOrderModalOpen(true);
+                        }}
+                    >
                         Залишити заявку
                     </MainButton>
 
                     <ul className="hidden md:flex text-darkgray text-[15px] font-semibold flex-col gap-[2px]">
-                        {infoData.map((elem, i) => {
-                            return (
-                                <li
-                                    key={i}
-                                    className="flex gap-[5px] items-center"
-                                >
-                                    <img
-                                        className="w-[25px]"
-                                        src={elem.photo}
-                                        alt=""
-                                    />
-                                    {elem.title}
-                                </li>
-                            );
-                        })}
+                        <li>
+                            <a
+                                href="mailto:meblidream@i.com"
+                                className="flex gap-[5px] items-center underline"
+                            >
+                                <MailIcon className="w-[25px] stroke-main" />
+                                meblidream@i.com
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="tel:+380994431280"
+                                className="flex gap-[5px] items-center underline"
+                            >
+                                <PhoneIcon className="w-[25px] fill-main" />
+                                +380 99 443 12 80
+                            </a>
+                        </li>
                     </ul>
                     {!burgerOpen ? (
                         <BurgerIcon
@@ -125,20 +133,32 @@ const Header = () => {
                     ))}
                 </ul>
                 <ul className="vissible md:hidden flex items-center text-darkgray text-[16px] font-semibold flex-col gap-[2px] px-[30px] pb-[10px]">
-                    {infoData.map((elem, i) => {
-                        return (
-                            <li key={i} className="flex gap-[5px] items-center">
-                                <img
-                                    className="w-[25px]"
-                                    src={elem.photo}
-                                    alt=""
-                                />
-                                {elem.title}
-                            </li>
-                        );
-                    })}
+                    <li>
+                        <a
+                            href="mailto:meblidream@i.com"
+                            className="flex gap-[5px] items-center underline"
+                        >
+                            <MailIcon className="w-[25px] stroke-main" />
+                            meblidream@i.com
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="tel:+380994431280"
+                            className="flex gap-[5px] items-center underline"
+                        >
+                            <PhoneIcon className="w-[25px] fill-main" />
+                            +380 99 443 12 80
+                        </a>
+                    </li>
                 </ul>
-                <MainButton bonusStyles="visible sm:hidden m-[30px]">
+                <MainButton
+                    bonusStyles="visible sm:hidden m-[30px]"
+                    onClick={() => {
+                        setIsOrderModalOpen(true);
+                        console.log(isOrderModalOpen);
+                    }}
+                >
                     Залишити заявку
                 </MainButton>
             </div>
