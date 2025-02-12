@@ -91,12 +91,14 @@ const CallBook = () => {
                     })}
                 </ul>
             </div>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <DeleteModalContent
-                    title={"це замовлення"}
-                    onClose={() => setIsModalOpen(false)}
-                />
-            </Modal>
+            {isModalOpen ? (
+                <Modal onClose={() => setIsModalOpen(false)}>
+                    <DeleteModalContent
+                        title={"це замовлення"}
+                        onClose={() => setIsModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
         </div>
     );
 };

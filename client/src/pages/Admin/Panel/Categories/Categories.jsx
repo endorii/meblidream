@@ -153,41 +153,37 @@ const Categories = () => {
                     })}
                 </ul>
             </div>
-            <Modal
-                isOpen={isDeleteModalOpen}
-                onClose={() => setIsDeleteModalOpen(false)}
-            >
-                <DeleteModalContent
-                    title={"цю категорію"}
-                    onClose={() => setIsDeleteModalOpen(false)}
-                />
-            </Modal>
-            <Modal
-                isOpen={isEditModalOpen}
-                onClose={() => setIsEditModalOpen(false)}
-            >
-                <EditCategoryModalContent
-                    currentCategory={currentCategory}
-                    onClose={() => setIsEditModalOpen(false)}
-                />
-            </Modal>
-            <Modal
-                isOpen={isPreviewModalOpen}
-                onClose={() => setIsPreviewModalOpen(false)}
-            >
-                <PreviewCategoryModalContent
-                    currentCategory={currentCategory}
-                    onClose={() => setIsPreviewModalOpen(false)}
-                />
-            </Modal>
-            <Modal
-                isOpen={isAddModalOpen}
-                onClose={() => setIsAddModalOpen(false)}
-            >
-                <AddCategoryModalContent
-                    onClose={() => setIsAddModalOpen(false)}
-                />
-            </Modal>
+            {isDeleteModalOpen ? (
+                <Modal onClose={() => setIsDeleteModalOpen(false)}>
+                    <DeleteModalContent
+                        title={"цю категорію"}
+                        onClose={() => setIsDeleteModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
+            {isEditModalOpen ? (
+                <Modal onClose={() => setIsEditModalOpen(false)}>
+                    <EditCategoryModalContent
+                        currentCategory={currentCategory}
+                        onClose={() => setIsEditModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
+            {isPreviewModalOpen ? (
+                <Modal onClose={() => setIsPreviewModalOpen(false)}>
+                    <PreviewCategoryModalContent
+                        currentCategory={currentCategory}
+                        onClose={() => setIsPreviewModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
+            {isAddModalOpen ? (
+                <Modal onClose={() => setIsAddModalOpen(false)}>
+                    <AddCategoryModalContent
+                        onClose={() => setIsAddModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
         </div>
     );
 };
