@@ -9,36 +9,35 @@ import InstagramIcon from "../../../assets/svg/instagram.svg?react";
 import TelegramIcon from "../../../assets/svg/telegram.svg?react";
 import WhatsAppIcon from "../../../assets/svg/whatsapp.svg?react";
 import FacebookIcon from "../../../assets/svg/facebook.svg?react";
-import SecondaryButton from "../../ui/buttons/SecondaryButton";
 
 const OrdersModalContent = ({ onClose }) => {
     return (
         <div className="bg-darkblue flex gap-[50px] p-[20px] md:p-[40px] rounded-2xl shadow-custom relative w-[95vw] xl:w-[85vw] h-[95vh] xl:h-[85vh] overflow-y-auto flex-col xl:flex-row">
-            <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left sm:justify-between w-[90%] ">
-                <SecondaryButton
+            <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left sm:justify-between w-full ">
+                <MainButton
                     bonusStyles="flex items-center gap-[10px] group"
                     onClose={onClose}
                 >
-                    <ArrowLeftIcon className="stroke-main w-[30px] group-hover:stroke-white" />
+                    <ArrowLeftIcon className="stroke-white w-[30px] group-hover:stroke-main" />
                     Повернутися назад
-                </SecondaryButton>
-                <div className="text-white text-[38px] lg:text-[48px] font-semibold w-[90%] mt-[10px]">
+                </MainButton>
+                <div className="text-white text-[34px] sm:text-[38px] lg:text-[48px] font-semibold w-[90%] mt-[20px] sm:mt-[10px]">
                     Давайте реалізуємо меблі вашої{" "}
                     <span className="text-lightmain font-bold underline">
                         мрії
                     </span>{" "}
                     разом
                 </div>
-                <ul className="flex flex-col gap-[20px] mt-[30px] w-full">
-                    <li className="flex items-center gap-[10px] text-white text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
+                <ul className="flex flex-col gap-[10px] sm:gap-[20px] mt-[30px] w-full">
+                    <li className="flex items-center gap-[10px] text-white text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
                         <MailIcon className="stroke-lightmain w-[30px] " />
                         meblidream@i.com
                     </li>
-                    <li className="flex items-center gap-[10px] text-white text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
+                    <li className="flex items-center gap-[10px] text-white text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
                         <PhoneIcon className="fill-lightmain w-[30px] " />
                         +38 097 00 00 000
                     </li>
-                    <li className="flex items-center gap-[10px] text-white text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
+                    <li className="flex items-center gap-[10px] text-white text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/30 cursor-pointer transition duration-300 ease-in-out">
                         <PhoneIcon className="fill-lightmain w-[30px] " />
                         +38 097 00 00 001
                     </li>
@@ -60,30 +59,30 @@ const OrdersModalContent = ({ onClose }) => {
             </div>
             <div className="bg-white flex flex-col gap-[20px] h-full rounded-2xl p-[20px] md:p-[40px] w-full">
                 <div className="flex flex-col gap-[10px] ">
-                    <div className="text-[18px] font-semibold">
-                        Я зацікавлений в...
+                    <div className="text-[20px] font-semibold">
+                        Я зацікавлений ...
                     </div>
 
                     <ul className="flex flex-wrap gap-[10px] text-center">
-                        <li className="py-[13px] px-[20px] border border-main rounded-xl text-main hover:bg-mainbg hover:text-white cursor-pointer">
-                            Здійсненні замовлення
+                        <li className="py-[10px] sm:py-[13px] px-[20px] border border-main rounded-xl text-[15px] sm:text-[16px] text-main hover:bg-mainbg hover:text-white cursor-pointer">
+                            Здійснити замовлення
                         </li>
-                        <li className="py-[13px] px-[20px] border border-main rounded-xl text-main hover:bg-mainbg hover:text-white cursor-pointer">
-                            Отриманні консультації
+                        <li className="py-[10px] sm:py-[13px] px-[20px] border border-main rounded-xl text-[15px] sm:text-[16px] text-main hover:bg-mainbg hover:text-white cursor-pointer">
+                            Отримати консультацію
                         </li>
-                        <li className="py-[13px] px-[20px] border border-main rounded-xl text-main hover:bg-mainbg hover:text-white cursor-pointer">
-                            Іншому
+                        <li className="py-[10px] sm:py-[13px] px-[20px] border border-main rounded-xl text-[15px] sm:text-[16px]  text-main hover:bg-mainbg hover:text-white cursor-pointer">
+                            Інше
                         </li>
                     </ul>
                 </div>
                 <form
-                    className="flex flex-col gap-[20px] mt-[30px] bg-white"
+                    className="flex flex-col gap-[20px] mt-[10px] sm:mt-[30px] bg-white"
                     action=""
                 >
                     <div className="flex flex-col gap-[15px]">
                         <div className="flex flex-col gap-[5px]">
                             <label
-                                className="text-[16px] font-semibold"
+                                className="text-[14px] sm:text-[16px] font-semibold"
                                 // htmlFor="firstName"
                             >
                                 Ім&apos;я та прізвище:
@@ -99,7 +98,7 @@ const OrdersModalContent = ({ onClose }) => {
 
                         <div className="flex flex-col gap-[10px]">
                             <label
-                                className="text-[16px] font-semibold"
+                                className="text-[14px] sm:text-[16px] font-semibold"
                                 // htmlFor="phone"
                             >
                                 Номер телефону:
@@ -116,7 +115,7 @@ const OrdersModalContent = ({ onClose }) => {
 
                         <div className="flex flex-col gap-[10px]">
                             <label
-                                className="text-[16px] font-semibold"
+                                className="text-[14px] sm:text-[16px] font-semibold"
                                 // htmlFor="message"
                             >
                                 Повідомлення:

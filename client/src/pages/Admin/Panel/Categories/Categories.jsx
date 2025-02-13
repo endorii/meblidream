@@ -29,7 +29,7 @@ const Categories = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>
@@ -41,7 +41,7 @@ const Categories = () => {
                 <div className="flex items-center gap-[10px]">
                     <MainButton
                         bonusStyles="flex gap-[10px] items-center w-full justify-center"
-                        onClick={() => {
+                        onClose={() => {
                             setIsAddModalOpen(true);
                         }}
                     >

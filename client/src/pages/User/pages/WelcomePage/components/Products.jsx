@@ -15,7 +15,7 @@ const Products = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-    }, []);
+    }, [dispatch]);
 
     return (
         <>

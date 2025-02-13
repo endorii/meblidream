@@ -14,7 +14,7 @@ const CallBook = () => {
 
     useEffect(() => {
         dispatch(fetchOrders());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>

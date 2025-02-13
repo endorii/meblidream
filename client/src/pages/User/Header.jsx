@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import MainButton from "../ui/buttons/MainButton";
 
-const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
+const Header = ({ setIsOrderModalOpen }) => {
     const links = [
         { name: "Головна", path: "/" },
         { name: "Про нас", path: "/about" },
@@ -63,7 +63,7 @@ const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
                 <div className="flex items-center gap-[30px]">
                     <MainButton
                         bonusStyles="hidden sm:block"
-                        onClick={() => {
+                        onClose={() => {
                             setIsOrderModalOpen(true);
                         }}
                     >
@@ -74,7 +74,7 @@ const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
                         <li>
                             <a
                                 href="mailto:meblidream@i.com"
-                                className="flex gap-[5px] items-center underline"
+                                className="flex gap-[5px] items-center hover:underline"
                             >
                                 <MailIcon className="w-[25px] stroke-main" />
                                 meblidream@i.com
@@ -83,7 +83,7 @@ const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
                         <li>
                             <a
                                 href="tel:+380994431280"
-                                className="flex gap-[5px] items-center underline"
+                                className="flex gap-[5px] items-center hover:underline"
                             >
                                 <PhoneIcon className="w-[25px] fill-main" />
                                 +380 99 443 12 80
@@ -154,9 +154,8 @@ const Header = ({ isOrderModalOpen, setIsOrderModalOpen }) => {
                 </ul>
                 <MainButton
                     bonusStyles="visible sm:hidden m-[30px]"
-                    onClick={() => {
+                    onClose={() => {
                         setIsOrderModalOpen(true);
-                        console.log(isOrderModalOpen);
                     }}
                 >
                     Залишити заявку
