@@ -6,13 +6,15 @@ const app = express();
 const PORT = config.get("PORT");
 const cors = require("cors");
 
-const callRoutes = require("./routes/call.routes");
+const orderRoutes = require("./routes/order.routes");
+const categoryRoutes = require("./routes/category.routes");
 
 app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/", callRoutes);
+app.use("/api/", orderRoutes);
+app.use("/api/", categoryRoutes);
 
 const start = async () => {
     try {
