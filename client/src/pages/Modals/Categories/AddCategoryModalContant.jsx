@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SecondaryButton from "../../ui/buttons/SecondaryButton";
+import MainButton from "../../ui/buttons/MainButton";
 
 const AddCategoryModalContent = ({ onClose }) => {
     const [name, setName] = useState("");
@@ -20,12 +20,12 @@ const AddCategoryModalContent = ({ onClose }) => {
                         Редагування інформації категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <SecondaryButton onClose={onClose}>
+                        <MainButton onClose={onClose}>
                             Повернутися назад
-                        </SecondaryButton>
-                        <SecondaryButton onClose={onClose}>
+                        </MainButton>
+                        <MainButton onClose={onClose}>
                             Додати категорію
-                        </SecondaryButton>
+                        </MainButton>
                     </div>
                 </div>
                 <div className="flex justify-between flex-col md:flex-row">

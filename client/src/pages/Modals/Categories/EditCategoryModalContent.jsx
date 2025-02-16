@@ -1,6 +1,6 @@
 import TrashWhite from "../../../assets/svg/trash-white.svg";
 import PlusWhite from "../../../assets/svg/plus-white.svg";
-import SecondaryButton from "../../ui/buttons/SecondaryButton";
+import MainButton from "../../ui/buttons/MainButton";
 
 const EditCategoryModalContent = ({ onClose, currentCategory }) => {
     return (
@@ -11,12 +11,12 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                         Редагування інформації категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <SecondaryButton onClose={onClose}>
+                        <MainButton onClose={onClose}>
                             Повернутися назад без змін
-                        </SecondaryButton>
-                        <SecondaryButton onClose={onClose}>
+                        </MainButton>
+                        <MainButton onClose={onClose}>
                             Зберегти зміни
-                        </SecondaryButton>
+                        </MainButton>
                     </div>
                 </div>
                 <div className="flex justify-between flex-col md:flex-row">
