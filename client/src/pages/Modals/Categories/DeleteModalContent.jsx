@@ -1,6 +1,6 @@
 import MainButton from "../../ui/buttons/MainButton";
 
-const DeleteModalContent = ({ title, onClose }) => {
+const DeleteModalContent = ({ title, onClose, onAction }) => {
     return (
         <div className="bg-white p-[25px] md:p-[40px] rounded-lg shadow-custom relative w-[90vw] md:w-[50vw] xl:w-[40vw]">
             <div className="flex flex-col gap-[20px] md:gap-[40px]">
@@ -16,7 +16,7 @@ const DeleteModalContent = ({ title, onClose }) => {
                 </div>
                 <div className="flex justify-center md:justify-end gap-[10px] mt-[10px]">
                     <MainButton onClose={onClose}>Відміна</MainButton>
-                    <MainButton onClose={onClose}>Видалити</MainButton>
+                    <MainButton onAction={onAction}>Видалити</MainButton>
                 </div>
             </div>
         </div>
