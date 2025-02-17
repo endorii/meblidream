@@ -21,7 +21,7 @@ const Products = () => {
         <>
             <Container>
                 <Title title={"Виготовлення меблевої продукції"} />
-                <ul className="flex mt-[50px] justify-center gap-[25px] flex-wrap">
+                <ul className="flex mt-[25px] justify-center gap-[25px] flex-wrap">
                     {categories.map((category, i) => {
                         return (
                             <li

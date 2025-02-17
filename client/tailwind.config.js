@@ -8,6 +8,8 @@ export default {
                 custom: "0px 5px 220px -1px rgba(30,64,175,0.10);",
             },
             backgroundImage: {
+                disabledbg:
+                    "linear-gradient(145deg, rgb(234, 234, 234) 0%, rgb(214, 214, 214) 70%);",
                 whitebg:
                     "linear-gradient(125deg, rgb(255, 255, 255) 100%, rgb(255, 255, 255) 100%);",
                 mainbg: "linear-gradient(125deg, rgba(38,89,254,1) 0%, rgba(30,64,175,1) 100%);",

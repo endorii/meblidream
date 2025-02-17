@@ -10,9 +10,10 @@ export const getOrders = async () => {
     }
 };
 
-export const addOrder = async (name, phone, message) => {
+export const addOrder = async (theme, name, phone, message) => {
     try {
         const response = await axios.post(`http://localhost:5000/api/orders`, {
+            theme,
             name,
             phone,
             message,

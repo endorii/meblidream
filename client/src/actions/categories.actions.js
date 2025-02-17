@@ -9,14 +9,7 @@ export const getCategories = async () => {
     }
 };
 
-export const addCategories = async (
-    displayName,
-    pathName,
-    title,
-    subtitle,
-    description,
-    images
-) => {
+export const addCategory = async (displayName, pathName, title, subtitle, description, images) => {
     try {
         const response = await axios.post(`http://localhost:5000/api/categories`, {
             displayName,

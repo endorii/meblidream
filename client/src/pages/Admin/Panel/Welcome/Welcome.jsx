@@ -32,12 +32,12 @@ const Welcome = () => {
                             <div className="text-[18px] text-darkgray">
                                 у вас{" "}
                                 <span className="text-[22px] text-darkblue font-bold">
-                                    10
+                                    {orders.length}
                                 </span>{" "}
                                 замовлень дзвінків
                             </div>
 
-                            <Link to="callbook">
+                            <Link to="/callbook">
                                 <MainButton bonusStyles={"mt-[20px] w-full"}>
                                     Переглянути
                                 </MainButton>

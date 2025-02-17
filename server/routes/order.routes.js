@@ -16,9 +16,10 @@ router.get("/orders", async (req, res) => {
 
 router.post("/orders", async (req, res) => {
     try {
-        const { name, phone, message } = req.body;
+        const { theme, name, phone, message } = req.body;
 
         const newOrder = new Order({
+            theme,
             name,
             phone,
             message,

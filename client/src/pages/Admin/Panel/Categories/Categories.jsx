@@ -64,7 +64,7 @@ const Categories = () => {
                                         №<span>{i + 1}</span>
                                     </div>
 
-                                    <div className="flex flex-col justify-between items-center bg-white py-[30px] px-[10px] md:px-[30px] w-full">
+                                    <div className="flex flex-col justify-between bg-white py-[30px] px-[10px] md:px-[30px] w-full">
                                         <div className="flex flex-col gap-[10px]">
                                             <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
                                                 <div className="text-[12px] md:text-[15px] w-[25%]">

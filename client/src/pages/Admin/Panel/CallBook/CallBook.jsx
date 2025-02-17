@@ -5,12 +5,14 @@ import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
 import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
 import SecondaryButton from "../../../ui/buttons/SecondaryButton";
+import { deleteOrder } from "../../../../actions/orders.actions";
 
 const CallBook = () => {
     const { orders } = useSelector((state) => state.orders);
     const dispatch = useDispatch();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeOrder, setActiveOrder] = useState("");
 
     useEffect(() => {
         dispatch(fetchOrders());
@@ -42,7 +44,7 @@ const CallBook = () => {
                                         №<span>{i + 1}</span>
                                     </div>
 
-                                    <div className="flex flex-col justify-between items-center bg-white py-[30px] px-[10px] md:px-[30px] w-full">
+                                    <div className="flex flex-col justify-between bg-white py-[30px] px-[10px] md:px-[30px] w-full">
                                         <div className="flex flex-col gap-[10px]">
                                             <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
                                                 <div className="text-[12px] md:text-[15px] w-[25%]">
@@ -73,7 +75,13 @@ const CallBook = () => {
                                                     Дата відправлення заявки:
                                                 </div>
                                                 <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {order.date}
+                                                    {`${order.createdAt.slice(
+                                                        0,
+                                                        10
+                                                    )} / ${order.createdAt.slice(
+                                                        11,
+                                                        19
+                                                    )}`}
                                                 </div>
                                             </div>
                                         </div>
@@ -82,7 +90,10 @@ const CallBook = () => {
                                     <div className="flex justify-around items-center w-full h-[50px] md:h-[70px] mt-auto rounded-b-md">
                                         <button
                                             className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
-                                            onClick={() => setIsModalOpen(true)}
+                                            onClick={() => {
+                                                setIsModalOpen(true);
+                                                setActiveOrder(order);
+                                            }}
                                         >
                                             <TrashIcon className="stroke-main w-[27px]" />
                                         </button>
@@ -98,8 +109,13 @@ const CallBook = () => {
             {isModalOpen ? (
                 <Modal onClose={() => setIsModalOpen(false)}>
                     <DeleteModalContent
-                        title={"це замовлення"}
+                        title={`замовлення від ${activeOrder.name}`}
                         onClose={() => setIsModalOpen(false)}
+                        onAction={async () => {
+                            setIsModalOpen(false);
+                            await deleteOrder(activeOrder._id);
+                            dispatch(fetchOrders());
+                        }}
                     />
                 </Modal>
             ) : null}

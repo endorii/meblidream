@@ -62,10 +62,8 @@ const Header = ({ setIsOrderModalOpen }) => {
                 </ul>
                 <div className="flex items-center gap-[30px]">
                     <MainButton
+                        onClose={() => setIsOrderModalOpen(true)}
                         bonusStyles="hidden sm:block"
-                        onClose={() => {
-                            setIsOrderModalOpen(true);
-                        }}
                     >
                         Залишити заявку
                     </MainButton>
