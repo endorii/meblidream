@@ -11,10 +11,10 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                         Редагування інформації категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <MainButton onClose={onClose}>
+                        <MainButton onClick={onClose}>
                             Повернутися назад без змін
                         </MainButton>
-                        <MainButton onClose={onClose}>
+                        <MainButton onClick={onClose}>
                             Зберегти зміни
                         </MainButton>
                     </div>

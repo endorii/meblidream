@@ -10,10 +10,10 @@ const LogoutModal = ({ onClose, onAction }) => {
                     </h2>
                 </div>
                 <div className="flex justify-center gap-[10px] mt-[10px] w-full">
-                    <MainButton bonusStyles="w-[40%]" onClose={onClose}>
+                    <MainButton bonusStyles="w-[40%]" onClick={onClose}>
                         Відміна
                     </MainButton>
-                    <MainButton bonusStyles="w-[40%]" onAction={onAction}>
+                    <MainButton bonusStyles="w-[40%]" onClick={onAction}>
                         Вийти
                     </MainButton>
                 </div>

@@ -33,7 +33,7 @@ const Login = () => {
                                 className="border-b-2 text-[18px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                             />
                         </div>
-                        <MainButton bonusStyles={"h-[65px]"}>Увійти</MainButton>
+                        <MainButton bonusStyles="h-[65px]">Увійти</MainButton>
                         <Link to="/" className="underline text-darkgray/70">
                             Повернутися назад
                         </Link>

@@ -12,7 +12,7 @@ const OrderModalData = ({ onClose }) => {
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left sm:justify-between w-full ">
             <MainButton
                 bonusStyles="flex items-center gap-[10px] group"
-                onClose={onClose}
+                onClick={onClose}
             >
                 <ArrowLeftIcon className="stroke-white w-[30px] group-hover:stroke-main" />
                 Повернутися назад

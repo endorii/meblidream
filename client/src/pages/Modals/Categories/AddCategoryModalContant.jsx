@@ -25,11 +25,11 @@ const AddCategoryModalContent = ({ onClose }) => {
                         Додавання категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
-                        <MainButton onClose={onClose}>
+                        <MainButton onClick={onClose}>
                             Повернутися назад
                         </MainButton>
                         <MainButton
-                            onAction={async () => {
+                            onClick={async () => {
                                 onClose();
                                 await addCategory(
                                     displayName,

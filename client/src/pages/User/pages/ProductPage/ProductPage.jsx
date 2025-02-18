@@ -60,7 +60,7 @@ const ProductPage = ({ category }) => {
                     </div>
                     <MainButton
                         bonusStyles="w-[90%] md:w-[40%] sm:w-[50%] xl:w-[30%] text-[24px] px-[40px] py-[20px] m-[0_auto]"
-                        onClose={() => {
+                        onClick={() => {
                             setIsOrderModalOpen(true);
                         }}
                     >

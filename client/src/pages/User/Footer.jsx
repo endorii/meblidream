@@ -122,7 +122,7 @@ const Footer = ({ setIsOrderModalOpen }) => {
                             <li>
                                 <MainButton
                                     bonusStyles={"w-full mt-[15px]"}
-                                    onClose={() => setIsOrderModalOpen(true)}
+                                    onClick={() => setIsOrderModalOpen(true)}
                                 >
                                     Залишити заявку
                                 </MainButton>

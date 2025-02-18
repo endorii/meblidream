@@ -9,7 +9,7 @@ const PreviewCategoryModalContent = ({ currentCategory, onClose }) => {
             <div className="absolute top-[10px] left-[10px]">
                 <MainButton
                     bonusStyles="fixed z-[50] group flex gap-[10px] items-center"
-                    onClose={onClose}
+                    onClick={onClose}
                 >
                     <ArrowLeftIcon className="w-[25px] stroke-white group-hover:stroke-main" />
                     Повернутися назад

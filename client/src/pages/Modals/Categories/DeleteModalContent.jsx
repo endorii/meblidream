@@ -15,8 +15,8 @@ const DeleteModalContent = ({ title, onClose, onAction }) => {
                     </p>
                 </div>
                 <div className="flex justify-center md:justify-end gap-[10px] mt-[10px]">
-                    <MainButton onClose={onClose}>Відміна</MainButton>
-                    <MainButton onAction={onAction}>Видалити</MainButton>
+                    <MainButton onClick={onClose}>Відміна</MainButton>
+                    <MainButton onClick={onAction}>Видалити</MainButton>
                 </div>
             </div>
         </div>

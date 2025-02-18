@@ -51,7 +51,7 @@ const Products = () => {
                                     </Link>
                                     <MainButton
                                         bonusStyles="w-full"
-                                        onClose={() => {
+                                        onClick={() => {
                                             setIsOrderModalOpen(true);
                                         }}
                                     >

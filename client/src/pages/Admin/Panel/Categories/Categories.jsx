@@ -42,7 +42,7 @@ const Categories = () => {
                 <div className="flex items-center gap-[10px]">
                     <MainButton
                         bonusStyles="flex gap-[10px] items-center w-full justify-center"
-                        onClose={() => {
+                        onClick={() => {
                             setIsAddModalOpen(true);
                         }}
                     >

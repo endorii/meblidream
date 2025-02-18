@@ -38,7 +38,7 @@ const Welcome = () => {
                             </div>
 
                             <Link to="callbook">
-                                <MainButton bonusStyles={"mt-[20px] w-full"}>
+                                <MainButton bonusStyles="mt-[20px] w-full">
                                     Переглянути
                                 </MainButton>
                             </Link>

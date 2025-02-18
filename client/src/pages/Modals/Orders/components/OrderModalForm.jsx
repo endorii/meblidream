@@ -112,7 +112,7 @@ const OrderModalForm = ({ onClose }) => {
                 </div>
                 <MainButton
                     bonusStyles=""
-                    onAction={async () => {
+                    onClick={async () => {
                         await addOrder(activeTheme, name, phone, message);
                         dispatch(fetchOrders());
                         onClose();
