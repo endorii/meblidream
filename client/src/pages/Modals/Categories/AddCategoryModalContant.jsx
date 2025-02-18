@@ -1,9 +1,14 @@
 import { useState } from "react";
 import MainButton from "../../ui/buttons/MainButton";
+import { addCategory } from "../../../actions/categories.actions";
+import { fetchCategories } from "../../../store/slices/categories.slice";
+import { useDispatch } from "react-redux";
 
 const AddCategoryModalContent = ({ onClose }) => {
-    const [name, setName] = useState("");
-    const [path, setPath] = useState("");
+    const dispatch = useDispatch();
+
+    const [displayName, setDisplayName] = useState("");
+    const [pathName, setPathName] = useState("");
     const [title, setTitle] = useState("");
     const [subtitle, setSubtitle] = useState("");
     const [description, setDescription] = useState("");
@@ -17,13 +22,25 @@ const AddCategoryModalContent = ({ onClose }) => {
             <div className="relative flex flex-col gap-[20px] relative pt-[270px] max-[220px]:mt-[190px] sm:pt-[170px] md:pt-[130px] p-[10px] md:p-[30px]">
                 <div className="fixed flex flex-col items-center gap-[10px] md:flex-row top-0 left-[48%] translate-x-[-49%] flex justify-between mt-[23px] w-[92vw] bg-white p-[30px] rounded-t-xl z-[10] shadow-custom">
                     <div className="text-center text-[24px] sm:text-[30px] font-semibold">
-                        Редагування інформації категорії
+                        Додавання категорії
                     </div>
                     <div className="flex justify-end gap-[10px]">
                         <MainButton onClose={onClose}>
                             Повернутися назад
                         </MainButton>
-                        <MainButton onClose={onClose}>
+                        <MainButton
+                            onAction={async () => {
+                                onClose();
+                                await addCategory(
+                                    displayName,
+                                    pathName,
+                                    title,
+                                    subtitle,
+                                    description
+                                );
+                                dispatch(fetchCategories());
+                            }}
+                        >
                             Додати категорію
                         </MainButton>
                     </div>
@@ -39,9 +56,9 @@ const AddCategoryModalContent = ({ onClose }) => {
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 placeholder="Введіть назву"
                                 onChange={(e) =>
-                                    handleChange(e.target.value, setName)
+                                    handleChange(e.target.value, setDisplayName)
                                 }
-                                value={name}
+                                value={displayName}
                             />
                         </div>
 
@@ -54,9 +71,9 @@ const AddCategoryModalContent = ({ onClose }) => {
                                 className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
                                 placeholder="Введіть шлях"
                                 onChange={(e) =>
-                                    handleChange(e.target.value, setPath)
+                                    handleChange(e.target.value, setPathName)
                                 }
-                                value={path}
+                                value={pathName}
                             />
                         </div>
                     </div>

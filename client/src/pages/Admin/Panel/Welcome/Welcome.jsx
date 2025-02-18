@@ -16,9 +16,9 @@ const Welcome = () => {
 
     return (
         <div>
-            <div className="py-[30px] flex justify-between">
+            <div className="md:py-[30px] flex flex-col gap-[20px] md:flex-row justify-between">
                 <div className="text-[30px] text-darkblue font-bold">
-                    Головна сторінка
+                    Домашня сторінка
                 </div>
             </div>
             <hr className="border border-gray my-[30px] md:my-[0px]" />
@@ -37,7 +37,7 @@ const Welcome = () => {
                                 замовлень дзвінків
                             </div>
 
-                            <Link to="/callbook">
+                            <Link to="callbook">
                                 <MainButton bonusStyles={"mt-[20px] w-full"}>
                                     Переглянути
                                 </MainButton>

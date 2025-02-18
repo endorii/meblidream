@@ -9,7 +9,7 @@ export const getCategories = async () => {
     }
 };
 
-export const addCategory = async (displayName, pathName, title, subtitle, description, images) => {
+export const addCategory = async (displayName, pathName, title, subtitle, description) => {
     try {
         const response = await axios.post(`http://localhost:5000/api/categories`, {
             displayName,
@@ -19,7 +19,6 @@ export const addCategory = async (displayName, pathName, title, subtitle, descri
                 subtitle,
                 description,
             },
-            images,
         });
 
         return response.data;
