@@ -1,6 +1,12 @@
+import { useState } from "react";
+import Modal from "../../../Modals/Modal";
+import OrdersModalContent from "../../../Modals/Orders/OrdersModalContent";
 import Container from "../WelcomePage/components/Container";
+import MainButton from "../../../ui/buttons/MainButton";
 
 const ProductPage = ({ category }) => {
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+
     if (!category) {
         return (
             <div className="pt-[130px] text-center text-[50px]">
@@ -52,11 +58,23 @@ const ProductPage = ({ category }) => {
                     <div className=" text-[20px] lg:text-[24px] text-center font-[200] m-[50px_20px] sm:m-[100px]">
                         {category.filling.description}
                     </div>
-                    <button className="border border-main w-[90%] md:w-[40%] sm:w-[50%] xl:w-[30%] m-[0_auto] text-[24px] text-white bg-mainbg font-semibold rounded-xl px-[40px] py-[20px] hover:border-main hover:text-main hover:bg-whitebg transition duration-300 ease-in-out">
+                    <MainButton
+                        bonusStyles="w-[90%] md:w-[40%] sm:w-[50%] xl:w-[30%] text-[24px] px-[40px] py-[20px] m-[0_auto]"
+                        onClose={() => {
+                            setIsOrderModalOpen(true);
+                        }}
+                    >
                         Залишити заявку
-                    </button>
+                    </MainButton>
                 </div>
             </Container>
+            {isOrderModalOpen ? (
+                <Modal onClose={() => setIsOrderModalOpen(false)}>
+                    <OrdersModalContent
+                        onClose={() => setIsOrderModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
         </div>
     );
 };

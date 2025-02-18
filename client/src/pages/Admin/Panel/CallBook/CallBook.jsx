@@ -4,15 +4,21 @@ import { useEffect, useState } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
 import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
-import SecondaryButton from "../../../ui/buttons/SecondaryButton";
 import { deleteOrder } from "../../../../actions/orders.actions";
 
 const CallBook = () => {
+    const filters = [
+        { name: "Спочатку новіші", value: "new" },
+        { name: "Спочатку старіші", value: "old" },
+    ];
+
     const { orders } = useSelector((state) => state.orders);
     const dispatch = useDispatch();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeOrder, setActiveOrder] = useState("");
+
+    const [activeFilter, setActiveFilter] = useState(filters[0].value);
 
     useEffect(() => {
         dispatch(fetchOrders());
@@ -26,8 +32,25 @@ const CallBook = () => {
                 </div>
                 <div className="flex items-center max-[500px]:flex-col gap-[15px]">
                     <div>Фільтрація: </div>
-                    <SecondaryButton>Спочатку новіші</SecondaryButton>
-                    <SecondaryButton>Спочатку старіші</SecondaryButton>
+                    <ul className="flex gap-[15px]">
+                        {filters.map((filter, i) => {
+                            return (
+                                <li
+                                    key={i}
+                                    className={`font-semibold border rounded-xl px-[20px] py-[13px] transition duration-300 ease-in-out cursor-pointer ${
+                                        activeFilter === filter.value
+                                            ? "bg-mainbg text-white"
+                                            : "text-main hover:bg-mainbg hover:text-white"
+                                    }`}
+                                    onClick={() =>
+                                        setActiveFilter(filter.value)
+                                    }
+                                >
+                                    {filter.name}
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             </div>
             <hr className="border border-gray my-[30px] md:my-[0px]" />

@@ -14,6 +14,7 @@ import PreviewCategoryModalContent from "../../../Modals/Categories/PreviewCateg
 import MainButton from "../../../ui/buttons/MainButton";
 import AddCategoryModalContent from "../../../Modals/Categories/AddCategoryModalContant";
 import ScrollToTop from "../../../ui/ScrollToTop/ScrollToTop";
+import { deleteCategory } from "../../../../actions/categories.actions";
 
 const Categories = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -174,6 +175,11 @@ const Categories = () => {
                         onClose={() => {
                             setIsDeleteModalOpen(false);
                             setCurrentCategory(null);
+                        }}
+                        onAction={async () => {
+                            setIsDeleteModalOpen(false);
+                            await deleteCategory(currentCategory._id);
+                            dispatch(fetchCategories());
                         }}
                     />
                 </Modal>

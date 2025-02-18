@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import GlassIcon from "../../../../../assets/svg/glass.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../../../../store/slices/categories.slice";
@@ -7,11 +7,15 @@ import MainButton from "../../../../ui/buttons/MainButton";
 import SecondaryButton from "../../../../ui/buttons/SecondaryButton";
 import Title from "../../../../ui/Title";
 import Container from "./Container";
+import Modal from "../../../../Modals/Modal";
+import OrdersModalContent from "../../../../Modals/Orders/OrdersModalContent";
 
 const Products = () => {
     const { categories } = useSelector((state) => state.categories);
 
     const dispatch = useDispatch();
+
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -45,7 +49,12 @@ const Products = () => {
                                             <GlassIcon className="w-[32px] h-[23px] stroke-main group-hover:stroke-white cursor-pointer" />
                                         </SecondaryButton>
                                     </Link>
-                                    <MainButton bonusStyles="w-full">
+                                    <MainButton
+                                        bonusStyles="w-full"
+                                        onClose={() => {
+                                            setIsOrderModalOpen(true);
+                                        }}
+                                    >
                                         Замовити
                                     </MainButton>
                                 </div>
@@ -54,6 +63,13 @@ const Products = () => {
                     })}
                 </ul>
             </Container>
+            {isOrderModalOpen ? (
+                <Modal onClose={() => setIsOrderModalOpen(false)}>
+                    <OrdersModalContent
+                        onClose={() => setIsOrderModalOpen(false)}
+                    />
+                </Modal>
+            ) : null}
         </>
     );
 };
