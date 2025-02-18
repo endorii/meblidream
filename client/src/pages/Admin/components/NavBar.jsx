@@ -1,11 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import CallBookIcon from "../../../assets/svg/callbook.svg?react";
 import CategoriesIcon from "../../../assets/svg/categories.svg?react";
 import BurgerIcon from "../../../assets/svg/burger.svg?react";
 import LogoutIcon from "../../../assets/svg/logout.svg?react";
 import HomePageIcon from "../../../assets/svg/home.svg?react";
+import Modal from "../../Modals/Modal";
+import LogoutModal from "../../Modals/Logout/LogoutModal";
+import { useState } from "react";
 
 const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+    const navigate = useNavigate();
+
     return (
         <div
             className={`fixed z-[110] left-0 top-0 transition-all duration-300 h-[70px] w-full items-center md:h-[100vh] bg-white flex md:flex-col md:items-center justify-between md:justify-between gap-[20px] px-[20px] md:py-[30px] md:px-[0px] shadow-custom ${
@@ -152,13 +159,25 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
             </div>
             <div className="flex flex-col gap-[15px] items-center md:w-full">
                 <div className="flex justify-center w-[100%]">
-                    <Link to="/">
-                        <LogoutIcon
-                            className={`w-[40px] h-[40px] stroke-black p-[9px] bg-white rounded-xl hover:bg-mainbg hover:stroke-white hover:shadow-custom transition-colors duration-300 ease-in-out`}
-                        />
-                    </Link>
+                    <LogoutIcon
+                        className={`w-[40px] h-[40px] stroke-black p-[9px] bg-white rounded-xl hover:bg-mainbg hover:stroke-white hover:shadow-custom transition-colors duration-300 ease-in-out cursor-pointer`}
+                        onClick={() => setIsLogoutModalOpen(true)}
+                    />
                 </div>
             </div>
+            {isLogoutModalOpen ? (
+                <Modal onClose={() => setIsLogoutModalOpen(false)}>
+                    <LogoutModal
+                        onClose={() => setIsLogoutModalOpen(false)}
+                        onAction={async () => {
+                            setIsLogoutModalOpen(false);
+                            //Тимчасова заглушка
+                            navigate("/");
+                            //Логіка для логаута
+                        }}
+                    />
+                </Modal>
+            ) : null}
         </div>
     );
 };
