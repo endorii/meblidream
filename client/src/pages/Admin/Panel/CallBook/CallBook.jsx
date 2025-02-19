@@ -5,6 +5,7 @@ import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
 import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
 import { deleteOrder } from "../../../../actions/orders.actions";
+import { AnimatePresence, motion } from "motion/react";
 
 const CallBook = () => {
     const filters = [
@@ -63,7 +64,7 @@ const CallBook = () => {
                                     key={i}
                                     className="shadow-custom rounded-xl flex flex-col  basis-[45%] flex-1"
                                 >
-                                    <div className="text-white font-bold bg-main rounded-t-md text-center p-[10px] flex justify-center items-center">
+                                    <div className="text-white font-bold bg-mainbg rounded-t-md text-center h-[50px] p-[10px] flex justify-center items-center">
                                         №<span>{i + 1}</span>
                                     </div>
 
@@ -129,19 +130,29 @@ const CallBook = () => {
                     )}
                 </ul>
             </div>
-            {isModalOpen ? (
-                <Modal onClose={() => setIsModalOpen(false)}>
-                    <DeleteModalContent
-                        title={`замовлення від ${activeOrder.name}`}
-                        onClose={() => setIsModalOpen(false)}
-                        onAction={async () => {
-                            setIsModalOpen(false);
-                            await deleteOrder(activeOrder._id);
-                            dispatch(fetchOrders());
-                        }}
-                    />
-                </Modal>
-            ) : null}
+            <AnimatePresence mode="wait">
+                {isModalOpen ? (
+                    <Modal onClose={() => setIsModalOpen(false)}>
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, y: "-100vh" }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.4, y: "-100vh" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <DeleteModalContent
+                                title={`замовлення від ${activeOrder.name}`}
+                                onClose={() => setIsModalOpen(false)}
+                                onAction={async () => {
+                                    setIsModalOpen(false);
+                                    await deleteOrder(activeOrder._id);
+                                    dispatch(fetchOrders());
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
         </div>
     );
 };

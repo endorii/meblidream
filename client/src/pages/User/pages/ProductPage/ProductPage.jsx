@@ -3,6 +3,7 @@ import Modal from "../../../Modals/Modal";
 import OrdersModalContent from "../../../Modals/Orders/OrdersModalContent";
 import Container from "../WelcomePage/components/Container";
 import MainButton from "../../../ui/buttons/MainButton";
+import { AnimatePresence, motion } from "motion/react";
 
 const ProductPage = ({ category }) => {
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -16,10 +17,10 @@ const ProductPage = ({ category }) => {
     }
 
     return (
-        <div className="pt-[70px]">
+        <div>
             <div className="relative">
                 <img
-                    className="w-[100vw] h-[40vh] object-cover"
+                    className="w-[100vw] h-[60vh] object-cover"
                     src="https://colorit-mebel.od.ua/wp-content/uploads/2023/06/kuhni-na-zakaz-odessakuhnya-v-sovremennom-stile-1.jpg"
                     alt=""
                 />
@@ -68,13 +69,23 @@ const ProductPage = ({ category }) => {
                     </MainButton>
                 </div>
             </Container>
-            {isOrderModalOpen ? (
-                <Modal onClose={() => setIsOrderModalOpen(false)}>
-                    <OrdersModalContent
-                        onClose={() => setIsOrderModalOpen(false)}
-                    />
-                </Modal>
-            ) : null}
+            <AnimatePresence mode="wait">
+                {isOrderModalOpen ? (
+                    <Modal onClose={() => setIsOrderModalOpen(false)}>
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <OrdersModalContent
+                                onClose={() => setIsOrderModalOpen(false)}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
         </div>
     );
 };

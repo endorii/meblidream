@@ -7,6 +7,7 @@ import ScrollToTop from "../ui/ScrollToTop/ScrollToTop";
 import { useState } from "react";
 import Modal from "../Modals/Modal";
 import OrdersModalContent from "../Modals/Orders/OrdersModalContent";
+import { AnimatePresence, motion } from "motion/react";
 
 const Wrapper = () => {
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -22,13 +23,23 @@ const Wrapper = () => {
             <Request />
             <Footer setIsOrderModalOpen={setIsOrderModalOpen}></Footer>
 
-            {isOrderModalOpen ? (
-                <Modal onClose={() => setIsOrderModalOpen(false)}>
-                    <OrdersModalContent
-                        onClose={() => setIsOrderModalOpen(false)}
-                    />
-                </Modal>
-            ) : null}
+            <AnimatePresence mode="wait">
+                {isOrderModalOpen && (
+                    <Modal onClose={() => setIsOrderModalOpen(false)}>
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <OrdersModalContent
+                                onClose={() => setIsOrderModalOpen(false)}
+                            />
+                        </motion.div>
+                    </Modal>
+                )}
+            </AnimatePresence>
         </>
     );
 };

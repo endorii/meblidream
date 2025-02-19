@@ -15,6 +15,7 @@ import MainButton from "../../../ui/buttons/MainButton";
 import AddCategoryModalContent from "../../../Modals/Categories/AddCategoryModalContant";
 import ScrollToTop from "../../../ui/ScrollToTop/ScrollToTop";
 import { deleteCategory } from "../../../../actions/categories.actions";
+import { AnimatePresence, motion } from "motion/react";
 
 const Categories = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -61,7 +62,7 @@ const Categories = () => {
                                     key={i}
                                     className="shadow-custom rounded-xl flex flex-col basis-[45%] flex-1"
                                 >
-                                    <div className="text-white font-bold bg-main rounded-t-md text-center p-[10px] flex justify-center items-center">
+                                    <div className="text-white font-bold bg-mainbg rounded-t-md h-[50px] text-center p-[10px] flex justify-center items-center">
                                         №<span>{i + 1}</span>
                                     </div>
 
@@ -163,74 +164,117 @@ const Categories = () => {
                     )}
                 </ul>
             </div>
-            {isDeleteModalOpen ? (
-                <Modal
-                    onClose={() => {
-                        setIsDeleteModalOpen(false);
-                        setCurrentCategory(null);
-                    }}
-                >
-                    <DeleteModalContent
-                        title={`категорію ${currentCategory.displayName}`}
+            <AnimatePresence mode="wait">
+                {isDeleteModalOpen ? (
+                    <Modal
                         onClose={() => {
                             setIsDeleteModalOpen(false);
                             setCurrentCategory(null);
                         }}
-                        onAction={async () => {
-                            setIsDeleteModalOpen(false);
-                            await deleteCategory(currentCategory._id);
-                            dispatch(fetchCategories());
-                        }}
-                    />
-                </Modal>
-            ) : null}
-            {isEditModalOpen ? (
-                <Modal
-                    onClose={() => {
-                        setIsEditModalOpen(false);
-                        setCurrentCategory(null);
-                    }}
-                >
-                    <EditCategoryModalContent
-                        currentCategory={currentCategory}
+                    >
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <DeleteModalContent
+                                title={`категорію ${currentCategory.displayName}`}
+                                onClose={() => {
+                                    setIsDeleteModalOpen(false);
+                                    setCurrentCategory(null);
+                                }}
+                                onAction={async () => {
+                                    setIsDeleteModalOpen(false);
+                                    await deleteCategory(currentCategory._id);
+                                    dispatch(fetchCategories());
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+                {isEditModalOpen ? (
+                    <Modal
                         onClose={() => {
                             setIsEditModalOpen(false);
                             setCurrentCategory(null);
                         }}
-                    />
-                </Modal>
-            ) : null}
-            {isPreviewModalOpen ? (
-                <Modal
-                    onClose={() => {
-                        setIsPreviewModalOpen(false);
-                        setCurrentCategory(null);
-                    }}
-                >
-                    <PreviewCategoryModalContent
-                        currentCategory={currentCategory}
+                    >
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <EditCategoryModalContent
+                                currentCategory={currentCategory}
+                                onClose={() => {
+                                    setIsEditModalOpen(false);
+                                    setCurrentCategory(null);
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+                {isPreviewModalOpen ? (
+                    <Modal
                         onClose={() => {
                             setIsPreviewModalOpen(false);
                             setCurrentCategory(null);
                         }}
-                    />
-                </Modal>
-            ) : null}
-            {isAddModalOpen ? (
-                <Modal
-                    onClose={() => {
-                        setIsAddModalOpen(false);
-                        setCurrentCategory(null);
-                    }}
-                >
-                    <AddCategoryModalContent
+                    >
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <PreviewCategoryModalContent
+                                currentCategory={currentCategory}
+                                onClose={() => {
+                                    setIsPreviewModalOpen(false);
+                                    setCurrentCategory(null);
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+                {isAddModalOpen ? (
+                    <Modal
                         onClose={() => {
                             setIsAddModalOpen(false);
                             setCurrentCategory(null);
                         }}
-                    />
-                </Modal>
-            ) : null}
+                    >
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <AddCategoryModalContent
+                                onClose={() => {
+                                    setIsAddModalOpen(false);
+                                    setCurrentCategory(null);
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
         </div>
     );
 };
