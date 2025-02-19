@@ -12,11 +12,13 @@ const Gallery = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-    }, []);
+    }, [dispatch]);
 
-    if (categories.length > 0 && !currentCategory) {
-        setCurrentCategory(categories[0]);
-    }
+    useEffect(() => {
+        if (categories.length > 0) {
+            setCurrentCategory(categories[0]);
+        }
+    }, [categories]);
 
     return (
         <div className="pt-[70px]">
@@ -45,15 +47,18 @@ const Gallery = () => {
                         Що бажаєте переглянути?
                     </div>
                     <ul className="flex flex-wrap flex-1 gap-[10px] justify-center p-[20px]">
-                        {categories.map((category) => (
+                        {categories.map((category, i) => (
                             <li
-                                key={category.id}
-                                onClick={() => setCurrentCategory(category)}
-                                className={`basis-[250px] border-main border h-auto p-[15px_30px] rounded-xl text-main text-center text-[14px] sm:text-[18px] hover:text-white hover:bg-main cursor-pointer transition duration-300 ease-in-out ${
-                                    currentCategory?.id === category.id
-                                        ? "bg-main text-white"
-                                        : "bg-white"
-                                }`}
+                                key={i}
+                                className={`py-[10px] sm:py-[13px] px-[20px] border rounded-xl text-[15px] sm:text-[16px] cursor-pointer
+                        ${
+                            currentCategory === category
+                                ? "bg-mainbg text-white"
+                                : "text-main hover:bg-mainbg hover:text-white"
+                        }`}
+                                onClick={() => {
+                                    setCurrentCategory(category);
+                                }}
                             >
                                 {category.displayName}
                             </li>
@@ -67,20 +72,26 @@ const Gallery = () => {
                                 title={currentCategory.displayName}
                             />
                         )}
-
-                        <div
-                            className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
-                            style={{ columnGap: "20px" }}
-                        >
-                            {currentCategory?.images.map((image, index) => (
-                                <img
-                                    key={index}
-                                    className="w-full h-auto rounded-lg shadow-custom break-inside-avoid shadow-custom"
-                                    src={image}
-                                    alt={`Image ${index + 1}`}
-                                />
-                            ))}
-                        </div>
+                        {currentCategory?.images?.length > 0 ? (
+                            <div
+                                className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
+                                style={{ columnGap: "20px" }}
+                            >
+                                {currentCategory.images.map((image, index) => (
+                                    <img
+                                        key={index}
+                                        className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
+                                        src={image}
+                                        alt={`Image ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-[34px] text-center">
+                                Поки ще немає фотографій для цієї категорії, але
+                                вони обов&apos;язково з&apos;являться!
+                            </div>
+                        )}
                     </div>
                 </div>
             </Container>

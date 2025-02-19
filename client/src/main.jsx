@@ -21,10 +21,12 @@ import Panel from "./pages/Admin/Panel/Panel";
 import Welcome from "./pages/Admin/Panel/Welcome/Welcome";
 import CallBook from "./pages/Admin/Panel/CallBook/CallBook";
 import Categories from "./pages/Admin/Panel/Categories/Categories";
+import PageNotFound from "./pages/User/pages/404/PageNotFound";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<Wrapper />}>
                 <Route path="" element={<WelcomeContent />} />
                 <Route path="about" element={<About />} />
