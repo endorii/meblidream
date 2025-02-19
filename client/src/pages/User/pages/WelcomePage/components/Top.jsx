@@ -20,17 +20,17 @@ const Top = () => {
                     </div>
                 </div>
                 <Link to="/products/kukhni">
-                    <button className="absolute bottom-[27%] sm:bottom-[15%] right-[7%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                    <button className="absolute bottom-[27%] sm:bottom-[15%] right-[7%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transparent hover:text-black hover:bg-white transition duration-300 ease-in-out">
                         Замовити кухню
                     </button>
                 </Link>
                 <Link to="/products/shafy">
-                    <button className="absolute bottom-[37%] sm:bottom-[13%] right-[32%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                    <button className="absolute bottom-[37%] sm:bottom-[13%] right-[32%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transparent hover:text-black hover:bg-white transition duration-300 ease-in-out">
                         Замовити шафу
                     </button>
                 </Link>
                 <Link to="/products">
-                    <button className="absolute bottom-[12%] right-[63%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transperent hover:text-black hover:bg-white transition duration-300 ease-in-out">
+                    <button className="absolute bottom-[12%] right-[63%] border-2 border-white text-white text-[14px] sm:text-[16px] font-semibold rounded-xl p-[10px] sm:p-[15px] hover:border-transparent hover:text-black hover:bg-white transition duration-300 ease-in-out">
                         Замовити інші меблі
                     </button>
                 </Link>

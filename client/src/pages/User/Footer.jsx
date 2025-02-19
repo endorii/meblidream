@@ -98,7 +98,7 @@ const Footer = ({ setIsOrderModalOpen }) => {
                     </div>
                     <div>
                         <div className="mb-[15px] text-main font-bold text-[18px] uppercase">
-                            Графіки\контакти
+                            Графіки/контакти
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[7px]">
                             <li>
@@ -134,16 +134,16 @@ const Footer = ({ setIsOrderModalOpen }) => {
                             Наші соц. мережі
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-wrap items-start gap-[3px]">
-                            <li className="p-[10px] rounded-[50%] border border-transperent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                 <InstagramIcon className="fill-main w-[30px] " />
                             </li>
-                            <li className="p-[10px] rounded-[50%] border border-transperent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                 <TelegramIcon className="fill-main w-[30px] " />
                             </li>
-                            <li className="p-[10px] rounded-[50%] border border-transperent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                 <WhatsAppIcon className="fill-main w-[30px] " />
                             </li>
-                            <li className="p-[10px] rounded-[50%] border border-transperent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                 <FacebookIcon className="fill-main w-[30px] " />
                             </li>
                         </ul>

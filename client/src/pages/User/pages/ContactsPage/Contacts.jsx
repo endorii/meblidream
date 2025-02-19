@@ -33,32 +33,32 @@ const Contacts = () => {
                                 {contactNumbers.map((number, index) => (
                                     <li
                                         key={index}
-                                        className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out"
+                                        className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out"
                                     >
                                         <PhoneIcon className="w-[30px] fill-main" />
                                         {number}
                                     </li>
                                 ))}
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     <MailIcon className="w-[30px] stroke-main" />
                                     meblidream@i.com
                                 </li>
                             </ul>
 
                             <ul className="flex items-center flex-col flex-wrap gap-[10px]">
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Instagram
                                     <InstagramIcon className="w-[35px] fill-main" />
                                 </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Facebook
                                     <InstagramIcon className="w-[35px] fill-main" />
                                 </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Telegram
                                     <InstagramIcon className="w-[35px] fill-main" />
                                 </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transperent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     WhatsApp
                                     <InstagramIcon className="w-[35px] fill-main" />
                                 </li>
