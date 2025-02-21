@@ -42,19 +42,26 @@ const ProductPage = ({ category }) => {
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <div
-                            className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
-                            style={{ columnGap: "20px" }}
-                        >
-                            {category.images.map((image, index) => (
-                                <img
+                        {category.images.length > 0 ? (
+                            category.images.map((image, index) => (
+                                <div
                                     key={index}
-                                    className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                    src={image}
-                                    alt={`Image ${index + 1}`}
-                                />
-                            ))}
-                        </div>
+                                    className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
+                                    style={{ columnGap: "20px" }}
+                                >
+                                    <img
+                                        className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
+                                        src={image}
+                                        alt={`Image ${index + 1}`}
+                                    />
+                                </div>
+                            ))
+                        ) : (
+                            <div className="text-[34px] text-center">
+                                Поки ще немає фотографій для цієї категорії, але
+                                вони обов&apos;язково з&apos;являться!
+                            </div>
+                        )}
                     </div>
                     <div className=" text-[20px] lg:text-[24px] text-center font-[200] m-[50px_20px] sm:m-[100px]">
                         {category.filling.description}

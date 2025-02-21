@@ -48,8 +48,8 @@ const OrderModalForm = ({ onClose }) => {
                 className="flex flex-col gap-[20px] mt-[10px] sm:mt-[30px] bg-white"
                 action=""
             >
-                <div className="flex flex-col gap-[15px]">
-                    <div className="flex flex-col gap-[5px]">
+                <div className="flex flex-col gap-[30px]">
+                    <div className="flex flex-col">
                         <label
                             className="text-[14px] sm:text-[16px] font-semibold"
                             htmlFor="orderName"
@@ -57,7 +57,7 @@ const OrderModalForm = ({ onClose }) => {
                             Ім&apos;я та прізвище:
                         </label>
                         <input
-                            className="p-[10px] border-b border-darkgray h-[50px] w-full outline-none text-[16px] md:text-[18px]"
+                            className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                             type="text"
                             id="orderName"
                             name="orderName"
@@ -69,7 +69,7 @@ const OrderModalForm = ({ onClose }) => {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-[10px]">
+                    <div className="flex flex-col">
                         <label
                             className="text-[14px] sm:text-[16px] font-semibold"
                             htmlFor="orderPhone"
@@ -77,7 +77,7 @@ const OrderModalForm = ({ onClose }) => {
                             Номер телефону:
                         </label>
                         <input
-                            className="p-[10px] border-b border-darkgray h-[50px] w-full outline-none text-[16px] md:text-[18px]"
+                            className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                             type="tel"
                             id="orderPhone"
                             name="orderPhone"
@@ -90,7 +90,7 @@ const OrderModalForm = ({ onClose }) => {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-[10px]">
+                    <div className="flex flex-col">
                         <label
                             className="text-[14px] sm:text-[16px] font-semibold"
                             htmlFor="orderMessage"
@@ -98,7 +98,7 @@ const OrderModalForm = ({ onClose }) => {
                             Повідомлення:
                         </label>
                         <textarea
-                            className="p-[10px] border-b border-darkgray h-[70px] outline-none text-[16px] md:text-[18px]"
+                            className="p-[10px] border-b border-darkgray/20 focus:border-main h-[70px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                             id="orderMessage"
                             name="orderMessage"
                             rows="4"

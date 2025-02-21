@@ -9,6 +9,7 @@ import Title from "../../../../ui/Title";
 import Container from "./Container";
 import Modal from "../../../../Modals/Modal";
 import OrdersModalContent from "../../../../Modals/Orders/OrdersModalContent";
+import { AnimatePresence, motion } from "motion/react";
 
 const Products = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -63,13 +64,23 @@ const Products = () => {
                     })}
                 </ul>
             </Container>
-            {isOrderModalOpen ? (
-                <Modal onClose={() => setIsOrderModalOpen(false)}>
-                    <OrdersModalContent
-                        onClose={() => setIsOrderModalOpen(false)}
-                    />
-                </Modal>
-            ) : null}
+            <AnimatePresence mode="wait">
+                {isOrderModalOpen ? (
+                    <Modal onClose={() => setIsOrderModalOpen(false)}>
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <OrdersModalContent
+                                onClose={() => setIsOrderModalOpen(false)}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
         </>
     );
 };

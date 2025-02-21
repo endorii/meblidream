@@ -46,15 +46,14 @@ const AddCategoryModalContent = ({ onClose }) => {
                     </div>
                 </div>
                 <div className="flex justify-between flex-col md:flex-row">
-                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
-                        <div>
+                    <div className="w-full md:w-[45%] flex flex-col gap-[30px]">
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Відображувана назва
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                placeholder="Введіть назву"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 onChange={(e) =>
                                     handleChange(e.target.value, setDisplayName)
                                 }
@@ -62,14 +61,13 @@ const AddCategoryModalContent = ({ onClose }) => {
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Шлях
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                placeholder="Введіть шлях"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 onChange={(e) =>
                                     handleChange(e.target.value, setPathName)
                                 }
@@ -78,15 +76,14 @@ const AddCategoryModalContent = ({ onClose }) => {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
-                        <div>
+                    <div className="w-full md:w-[45%] flex flex-col gap-[30px]">
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Заголовок
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                placeholder="Введіть заголовок"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 onChange={(e) =>
                                     handleChange(e.target.value, setTitle)
                                 }
@@ -94,14 +91,13 @@ const AddCategoryModalContent = ({ onClose }) => {
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Підзаголовок
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
-                                placeholder="Введіть підзаголовок"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 onChange={(e) =>
                                     handleChange(e.target.value, setSubtitle)
                                 }
@@ -109,13 +105,12 @@ const AddCategoryModalContent = ({ onClose }) => {
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Опис
                             </label>
                             <textarea
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[150px] transition duration-300 ease-in-out"
-                                placeholder="Введіть опис"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[100px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 onChange={(e) =>
                                     handleChange(e.target.value, setDescription)
                                 }

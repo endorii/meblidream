@@ -20,59 +20,59 @@ const EditCategoryModalContent = ({ onClose, currentCategory }) => {
                     </div>
                 </div>
                 <div className="flex justify-between flex-col md:flex-row">
-                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
-                        <div>
+                    <div className="w-full md:w-[45%] flex flex-col gap-[30px]">
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Відображувана назва
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.displayName}
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Шлях
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.pathName}
                             />
                         </div>
                     </div>
 
-                    <div className="w-full md:w-[45%] flex flex-col gap-[25px]">
-                        <div>
+                    <div className="w-full md:w-[45%] flex flex-col gap-[30px]">
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Заголовок
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.filling.title}
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Підзаголовок
                             </label>
                             <input
                                 type="text"
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[60px] transition duration-300 ease-in-out"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[50px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 defaultValue={currentCategory.filling.subtitle}
                             />
                         </div>
 
-                        <div>
+                        <div className="flex flex-col">
                             <label className="text-[17px] font-bold">
                                 Опис
                             </label>
                             <textarea
-                                className="border-b-2 text-[16px] md:text-[20px] outline-none focus:border-main border-gray p-2 w-full h-[150px] transition duration-300 ease-in-out"
+                                className="p-[10px] border-b border-darkgray/20 focus:border-main h-[100px] outline-none text-[16px] md:text-[18px] transition duration-300 ease-in-out"
                                 defaultValue={
                                     currentCategory.filling.description
                                 }
