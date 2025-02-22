@@ -1,7 +1,8 @@
-import Trash from "../../../../assets/svg/trash.svg?react";
-import Edit from "../../../../assets/svg/edit.svg?react";
-import View from "../../../../assets/svg/view.svg?react";
-import Plus from "../../../../assets/svg/plus.svg?react";
+import TrashIcon from "../../../../assets/svg/trash.svg?react";
+import EditIcon from "../../../../assets/svg/edit.svg?react";
+import ViewIcon from "../../../../assets/svg/view.svg?react";
+import PlusIcon from "../../../../assets/svg/plus.svg?react";
+import EditImageIcon from "../../../../assets/svg/image.svg?react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -16,6 +17,7 @@ import AddCategoryModalContent from "../../../Modals/Categories/AddCategoryModal
 import ScrollToTop from "../../../ui/ScrollToTop/ScrollToTop";
 import { deleteCategory } from "../../../../actions/categories.actions";
 import { AnimatePresence, motion } from "motion/react";
+import CategoryImagesModal from "../../../Modals/Categories/CategoryImagesModal";
 
 const Categories = () => {
     const { categories } = useSelector((state) => state.categories);
@@ -28,6 +30,8 @@ const Categories = () => {
     const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [isCategoryImagesModalOpen, setIsCategoryImagesModalOpen] =
+        useState(false);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -48,7 +52,7 @@ const Categories = () => {
                         }}
                     >
                         Додати категорію
-                        <Plus className="w-[25px] stroke-white group-hover:stroke-main transition-colors duration-300" />
+                        <PlusIcon className="w-[25px] stroke-white group-hover:stroke-main transition-colors duration-300" />
                     </MainButton>
                 </div>
             </div>
@@ -135,7 +139,18 @@ const Categories = () => {
                                                 setIsEditModalOpen(true);
                                             }}
                                         >
-                                            <Edit className="stroke-main w-[27px]" />
+                                            <EditIcon className="stroke-main w-[27px]" />
+                                        </button>
+                                        <button
+                                            className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
+                                            onClick={() => {
+                                                setCurrentCategory(category);
+                                                setIsCategoryImagesModalOpen(
+                                                    true
+                                                );
+                                            }}
+                                        >
+                                            <EditImageIcon className="stroke-main w-[32px]" />
                                         </button>
                                         <button
                                             className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
@@ -144,7 +159,7 @@ const Categories = () => {
                                                 setIsPreviewModalOpen(true);
                                             }}
                                         >
-                                            <View className="fill-main w-[27px]" />
+                                            <ViewIcon className="fill-main w-[27px]" />
                                         </button>
                                         <button
                                             className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
@@ -153,7 +168,7 @@ const Categories = () => {
                                                 setIsDeleteModalOpen(true);
                                             }}
                                         >
-                                            <Trash className="stroke-main w-[27px]" />
+                                            <TrashIcon className="stroke-main w-[27px]" />
                                         </button>
                                     </div>
                                 </li>
@@ -268,6 +283,33 @@ const Categories = () => {
                             <AddCategoryModalContent
                                 onClose={() => {
                                     setIsAddModalOpen(false);
+                                    setCurrentCategory(null);
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                ) : null}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+                {isCategoryImagesModalOpen ? (
+                    <Modal
+                        onClose={() => {
+                            setIsCategoryImagesModalOpen(false);
+                            setCurrentCategory(null);
+                        }}
+                    >
+                        <motion.div
+                            key="category-images-modal"
+                            initial={{ scale: 0.4, x: "-100vw" }}
+                            animate={{ scale: 1, x: 0 }}
+                            exit={{ scale: 0.4, x: "-100vw" }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <CategoryImagesModal
+                                currentCategory={currentCategory}
+                                onClose={() => {
+                                    setIsCategoryImagesModalOpen(false);
                                     setCurrentCategory(null);
                                 }}
                             />

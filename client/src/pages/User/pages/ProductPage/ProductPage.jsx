@@ -32,7 +32,7 @@ const ProductPage = ({ category }) => {
             </div>
             <Container>
                 <div className="flex flex-col">
-                    <div className="text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
+                    <div className="text-center w-full p-[30px] md:p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
                         <div className="text-4xl lg:text-5xl xl:text-[70px] font-medium leading-tight">
                             {category.filling.title}
                         </div>
@@ -41,27 +41,29 @@ const ProductPage = ({ category }) => {
                             {category.filling.subtitle}
                         </div>
                     </div>
-                    <div className="flex justify-center">
-                        {category.images.length > 0 ? (
-                            category.images.map((image, index) => (
+                    <div className="flex flex-col">
+                        <div>
+                            {category.images.length > 0 ? (
                                 <div
-                                    key={index}
                                     className="columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4"
-                                    style={{ columnGap: "20px" }}
+                                    style={{ columnGap: "15px" }}
                                 >
-                                    <img
-                                        className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                        src={image}
-                                        alt={`Image ${index + 1}`}
-                                    />
+                                    {category.images.map((image, index) => (
+                                        <img
+                                            key={index}
+                                            className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
+                                            src={image}
+                                            alt={`Image ${index + 1}`}
+                                        />
+                                    ))}
                                 </div>
-                            ))
-                        ) : (
-                            <div className="text-[34px] text-center">
-                                Поки ще немає фотографій для цієї категорії, але
-                                вони обов&apos;язково з&apos;являться!
-                            </div>
-                        )}
+                            ) : (
+                                <div className="text-[34px] text-center">
+                                    Поки ще немає фотографій для цієї категорії,
+                                    але вони обов&apos;язково з&apos;являться!
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className=" text-[20px] lg:text-[24px] text-center font-[200] m-[50px_20px] sm:m-[100px]">
                         {category.filling.description}

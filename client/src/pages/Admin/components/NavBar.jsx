@@ -1,14 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-// Іконки
 import CallBookIcon from "../../../assets/svg/callbook.svg?react";
 import CategoriesIcon from "../../../assets/svg/categories.svg?react";
 import BurgerIcon from "../../../assets/svg/burger.svg?react";
 import LogoutIcon from "../../../assets/svg/logout.svg?react";
 import HomePageIcon from "../../../assets/svg/home.svg?react";
 
-// Компоненти
 import Modal from "../../Modals/Modal";
 import LogoutModal from "../../Modals/Logout/LogoutModal";
 import { AnimatePresence, motion } from "motion/react";
