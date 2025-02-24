@@ -8,12 +8,14 @@ import { useState } from "react";
 import Modal from "../Modals/Modal";
 import OrdersModalContent from "../Modals/Orders/OrdersModalContent";
 import { AnimatePresence, motion } from "motion/react";
+import { Toaster } from "react-hot-toast";
 
 const Wrapper = () => {
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
     return (
         <>
+            <Toaster position="bottom-right" reverseOrder={false} />
             <Header setIsOrderModalOpen={setIsOrderModalOpen}></Header>
             <Loader />
             <ScrollToTop />

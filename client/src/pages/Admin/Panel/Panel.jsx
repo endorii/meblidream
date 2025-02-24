@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import { useState } from "react";
 import Loader from "../../ui/Loader/Loader";
 import ScrollToTop from "../../ui/ScrollToTop/ScrollToTop";
+import { Toaster } from "react-hot-toast";
 
 const Panel = () => {
     const [panelIsOpen, setPanelIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const Panel = () => {
 
     return (
         <div className="relative h-[100vh]">
+            <Toaster position="bottom-right" reverseOrder={false} />
             <Loader />
             <ScrollToTop />
             <NavBar panelIsOpen={panelIsOpen} setPanelIsOpen={setPanelIsOpen} />

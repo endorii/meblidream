@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const getCategories = async () => {
     try {
@@ -20,10 +21,11 @@ export const addCategory = async (displayName, pathName, title, subtitle, descri
                 description,
             },
         });
-
+        toast.success("Категорію успішно додано!");
         return response.data;
     } catch (e) {
-        console.log(e.response.data.message);
+        toast.error("Помилка при додаванні категорії");
+        throw e;
     }
 };
 
@@ -45,20 +47,21 @@ export const editCategory = async (
                 description,
             },
         });
-        console.log(response.data);
-
+        toast.success("Категорію успішно відредаговано!");
         return response.data;
     } catch (e) {
-        console.log(e.response.data.message);
+        toast.error("Помилка при редагуванні категорії");
+        throw e;
     }
 };
 
 export const deleteCategory = async (categoryId) => {
     try {
         const response = await axios.delete(`http://localhost:5000/api/categories/${categoryId}`);
-
+        toast.success("Категорію успішно видалено!");
         return response.data;
     } catch (e) {
-        console.log(e.response.data.message);
+        toast.error("Помилка при видаленні категорії");
+        throw e;
     }
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const getOrders = async () => {
     try {
@@ -18,19 +19,21 @@ export const addOrder = async (theme, name, phone, message) => {
             phone,
             message,
         });
-
+        toast.success("Замовлення успішно додано!");
         return response.data;
     } catch (e) {
-        console.log(e.response.data.message);
+        toast.error("Помилка при додаванні замовлення");
+        throw e;
     }
 };
 
 export const deleteOrder = async (orderId) => {
     try {
         const response = await axios.delete(`http://localhost:5000/api/orders/${orderId}`);
-
+        toast.success("Замовлення успішно видалено!");
         return response.data;
     } catch (e) {
-        console.log(e.response.data.message);
+        toast.error("Помилка при видаленні категорії");
+        throw e;
     }
 };
