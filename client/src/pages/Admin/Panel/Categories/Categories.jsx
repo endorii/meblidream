@@ -35,7 +35,7 @@ const Categories = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>
@@ -126,6 +126,20 @@ const Categories = () => {
                                                 <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
                                                     {" " +
                                                         category.images.length}
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                                <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                    Востаннє редаговано
+                                                </div>
+                                                <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                    {`${category.updatedAt.slice(
+                                                        0,
+                                                        10
+                                                    )} / ${category.updatedAt.slice(
+                                                        11,
+                                                        19
+                                                    )}`}
                                                 </div>
                                             </div>
                                         </div>

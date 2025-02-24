@@ -20,7 +20,6 @@ router.post("/categories", async (req, res) => {
             displayName,
             pathName,
             filling: { title, subtitle, description },
-            images,
         } = req.body;
 
         const newCategory = new Category({
@@ -31,7 +30,6 @@ router.post("/categories", async (req, res) => {
                 subtitle,
                 description,
             },
-            images,
         });
 
         await newCategory.save();
@@ -39,6 +37,28 @@ router.post("/categories", async (req, res) => {
         return res.json({ message: "Категорію додано" });
     } catch (e) {
         res.send({ message: "Server error" });
+    }
+});
+
+router.put("/categories/:categoryId", async (req, res) => {
+    try {
+        const { categoryId } = req.params;
+        const { displayName, pathName, filling } = req.body;
+
+        const updatedCategory = await Category.findByIdAndUpdate(categoryId, {
+            displayName,
+            pathName,
+            filling,
+        });
+
+        if (!updatedCategory) {
+            return res.status(404).json({ message: "Категорію не знайдено" });
+        }
+
+        return res.json({ message: "Категорію оновлено" });
+    } catch (e) {
+        console.error("Помилка оновлення категорії:", e);
+        res.status(500).json({ message: "Server error" });
     }
 });
 

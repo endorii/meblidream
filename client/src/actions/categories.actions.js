@@ -27,6 +27,32 @@ export const addCategory = async (displayName, pathName, title, subtitle, descri
     }
 };
 
+export const editCategory = async (
+    categoryId,
+    displayName,
+    pathName,
+    title,
+    subtitle,
+    description
+) => {
+    try {
+        const response = await axios.put(`http://localhost:5000/api/categories/${categoryId}`, {
+            displayName,
+            pathName,
+            filling: {
+                title,
+                subtitle,
+                description,
+            },
+        });
+        console.log(response.data);
+
+        return response.data;
+    } catch (e) {
+        console.log(e.response.data.message);
+    }
+};
+
 export const deleteCategory = async (categoryId) => {
     try {
         const response = await axios.delete(`http://localhost:5000/api/categories/${categoryId}`);
