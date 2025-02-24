@@ -16,27 +16,23 @@ router.get("/categories", async (req, res) => {
 
 router.post("/categories", async (req, res) => {
     try {
-        const {
-            displayName,
-            pathName,
-            filling: { title, subtitle, description },
-        } = req.body;
+        const { displayName, pathName, filling } = req.body;
+
+        if (!displayName || !pathName) {
+            return res.status(400).json({ message: "Всі обов'язкові поля повинні бути заповнені" });
+        }
 
         const newCategory = new Category({
             displayName,
             pathName,
-            filling: {
-                title,
-                subtitle,
-                description,
-            },
+            filling,
+            images: [],
         });
 
         await newCategory.save();
-
         return res.json({ message: "Категорію додано" });
     } catch (e) {
-        res.send({ message: "Server error" });
+        res.status(500).send({ message: "Server error", error: e.message });
     }
 });
 

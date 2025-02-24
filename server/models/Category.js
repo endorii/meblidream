@@ -13,21 +13,21 @@ const Category = new Schema(
         filling: {
             title: {
                 type: String,
-                required: true,
+                required: false,
             },
             subtitle: {
                 type: String,
-                required: true,
+                required: false,
             },
             description: {
                 type: String,
-                required: true,
+                required: false,
             },
         },
         images: [
             {
                 type: String,
-                required: true,
+                required: false,
             },
         ],
     },

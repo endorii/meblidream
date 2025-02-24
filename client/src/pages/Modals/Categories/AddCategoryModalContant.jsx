@@ -15,16 +15,20 @@ const AddCategoryModalContent = ({ onClose }) => {
     } = useForm({ mode: "onTouched" });
 
     const onSubmit = async (data) => {
-        await addCategory(
-            data.displayName,
-            data.pathName,
-            data.title,
-            data.subtitle,
-            data.description
-        );
-        dispatch(fetchCategories());
-        onClose();
-        reset();
+        try {
+            await addCategory(
+                data.displayName,
+                data.pathName,
+                data.title,
+                data.subtitle,
+                data.description
+            );
+            dispatch(fetchCategories());
+            onClose();
+            reset();
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     return (
