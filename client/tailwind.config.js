@@ -26,6 +26,7 @@ export default {
                 light: "#F6F4F9",
                 lightgray: "#9c9c9c",
                 lightmain: "#3453b7",
+                red: "#fb2c36",
             },
         },
     },
