@@ -10,10 +10,15 @@ import HomePageIcon from "../../../assets/svg/home.svg?react";
 import Modal from "../../Modals/Modal";
 import LogoutModal from "../../Modals/Logout/LogoutModal";
 import { AnimatePresence, motion } from "motion/react";
+import { logout } from "../../../store/slices/user.slice";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const pages = [
         { path: "", name: "Головна", Icon: HomePageIcon },
@@ -105,9 +110,11 @@ const NavBar = ({ panelIsOpen, setPanelIsOpen }) => {
                         >
                             <LogoutModal
                                 onClose={() => setIsLogoutModalOpen(false)}
-                                onAction={async () => {
+                                onAction={() => {
                                     setIsLogoutModalOpen(false);
-                                    navigate("/");
+                                    toast.success("Ви вийшли з акаунту");
+                                    dispatch(logout());
+                                    navigate("/admin/login");
                                 }}
                             />
                         </motion.div>

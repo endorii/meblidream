@@ -7,6 +7,7 @@ import OrdersChart from "../../components/OrdersChart";
 import MainButton from "../../../ui/buttons/MainButton";
 
 const Welcome = () => {
+    const { user } = useSelector((state) => state.user);
     const { orders } = useSelector((state) => state.orders);
     const dispatch = useDispatch();
 
@@ -27,7 +28,8 @@ const Welcome = () => {
                     <div className="relative flex flex-1 bg-white shadow-custom rounded-xl p-[50px] md:w-[50%]">
                         <div className="flex flex-col gap-[5px]">
                             <div className="text-[26px] text-darkblue font-bold">
-                                Вітаю в адмін панелі
+                                Вітаю в адмін панелі{" "}
+                                <span className="text-main">{user.name}</span>
                             </div>
                             <div className="text-[18px] text-darkgray">
                                 у вас{" "}

@@ -1,9 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../ui/Loader/Loader";
 import ScrollToTop from "../../ui/ScrollToTop/ScrollToTop";
 import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { auth } from "../../../actions/auth.actions";
 
 const Panel = () => {
     const [panelIsOpen, setPanelIsOpen] = useState(false);
@@ -11,6 +13,22 @@ const Panel = () => {
     const handleClosePanel = () => {
         setPanelIsOpen(false);
     };
+
+    const token = localStorage.getItem("accessToken");
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(auth());
+    }, []);
+
+    useEffect(() => {
+        if (!token) {
+            navigate("/admin/login");
+        }
+    }, [token]);
 
     return (
         <div className="relative h-[100vh]">
