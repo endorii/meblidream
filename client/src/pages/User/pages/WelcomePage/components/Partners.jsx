@@ -1,43 +1,45 @@
 import Container from "./Container";
-import Alta from "../../../../../assets/img/logo_alta.png";
-import Madot from "../../../../../assets/img/logo_madot.png";
-import Velam from "../../../../../assets/img/logo_velam.png";
-import Viyar from "../../../../../assets/img/logo_viyar.png";
+import KronospanLogo from "../../../../../assets/img/partners/kronospan.png";
+import AgtLogo from "../../../../../assets/img/partners/agt.png";
+import AlvicLogo from "../../../../../assets/img/partners/alvic.png";
+import BlumLogo from "../../../../../assets/img/partners/blum.svg";
+import EggerLogo from "../../../../../assets/img/partners/egger.png";
+import GtvLogo from "../../../../../assets/img/partners/gtv.png";
+import HettichLogo from "../../../../../assets/img/partners/hettich.svg";
+import LuxformLogo from "../../../../../assets/img/partners/luxform.png";
+import SwisspanLogo from "../../../../../assets/img/partners/swisspan.jpg";
+import TitleCentered from "../../../../ui/TitleCentered";
 
 const Partners = () => {
+    const partners = [
+        KronospanLogo,
+        AgtLogo,
+        AlvicLogo,
+        BlumLogo,
+        EggerLogo,
+        GtvLogo,
+        HettichLogo,
+        LuxformLogo,
+        SwisspanLogo,
+    ];
+
     return (
         <>
             <Container>
-                <div className="flex items-center justify-between">
-                    <hr className="w-[30%] border text-darkblue" />
-                    <h2 className="text-[70px] text-center uppercase font-semibold text-darkblue tracking-[1px] my-[50px]">
-                        Наші партнери
-                    </h2>
-                    <hr className="w-[30%] border text-darkblue" />
-                </div>
-                <div className="flex gap-[8%] justify-center items-center m-[30px]">
-                    <img
-                        className="h-[100px] w-[230px] grayscale hover:grayscale-0 cursor-pointer object-contain transition duration-300 ease-in-out"
-                        src={Alta}
-                        alt=""
-                    />
-                    <img
-                        className="h-[100px] w-[230px] grayscale hover:grayscale-0 cursor-pointer object-contain transition duration-300 ease-in-out"
-                        src={Madot}
-                        alt=""
-                    />
-                    <img
-                        className="h-[100px] w-[230px] grayscale hover:grayscale-0 cursor-pointer object-contain transition duration-300 ease-in-out"
-                        src={Velam}
-                        alt=""
-                    />
-                    <img
-                        className="h-[100px] w-[230px] grayscale hover:grayscale-0 cursor-pointer object-contain transition duration-300 ease-in-out"
-                        src={Viyar}
-                        alt=""
-                    />
-                </div>
+                <TitleCentered title={"Наші партнери"} />
             </Container>
+            <div className="relative w-full overflow-hidden">
+                <div className="flex w-max animate-scroll-left gap-[100px]">
+                    {[...partners, ...partners].map((partner, i) => (
+                        <img
+                            key={i}
+                            className="h-[45px] md:h-[90px] w-[150px] md:w-[230px] grayscale hover:grayscale-0 cursor-pointer object-contain transition duration-300 ease-in-out"
+                            src={partner}
+                            alt="partner logo"
+                        />
+                    ))}
+                </div>
+            </div>
         </>
     );
 };

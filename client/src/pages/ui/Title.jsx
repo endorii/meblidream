@@ -4,7 +4,7 @@ const Title = ({ title }) => {
             <h2 className="text-center text-[35px] sm:text-[50px] sm:text-left lg:text-[70px] uppercase font-semibold text-darkblue tracking-[1px] my-[40px] lg:my-[80px]">
                 {title}
             </h2>
-            <hr className=" w-[30%] border text-darkblue" />
+            <hr className=" w-[30%] border text-darkblue mb-[30px]" />
         </div>
     );
 };

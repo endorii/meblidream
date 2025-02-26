@@ -4,6 +4,15 @@ export default {
     theme: {
         colors: {},
         extend: {
+            keyframes: {
+                scrollLeft: {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(-50%)" },
+                },
+            },
+            animation: {
+                "scroll-left": "scrollLeft 45s linear infinite",
+            },
             boxShadow: {
                 custom: "0px 5px 220px -1px rgba(30,64,175,0.10);",
             },

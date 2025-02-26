@@ -32,7 +32,7 @@ const AdvantageItem = ({ title, subtitle, img, reverse }) => {
                 reverse ? "xl:flex-row-reverse" : "xl:flex-row"
             }`}
         >
-            <div className="w-full xl:w-[50%] p-[30px]">
+            <div className="w-full xl:w-[50%]">
                 <h3 className="text-[30px] sm:text-[35px] xl:text-[40px] font-bold uppercase text-main">
                     {title}
                 </h3>
@@ -55,7 +55,7 @@ const Advantages = () => {
         <div>
             <Container>
                 <Title title={"Чому варто обрати нас?"} />
-                <div className="mt-[50px] flex flex-col gap-[15px]">
+                <div className="flex flex-col gap-[55px] p-[10px]">
                     {content.map((adv, index) => (
                         <AdvantageItem
                             key={index}
