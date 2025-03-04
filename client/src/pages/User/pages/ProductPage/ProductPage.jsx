@@ -21,7 +21,9 @@ const ProductPage = ({ category }) => {
             <div className="relative">
                 <img
                     className="w-[100vw] h-[60vh] object-cover"
-                    src="https://colorit-mebel.od.ua/wp-content/uploads/2023/06/kuhni-na-zakaz-odessakuhnya-v-sovremennom-stile-1.jpg"
+                    src={`http://localhost:5000${
+                        category.images[category.images.length - 1]
+                    }`}
                     alt=""
                 />
                 <div className="absolute top-0 text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
@@ -52,7 +54,7 @@ const ProductPage = ({ category }) => {
                                         <img
                                             key={index}
                                             className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                            src={image}
+                                            src={`http://localhost:5000${image}`}
                                             alt={`Image ${index + 1}`}
                                         />
                                     ))}

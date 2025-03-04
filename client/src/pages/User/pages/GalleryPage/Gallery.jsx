@@ -81,7 +81,7 @@ const Gallery = () => {
                                     <img
                                         key={index}
                                         className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                        src={image}
+                                        src={`http://localhost:5000${image}`}
                                         alt={`Image ${index + 1}`}
                                     />
                                 ))}

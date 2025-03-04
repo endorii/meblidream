@@ -31,7 +31,6 @@ export const auth = () => {
             localStorage.setItem("accessToken", response.data.accessToken);
         } catch (e) {
             console.log(e.response.data.message);
-
             localStorage.removeItem("accessToken");
         }
     };
