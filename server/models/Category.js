@@ -24,6 +24,14 @@ const Category = new Schema(
                 required: false,
             },
         },
+        previewImage: {
+            type: String,
+            required: false,
+        },
+        bgImage: {
+            type: String,
+            required: false,
+        },
         images: [
             {
                 type: String,
