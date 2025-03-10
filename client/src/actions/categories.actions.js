@@ -10,6 +10,15 @@ export const getCategories = async () => {
     }
 };
 
+export const getCategory = async (categoryId) => {
+    try {
+        const response = await axios.get(`http://localhost:5000/api/categories/${categoryId}`);
+        return response.data.category;
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 export const addCategory = async (displayName, pathName, title, subtitle, description) => {
     try {
         const response = await axios.post(`http://localhost:5000/api/categories`, {

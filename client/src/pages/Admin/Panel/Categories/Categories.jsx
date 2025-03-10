@@ -322,6 +322,7 @@ const Categories = () => {
                         >
                             <CategoryImagesModal
                                 currentCategory={currentCategory}
+                                setCurrentCategory={setCurrentCategory}
                                 onClose={() => {
                                     setIsCategoryImagesModalOpen(false);
                                     setCurrentCategory(null);

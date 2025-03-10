@@ -1,12 +1,9 @@
 import Container from "../WelcomePage/components/Container";
 import InstagramIcon from "../../../../assets/svg/instagram.svg?react";
-// import TelegramIcon from "../../../../assets/svg/telegram.svg?react";
-// import FacebookIcon from "../../../../assets/svg/facebook.svg?react";
-// import WhatsappIcon from "../../../../assets/svg/whatsapp.svg?react";
+import TelegramIcon from "../../../../assets/svg/telegram.svg?react";
+import FacebookIcon from "../../../../assets/svg/facebook.svg?react";
 import PhoneIcon from "../../../../assets/svg/phone.svg?react";
 import MailIcon from "../../../../assets/svg/mail.svg?react";
-
-const contactNumbers = ["+380 99 443 12 80", "+380 99 443 12 80"];
 
 const Contacts = () => {
     return (
@@ -23,44 +20,60 @@ const Contacts = () => {
                 </div>
 
                 <div className="flex justify-center mt-[30px]">
-                    <div className="shadow-custom rounded-xl p-[30px] sm:p-[50px] flex flex-col gap-6 w-[95%] md:w-[85%] lg:w-[60%] 2xl:w-[50%]">
+                    <div className="shadow-custom rounded-xl p-[30px] sm:p-[50px] flex flex-col gap-6 w-[95%] md:w-[90%] lg:w-[70%] 2xl:w-[50%]">
                         <h3 className="text-[34px] text-center font-semibold text-main uppercase">
                             Контактна інформація
                         </h3>
 
                         <div className="flex flex-col md:flex-row gap-[40px] md:gap-[50px] justify-center items-center">
-                            <ul className="text-2xl flex flex-col gap-[10px] pb-[30px] md:pr-[50px] border-b-2 md:border-r-2 md:border-b-0 border-main border-dashed">
-                                {contactNumbers.map((number, index) => (
-                                    <li
-                                        key={index}
-                                        className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out"
+                            <ul className="text-2xl flex flex-col gap-[5px] pb-[15px] md:pr-[50px] border-b-2 md:border-r-2 md:border-b-0 border-main border-dashed">
+                                <li className="text-black text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                    <a
+                                        href="tel:+380994431280"
+                                        className="flex gap-[5px] items-center"
                                     >
-                                        <PhoneIcon className="w-[30px] fill-main" />
-                                        {number}
-                                    </li>
-                                ))}
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    <MailIcon className="w-[30px] stroke-main" />
-                                    meblidream@i.com
+                                        <PhoneIcon className="w-[25px] fill-main" />
+                                        +380 99 443 12 80
+                                    </a>
+                                </li>
+                                <li className="text-black text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                    <a
+                                        href="mailto:meblidream@i.ua"
+                                        className="flex gap-[5px] items-center"
+                                    >
+                                        <MailIcon className="w-[25px] stroke-main" />
+                                        meblidream@i.ua
+                                    </a>
                                 </li>
                             </ul>
 
                             <ul className="flex items-center flex-col flex-wrap gap-[10px]">
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
+                                <li className="flex items-center gap-[5px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Instagram
-                                    <InstagramIcon className="w-[35px] fill-main" />
+                                    <a
+                                        target="_blank"
+                                        href="https://www.instagram.com/meblidream"
+                                    >
+                                        <InstagramIcon className="fill-main w-[30px]" />
+                                    </a>
                                 </li>
                                 <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Facebook
-                                    <InstagramIcon className="w-[35px] fill-main" />
+                                    <a
+                                        target="_blank"
+                                        href="https://t.me/meblidream_lutsk"
+                                    >
+                                        <TelegramIcon className="fill-main w-[30px]" />
+                                    </a>
                                 </li>
                                 <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
                                     Telegram
-                                    <InstagramIcon className="w-[35px] fill-main" />
-                                </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    WhatsApp
-                                    <InstagramIcon className="w-[35px] fill-main" />
+                                    <a
+                                        target="_blank"
+                                        href="https://www.facebook.com/Meblidream"
+                                    >
+                                        <FacebookIcon className="fill-main w-[30px]" />
+                                    </a>
                                 </li>
                             </ul>
                         </div>

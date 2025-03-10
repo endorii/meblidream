@@ -35,7 +35,7 @@ const Products = () => {
                             >
                                 <img
                                     className="w-full h-[250px] object-cover object-[0px_60%] rounded-t-md"
-                                    src={`http://localhost:5000${category.images[0]}`}
+                                    src={`http://localhost:5000${category.previewImage}`}
                                     alt=""
                                 />
 

@@ -2,11 +2,11 @@ import axios from "axios";
 import { setUser } from "../store/slices/user.slice";
 import toast from "react-hot-toast";
 
-export const login = (login, password) => {
+export const login = (name, password) => {
     return async (dispatch) => {
         try {
             const response = await axios.post(`http://localhost:5000/api/auth/login/`, {
-                login,
+                name,
                 password,
             });
             dispatch(setUser(response.data.user));

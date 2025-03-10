@@ -4,7 +4,6 @@ import MailIcon from "../../assets/svg/mail.svg?react";
 import PhoneIcon from "../../assets/svg/phone.svg?react";
 import InstagramIcon from "../../assets/svg/instagram.svg?react";
 import TelegramIcon from "../../assets/svg/telegram.svg?react";
-import WhatsAppIcon from "../../assets/svg/whatsapp.svg?react";
 import FacebookIcon from "../../assets/svg/facebook.svg?react";
 import MainButton from "../ui/buttons/MainButton";
 import { Link, NavLink } from "react-router-dom";
@@ -103,11 +102,11 @@ const Footer = ({ setIsOrderModalOpen }) => {
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-col gap-[7px]">
                             <li>
                                 <a
-                                    href="mailto:meblidream@i.com"
+                                    href="mailto:meblidream@i.ua"
                                     className="flex gap-[5px] items-center hover:underline"
                                 >
                                     <MailIcon className="w-[25px] stroke-main" />
-                                    meblidream@i.com
+                                    meblidream@i.ua
                                 </a>
                             </li>
                             <li>
@@ -135,16 +134,28 @@ const Footer = ({ setIsOrderModalOpen }) => {
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-wrap items-start gap-[3px]">
                             <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <InstagramIcon className="fill-main w-[30px] " />
+                                <a
+                                    target="_blank"
+                                    href="https://www.instagram.com/meblidream"
+                                >
+                                    <InstagramIcon className="fill-main w-[30px]" />
+                                </a>
                             </li>
                             <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <TelegramIcon className="fill-main w-[30px] " />
+                                <a
+                                    target="_blank"
+                                    href="https://t.me/meblidream_lutsk"
+                                >
+                                    <TelegramIcon className="fill-main w-[30px]" />
+                                </a>
                             </li>
                             <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <WhatsAppIcon className="fill-main w-[30px] " />
-                            </li>
-                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <FacebookIcon className="fill-main w-[30px] " />
+                                <a
+                                    target="_blank"
+                                    href="https://www.facebook.com/Meblidream"
+                                >
+                                    <FacebookIcon className="fill-main w-[30px]" />
+                                </a>
                             </li>
                         </ul>
                     </div>

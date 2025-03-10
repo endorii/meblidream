@@ -21,9 +21,7 @@ const ProductPage = ({ category }) => {
             <div className="relative">
                 <img
                     className="w-[100vw] h-[60vh] object-cover"
-                    src={`http://localhost:5000${
-                        category.images[category.images.length - 1]
-                    }`}
+                    src={`http://localhost:5000${category.bgImage}`}
                     alt=""
                 />
                 <div className="absolute top-0 text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">

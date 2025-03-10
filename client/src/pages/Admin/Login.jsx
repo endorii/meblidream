@@ -23,9 +23,9 @@ const Login = () => {
         mode: "onTouched",
     });
 
-    const onSubmit = async (data) => {
+    const onSubmit = (data) => {
         try {
-            await dispatch(login(data.loginName, data.loginPassword));
+            dispatch(login(data.loginName, data.loginPassword));
         } catch (e) {
             console.log(e);
         }
