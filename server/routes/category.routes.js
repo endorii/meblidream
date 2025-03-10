@@ -14,6 +14,18 @@ router.get("/categories", async (req, res) => {
     }
 });
 
+router.get("/categories/:categoryId", async (req, res) => {
+    try {
+        const { categoryId } = req.params;
+        const category = await Category.findOne({ _id: categoryId });
+
+        return res.json({ category });
+    } catch (e) {
+        console.log(e);
+        res.send({ message: "Server error" });
+    }
+});
+
 router.post("/categories", async (req, res) => {
     try {
         const { displayName, pathName, filling } = req.body;
@@ -26,6 +38,8 @@ router.post("/categories", async (req, res) => {
             displayName,
             pathName,
             filling,
+            previewImage: "",
+            bgImage: "",
             images: [],
         });
 

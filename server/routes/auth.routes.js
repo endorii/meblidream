@@ -9,8 +9,8 @@ const User = require("../models/User");
 
 router.post("/login", async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const { name, password } = req.body;
+        const user = await User.findOne({ name });
 
         if (!user) {
             return res.status(404).json({ message: "Користувача не знайдено" });
