@@ -1,5 +1,7 @@
 const Router = require("express");
 const Category = require("../models/Category");
+const path = require("path");
+const fs = require("fs");
 
 const router = new Router();
 
@@ -76,7 +78,21 @@ router.delete("/categories/:categoryId", async (req, res) => {
     try {
         const { categoryId } = req.params;
 
-        await Category.findOneAndDelete({ _id: categoryId });
+        const category = await Category.findOneAndDelete({ _id: categoryId });
+        if (!category) {
+            return res.status(404).json({ message: "Категорію не знайдено" });
+        }
+
+        const imagePaths = [category.previewImage, category.bgImage, ...category.images].filter(
+            Boolean
+        );
+
+        for (const imagePath of imagePaths) {
+            const filePath = path.join(__dirname, "..", imagePath);
+            if (fs.existsSync(filePath)) {
+                fs.unlinkSync(filePath);
+            }
+        }
 
         return res.json({ message: "Категорію видалено" });
     } catch (e) {

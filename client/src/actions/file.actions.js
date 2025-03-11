@@ -114,3 +114,17 @@ export const deleteImage = async (categoryId, imagePath) => {
         throw e;
     }
 };
+
+export const deleteAllImagesFromCategory = async (categoryId) => {
+    try {
+        const response = await axios.delete(
+            `http://localhost:5000/api/delete-all-images/${categoryId}`
+        );
+
+        toast.success("Усі зображення категорії успішно видалені!");
+        return response.data;
+    } catch (e) {
+        toast.error("Помилка при видаленні зображень");
+        throw e;
+    }
+};
