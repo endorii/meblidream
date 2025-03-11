@@ -34,7 +34,12 @@ const Welcome = () => {
                             <div className="text-[18px] text-darkgray">
                                 у вас{" "}
                                 <span className="text-[22px] text-darkblue font-bold">
-                                    {orders.length}
+                                    {
+                                        orders.filter(
+                                            (order) =>
+                                                order.status !== "Закрите"
+                                        ).length
+                                    }
                                 </span>{" "}
                                 замовлень дзвінків
                             </div>
