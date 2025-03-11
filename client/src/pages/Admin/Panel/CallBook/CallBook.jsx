@@ -1,11 +1,13 @@
 import TrashIcon from "../../../../assets/svg/trash.svg?react";
+import Done2Icon from "../../../../assets/svg/done2.svg?react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
 import Modal from "../../../Modals/Modal";
 import DeleteModalContent from "../../../Modals/Categories/DeleteModalContent";
-import { deleteOrder } from "../../../../actions/orders.actions";
+import { closeOrder, deleteOrder } from "../../../../actions/orders.actions";
 import { AnimatePresence, motion } from "motion/react";
+import CloseModalContent from "../../../Modals/Categories/CloseCategoryModal";
 
 const CallBook = () => {
     const filters = [
@@ -13,17 +15,44 @@ const CallBook = () => {
         { name: "Спочатку старіші", value: "old" },
     ];
 
+    const statusFilters = [
+        { name: "Всі", value: "all" },
+        { name: "Активні", value: "active" },
+        { name: "Закриті", value: "closed" },
+    ];
+
     const { orders } = useSelector((state) => state.orders);
     const dispatch = useDispatch();
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isCloseModalOpen, setIsCloseModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [activeOrder, setActiveOrder] = useState("");
-
     const [activeFilter, setActiveFilter] = useState(filters[0].value);
+    const [activeStatusFilter, setActiveStatusFilter] = useState(
+        statusFilters[1].value
+    );
 
     useEffect(() => {
         dispatch(fetchOrders());
     }, [dispatch]);
+
+    const filteredOrders = useMemo(() => {
+        let filtered = [...orders];
+
+        if (activeStatusFilter !== "all") {
+            filtered = filtered.filter((order) =>
+                activeStatusFilter === "active"
+                    ? order.status !== "Закрите"
+                    : order.status === "Закрите"
+            );
+        }
+
+        return filtered.sort((a, b) => {
+            const dateA = new Date(a.createdAt);
+            const dateB = new Date(b.createdAt);
+            return activeFilter === "old" ? dateA - dateB : dateB - dateA;
+        });
+    }, [orders, activeFilter, activeStatusFilter]);
 
     return (
         <div>
@@ -32,107 +61,186 @@ const CallBook = () => {
                     Список замовлених дзвінків
                 </div>
                 <div className="flex items-center max-[500px]:flex-col gap-[15px]">
-                    <div>Фільтрація: </div>
+                    <div>Фільтрація за датою: </div>
                     <ul className="flex gap-[15px]">
-                        {filters.map((filter, i) => {
-                            return (
-                                <li
-                                    key={i}
-                                    className={`font-semibold border rounded-xl px-[20px] py-[13px] transition duration-300 ease-in-out cursor-pointer ${
-                                        activeFilter === filter.value
-                                            ? "bg-mainbg text-white"
-                                            : "text-main hover:bg-mainbg hover:text-white"
-                                    }`}
-                                    onClick={() =>
-                                        setActiveFilter(filter.value)
-                                    }
-                                >
-                                    {filter.name}
-                                </li>
-                            );
-                        })}
+                        {filters.map((filter, i) => (
+                            <li
+                                key={i}
+                                className={`font-semibold border rounded-xl text-center px-[20px] py-[13px] transition duration-300 ease-in-out cursor-pointer ${
+                                    activeFilter === filter.value
+                                        ? "bg-mainbg text-white"
+                                        : "text-main hover:bg-mainbg hover:text-white"
+                                }`}
+                                onClick={() => setActiveFilter(filter.value)}
+                            >
+                                {filter.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="flex items-center max-[500px]:flex-col gap-[15px]">
+                    <div>Фільтрація за статусом: </div>
+                    <ul className="flex gap-[15px]">
+                        {statusFilters.map((statusFilter, i) => (
+                            <li
+                                key={i}
+                                className={`font-semibold border rounded-xl text-center px-[20px] py-[13px] transition duration-300 ease-in-out cursor-pointer ${
+                                    activeStatusFilter === statusFilter.value
+                                        ? "bg-mainbg text-white"
+                                        : "text-main hover:bg-mainbg hover:text-white"
+                                }`}
+                                onClick={() =>
+                                    setActiveStatusFilter(statusFilter.value)
+                                }
+                            >
+                                {statusFilter.name}
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
             <hr className="border border-gray my-[30px] md:my-[0px]" />
             <div className="mt-[30px]">
                 <ul className="flex flex-wrap gap-[30px]">
-                    {orders.length > 0 ? (
-                        orders.map((order, i) => {
-                            return (
-                                <li
-                                    key={i}
-                                    className="shadow-custom rounded-xl flex flex-col  basis-[45%] flex-1"
-                                >
-                                    <div className="text-white font-bold bg-mainbg rounded-t-md text-center h-[50px] p-[10px] flex justify-center items-center">
-                                        №<span>{i + 1}</span>
-                                    </div>
+                    {filteredOrders.length > 0 ? (
+                        filteredOrders.map((order, i) => (
+                            <li
+                                key={i}
+                                className={`shadow-custom rounded-xl flex flex-col basis-[45%] flex-1 ${
+                                    order.status === "Закрите"
+                                        ? "grayscale"
+                                        : ""
+                                }`}
+                            >
+                                <div className="text-white font-bold bg-mainbg rounded-t-md text-center h-[50px] p-[10px] flex justify-center items-center">
+                                    №<span>{i + 1}</span>
+                                </div>
 
-                                    <div className="flex flex-col justify-between bg-white py-[30px] px-[10px] md:px-[30px] w-full">
-                                        <div className="flex flex-col gap-[10px]">
-                                            <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
-                                                <div className="text-[12px] md:text-[15px] w-[25%]">
-                                                    Ім&apos;я та прізвище:{" "}
-                                                </div>
-                                                <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {order.name}
-                                                </div>
+                                <div
+                                    className={`flex flex-col justify-between py-[30px] px-[10px] md:px-[30px] w-full ${
+                                        order.status === "Закрите"
+                                            ? "bg-gray/50"
+                                            : ""
+                                    }`}
+                                >
+                                    <div className="flex flex-col gap-[10px]">
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                Ім&apos;я та прізвище:
                                             </div>
-                                            <div className="flex justify-between text-[18px] font-semibold text-darkblue">
-                                                <div className="text-[12px] md:text-[15px] w-[25%]">
-                                                    Номер телефону:{" "}
-                                                </div>
-                                                <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {order.phone}
-                                                </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                {order.name}
                                             </div>
-                                            <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
-                                                <div className="text-[12px] md:text-[15px] w-[25%]">
-                                                    Додаток/повідомлення:
-                                                </div>
-                                                <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {order.message}
-                                                </div>
+                                        </div>
+                                        <div className="flex justify-between text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                Номер телефону:
                                             </div>
-                                            <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
-                                                <div className="text-[12px] md:text-[15px] w-[25%]">
-                                                    Дата відправлення заявки:
-                                                </div>
-                                                <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {`${order.createdAt.slice(
-                                                        0,
-                                                        10
-                                                    )} / ${order.createdAt.slice(
-                                                        11,
-                                                        19
-                                                    )}`}
-                                                </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                {order.phone}
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                Додаток/повідомлення:
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                {order.message}
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                Дата відправлення заявки:
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                {`${order.createdAt.slice(
+                                                    0,
+                                                    10
+                                                )} / ${order.createdAt.slice(
+                                                    11,
+                                                    19
+                                                )}`}
+                                            </div>
+                                        </div>
+                                        <div className="flex justify-between text-[16px] md:text-[18px] font-semibold text-darkblue">
+                                            <div className="text-[12px] md:text-[15px] w-[25%]">
+                                                Статус:
+                                            </div>
+                                            <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
+                                                {order.status}
                                             </div>
                                         </div>
                                     </div>
-                                    <hr className="border-gray border-dashed" />
-                                    <div className="flex justify-around items-center w-full h-[50px] md:h-[70px] mt-auto rounded-b-md">
+                                </div>
+                                <hr
+                                    className={`border-gray border-dashed ${
+                                        order.status === "Закрите"
+                                            ? "border-black"
+                                            : ""
+                                    }`}
+                                />
+                                <div
+                                    className={`flex justify-around items-center w-full h-[50px] md:h-[70px] mt-auto rounded-b-md ${
+                                        order.status === "Закрите"
+                                            ? "bg-gray/50"
+                                            : ""
+                                    }`}
+                                >
+                                    {order.status === "Закрите" ? null : (
                                         <button
-                                            className="h-full hover:bg-main/5 w-full flex justify-center items-center rounded-xl"
+                                            className="h-full w-[200%] hover:bg-main/5 flex justify-center items-center"
                                             onClick={() => {
-                                                setIsModalOpen(true);
+                                                setIsCloseModalOpen(true);
                                                 setActiveOrder(order);
                                             }}
                                         >
-                                            <TrashIcon className="stroke-main w-[27px]" />
+                                            <Done2Icon className="fill-main w-[30px]" />
                                         </button>
-                                    </div>
-                                </li>
-                            );
-                        })
+                                    )}
+
+                                    <button
+                                        className="h-full hover:bg-main/5 w-full flex justify-center items-center"
+                                        onClick={() => {
+                                            setIsDeleteModalOpen(true);
+                                            setActiveOrder(order);
+                                        }}
+                                    >
+                                        <TrashIcon className="stroke-main w-[27px]" />
+                                    </button>
+                                </div>
+                            </li>
+                        ))
                     ) : (
                         <div className="text-darkgray">Нічого не знайдено</div>
                     )}
                 </ul>
             </div>
             <AnimatePresence mode="wait">
-                {isModalOpen ? (
-                    <Modal onClose={() => setIsModalOpen(false)}>
+                {isCloseModalOpen && (
+                    <Modal onClose={() => setIsCloseModalOpen(false)}>
+                        <motion.div
+                            key="order-modal"
+                            initial={{ scale: 0.4, y: "-100vh" }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.4, y: "-100vh" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <CloseModalContent
+                                title={`замовлення від ${activeOrder.name}`}
+                                onClose={() => setIsCloseModalOpen(false)}
+                                onAction={async () => {
+                                    setIsCloseModalOpen(false);
+                                    await closeOrder(activeOrder._id);
+                                    dispatch(fetchOrders());
+                                }}
+                            />
+                        </motion.div>
+                    </Modal>
+                )}
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+                {isDeleteModalOpen && (
+                    <Modal onClose={() => setIsDeleteModalOpen(false)}>
                         <motion.div
                             key="order-modal"
                             initial={{ scale: 0.4, y: "-100vh" }}
@@ -142,16 +250,16 @@ const CallBook = () => {
                         >
                             <DeleteModalContent
                                 title={`замовлення від ${activeOrder.name}`}
-                                onClose={() => setIsModalOpen(false)}
+                                onClose={() => setIsDeleteModalOpen(false)}
                                 onAction={async () => {
-                                    setIsModalOpen(false);
+                                    setIsDeleteModalOpen(false);
                                     await deleteOrder(activeOrder._id);
                                     dispatch(fetchOrders());
                                 }}
                             />
                         </motion.div>
                     </Modal>
-                ) : null}
+                )}
             </AnimatePresence>
         </div>
     );
