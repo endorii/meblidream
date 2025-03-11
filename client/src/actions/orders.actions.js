@@ -27,6 +27,19 @@ export const addOrder = async (theme, name, phone, message) => {
     }
 };
 
+export const closeOrder = async (orderId) => {
+    try {
+        const response = await axios.patch(`http://localhost:5000/api/orders/${orderId}`, {
+            status: "Закрите",
+        });
+        toast.success("Замовлення успішно закрито!");
+        return response.data;
+    } catch (e) {
+        toast.error("Помилка при закритті замовлення");
+        throw e;
+    }
+};
+
 export const deleteOrder = async (orderId) => {
     try {
         const response = await axios.delete(`http://localhost:5000/api/orders/${orderId}`);

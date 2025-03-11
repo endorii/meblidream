@@ -23,6 +23,7 @@ router.post("/orders", async (req, res) => {
             name,
             phone,
             message,
+            status: "Відкрите",
         });
 
         await newOrder.save();
@@ -31,6 +32,18 @@ router.post("/orders", async (req, res) => {
     } catch (e) {
         console.log(e);
         res.send({ message: "Server error" });
+    }
+});
+
+router.patch("/orders/:orderId", async (req, res) => {
+    const { orderId } = req.params;
+    const { status } = req.body;
+
+    try {
+        await Order.findByIdAndUpdate(orderId, { status }, { new: true });
+        return res.json({ message: "Замовлення закрито" });
+    } catch (error) {
+        res.status(500).json({ message: "Помилка оновлення замовлення" });
     }
 });
 
