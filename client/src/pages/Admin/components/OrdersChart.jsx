@@ -9,14 +9,15 @@ const OrdersChart = ({ orders = [] }) => {
         if (!orders || orders.length === 0) return;
 
         const orderCounts = orders.reduce((acc, order) => {
-            if (!order?.date) return acc;
-            const date = order.date.split(" / ")[0];
+            if (!order?.createdAt) return acc;
+
+            const date = new Date(order.createdAt).toISOString().split("T")[0];
             acc[date] = (acc[date] || 0) + 1;
             return acc;
         }, {});
 
-        const labels = Object.keys(orderCounts);
-        const dataValues = Object.values(orderCounts);
+        const labels = Object.keys(orderCounts).sort();
+        const dataValues = labels.map((date) => orderCounts[date]);
 
         if (chartInstance.current) {
             chartInstance.current.destroy();
