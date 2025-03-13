@@ -19,9 +19,7 @@ const Wrapper = () => {
             <Header setIsOrderModalOpen={setIsOrderModalOpen}></Header>
             <Loader />
             <ScrollToTop />
-            <div>
-                <Outlet />
-            </div>
+            <Outlet />
             <Request />
             <Footer setIsOrderModalOpen={setIsOrderModalOpen}></Footer>
 

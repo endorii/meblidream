@@ -5,8 +5,11 @@ import Product2 from "../../../../assets/img/product/product2.jpg";
 import Product3 from "../../../../assets/img/product/product3.jpg";
 
 import Arowdown from "../../../../assets/svg/arrowdown.svg";
+import { useSelector } from "react-redux";
 
 const Product = () => {
+    const { categories } = useSelector((state) => state.categories);
+
     return (
         <div className="pt-[70px]">
             <Container>
@@ -51,7 +54,7 @@ const Product = () => {
                     </div>
                 </div>
             </Container>
-            <Products />
+            {categories.length > 0 ? <Products /> : null}
         </div>
     );
 };

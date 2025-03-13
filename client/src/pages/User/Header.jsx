@@ -16,6 +16,19 @@ const Header = ({ setIsOrderModalOpen }) => {
         { name: "Контакти", path: "/contacts" },
     ];
 
+    const data = [
+        {
+            text: "+380 99 443 12 80",
+            href: "tel:+380994431280",
+            icon: <PhoneIcon className="w-[25px] fill-main" />,
+        },
+        {
+            text: "meblidream@i.ua",
+            href: "mailto:meblidream@i.ua",
+            icon: <MailIcon className="w-[25px] stroke-main" />,
+        },
+    ];
+
     const [scrollProgress, setScrollProgress] = useState(0);
     const [burgerOpen, setBurgerOpen] = useState(false);
 
@@ -68,26 +81,20 @@ const Header = ({ setIsOrderModalOpen }) => {
                         Залишити заявку
                     </MainButton>
 
-                    <ul className="hidden md:flex text-darkgray text-[15px] font-semibold flex-col gap-[2px]">
-                        <li>
+                    <div className="hidden md:flex text-darkgray text-[15px] justify-center font-semibold flex-col gap-[2px]">
+                        {data.map((item, i) => (
                             <a
-                                href="mailto:meblidream@i.com"
-                                className="flex gap-[5px] items-center hover:underline"
+                                key={i}
+                                href={item.href}
+                                className="hover:underline"
                             >
-                                <MailIcon className="w-[25px] stroke-main" />
-                                meblidream@i.com
+                                <li className="flex gap-[5px] ">
+                                    {item.icon}
+                                    {item.text}
+                                </li>
                             </a>
-                        </li>
-                        <li>
-                            <a
-                                href="tel:+380994431280"
-                                className="flex gap-[5px] items-center hover:underline"
-                            >
-                                <PhoneIcon className="w-[25px] fill-main" />
-                                +380 99 443 12 80
-                            </a>
-                        </li>
-                    </ul>
+                        ))}
+                    </div>
                     {!burgerOpen ? (
                         <BurgerIcon
                             onClick={() => setBurgerOpen(!burgerOpen)}
@@ -130,31 +137,19 @@ const Header = ({ setIsOrderModalOpen }) => {
                         </NavLink>
                     ))}
                 </ul>
-                <ul className="vissible md:hidden flex items-center text-darkgray text-[16px] font-semibold flex-col gap-[2px] px-[30px] pb-[10px]">
-                    <li>
-                        <a
-                            href="mailto:meblidream@i.com"
-                            className="flex gap-[5px] items-center underline"
-                        >
-                            <MailIcon className="w-[25px] stroke-main" />
-                            meblidream@i.com
+                <div className="vissible md:hidden flex items-center text-darkgray text-[16px] font-semibold flex-col gap-[2px] px-[30px] pb-[10px]">
+                    {data.map((item, i) => (
+                        <a key={i} href={item.href} className="hover:underline">
+                            <li className="flex gap-[5px] ">
+                                {item.icon}
+                                {item.text}
+                            </li>
                         </a>
-                    </li>
-                    <li>
-                        <a
-                            href="tel:+380994431280"
-                            className="flex gap-[5px] items-center underline"
-                        >
-                            <PhoneIcon className="w-[25px] fill-main" />
-                            +380 99 443 12 80
-                        </a>
-                    </li>
-                </ul>
+                    ))}
+                </div>
                 <MainButton
                     bonusStyles="visible sm:hidden m-[30px]"
-                    onClose={() => {
-                        setIsOrderModalOpen(true);
-                    }}
+                    onClick={() => setIsOrderModalOpen(true)}
                 >
                     Залишити заявку
                 </MainButton>

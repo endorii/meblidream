@@ -20,6 +20,21 @@ const Footer = ({ setIsOrderModalOpen }) => {
         { name: "Контакти", path: "/contacts" },
     ];
 
+    const socials = [
+        {
+            link: import.meta.env.VITE_INSTAGRAM_URL,
+            icon: <InstagramIcon className="fill-main w-[30px]" />,
+        },
+        {
+            link: import.meta.env.VITE_TELEGRAM_URL,
+            icon: <TelegramIcon className="fill-main w-[30px]" />,
+        },
+        {
+            link: import.meta.env.VITE_FACEBOOK_URL,
+            icon: <FacebookIcon className="fill-main w-[30px]" />,
+        },
+    ];
+
     const { categories } = useSelector((state) => state.categories);
 
     const dispatch = useDispatch();
@@ -133,30 +148,16 @@ const Footer = ({ setIsOrderModalOpen }) => {
                             Наші соц. мережі
                         </div>
                         <ul className="text-darkgray text-[15px] font-semibold flex flex-wrap items-start gap-[3px]">
-                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <a
-                                    target="_blank"
-                                    href="https://www.instagram.com/meblidream"
+                            {socials.map((social, i) => (
+                                <li
+                                    key={i}
+                                    className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out"
                                 >
-                                    <InstagramIcon className="fill-main w-[30px]" />
-                                </a>
-                            </li>
-                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <a
-                                    target="_blank"
-                                    href="https://t.me/meblidream_lutsk"
-                                >
-                                    <TelegramIcon className="fill-main w-[30px]" />
-                                </a>
-                            </li>
-                            <li className="p-[10px] rounded-[50%] border border-transparent hover:border hover:border-main/10 hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                <a
-                                    target="_blank"
-                                    href="https://www.facebook.com/Meblidream"
-                                >
-                                    <FacebookIcon className="fill-main w-[30px]" />
-                                </a>
-                            </li>
+                                    <a target="_blank" href={social.link}>
+                                        {social.icon}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

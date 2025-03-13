@@ -6,6 +6,47 @@ import PhoneIcon from "../../../../assets/svg/phone.svg?react";
 import MailIcon from "../../../../assets/svg/mail.svg?react";
 
 const Contacts = () => {
+    const data = [
+        {
+            text: "+380 99 443 12 80",
+            href: "tel:+380994431280",
+            icon: (
+                <PhoneIcon className="group-hover:fill-main w-[25px] fill-white" />
+            ),
+        },
+        {
+            text: "meblidream@i.ua",
+            href: "mailto:meblidream@i.ua",
+            icon: (
+                <MailIcon className="group-hover:stroke-main w-[25px] stroke-white" />
+            ),
+        },
+    ];
+
+    const socials = [
+        {
+            text: "Instagram",
+            link: import.meta.env.VITE_INSTAGRAM_URL,
+            icon: (
+                <InstagramIcon className="group-hover:fill-main fill-white w-[22px]" />
+            ),
+        },
+        {
+            text: "Facebook",
+            link: import.meta.env.VITE_TELEGRAM_URL,
+            icon: (
+                <TelegramIcon className="group-hover:fill-main fill-white w-[22px]" />
+            ),
+        },
+        {
+            text: "Telegram",
+            link: import.meta.env.VITE_FACEBOOK_URL,
+            icon: (
+                <FacebookIcon className="group-hover:fill-main fill-white w-[22px]" />
+            ),
+        },
+    ];
+
     return (
         <div className="pt-[70px]">
             <Container>
@@ -20,62 +61,42 @@ const Contacts = () => {
                 </div>
 
                 <div className="flex justify-center mt-[30px]">
-                    <div className="shadow-custom rounded-xl p-[30px] sm:p-[50px] flex flex-col gap-6 w-[95%] md:w-[90%] lg:w-[70%] 2xl:w-[50%]">
-                        <h3 className="text-[34px] text-center font-semibold text-main uppercase">
+                    <div className="shadow-custom bg-mainbg rounded-xl p-[30px] text-center sm:text-left sm:p-[40px] flex flex-col gap-[20px] w-[95%] md:w-[90%] lg:w-[70%] 2xl:w-[50%]">
+                        <h3 className="text-[36px] font-semibold text-white uppercase">
                             Контактна інформація
                         </h3>
+                        <div className="flex flex-col gap-[30px]">
+                            <div className="flex flex-wrap gap-[20px] justify-center sm:justify-start">
+                                {data.map((item, i) => (
+                                    <a key={i} href={item.href}>
+                                        <div className="flex gap-[5px] text-white text-[18px] sm:text-[22px] transition duration-300 ease-in-out px-[30px] py-[15px] rounded-xl border border-transparent group border-white hover:bg-white hover:text-main">
+                                            {item.icon}
+                                            {item.text}
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
 
-                        <div className="flex flex-col md:flex-row gap-[40px] md:gap-[50px] justify-center items-center">
-                            <ul className="text-2xl flex flex-col gap-[5px] pb-[15px] md:pr-[50px] border-b-2 md:border-r-2 md:border-b-0 border-main border-dashed">
-                                <li className="text-black text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    <a
-                                        href="tel:+380994431280"
-                                        className="flex gap-[5px] items-center"
-                                    >
-                                        <PhoneIcon className="w-[25px] fill-main" />
-                                        +380 99 443 12 80
-                                    </a>
-                                </li>
-                                <li className="text-black text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    <a
-                                        href="mailto:meblidream@i.ua"
-                                        className="flex gap-[5px] items-center"
-                                    >
-                                        <MailIcon className="w-[25px] stroke-main" />
-                                        meblidream@i.ua
-                                    </a>
-                                </li>
-                            </ul>
+                            <div>
+                                <div className="text-white mb-[10px] text-[18px]">
+                                    ми в соц. мережах:{" "}
+                                </div>
 
-                            <ul className="flex items-center flex-col flex-wrap gap-[10px]">
-                                <li className="flex items-center gap-[5px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    Instagram
-                                    <a
-                                        target="_blank"
-                                        href="https://www.instagram.com/meblidream"
-                                    >
-                                        <InstagramIcon className="fill-main w-[30px]" />
-                                    </a>
-                                </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    Facebook
-                                    <a
-                                        target="_blank"
-                                        href="https://t.me/meblidream_lutsk"
-                                    >
-                                        <TelegramIcon className="fill-main w-[30px]" />
-                                    </a>
-                                </li>
-                                <li className="flex items-center gap-[10px] text-balck text-[16px] sm:text-[20px] p-[20px] rounded-xl border border-transparent hover:border hover:border-main hover:bg-main/5 cursor-pointer transition duration-300 ease-in-out">
-                                    Telegram
-                                    <a
-                                        target="_blank"
-                                        href="https://www.facebook.com/Meblidream"
-                                    >
-                                        <FacebookIcon className="fill-main w-[30px]" />
-                                    </a>
-                                </li>
-                            </ul>
+                                <div className="flex flex-wrap gap-[20px] justify-center sm:justify-start">
+                                    {socials.map((social, i) => (
+                                        <a
+                                            key={i}
+                                            target="_blank"
+                                            href={social.link}
+                                        >
+                                            <div className="flex gap-[10px] text-white text-[18px] sm:text-[22px] transition duration-300 ease-in-out px-[30px] py-[15px] rounded-xl border border-transparent group border-white hover:bg-white hover:text-main">
+                                                {social.icon}
+                                                {social.text}
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

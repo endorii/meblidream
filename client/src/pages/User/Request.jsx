@@ -16,10 +16,6 @@ const Request = () => {
                         життя! Разом ми створимо меблі, які зроблять ваш простір
                         унікальним.
                     </div>
-                    <hr className="m-[25px] self-center border-main border w-[20%]" />
-                    <div className="text-darkgray">
-                        Ми завжди раді бачити вас у числі наших клієнтів!
-                    </div>
                 </div>
                 <div className="flex text-left justify-center w-[95%] sm:w-[80%] md:w-[65%] mt-[50px] p-[20px] gap-[20px] shadow-custom rounded-xl ">
                     <OrderModalForm />
