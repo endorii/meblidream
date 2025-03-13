@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import DoneIcon from "../../../../assets/svg/done.svg?react";
+// import DoneIcon from "../../../../assets/svg/done.svg?react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchOrders } from "../../../../store/slices/orders.slice";
@@ -51,7 +51,7 @@ const Welcome = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-[20px] w-full md:w-[50%]">
+                    {/* <div className="flex flex-col md:flex-row gap-[20px] w-full md:w-[50%]">
                         <div className="flex flex-col justify-between bg-white shadow-custom rounded-xl p-[30px] w-full md:w-[50%] h-auto ">
                             <div className="text-[26px] text-darkblue font-bold text-center">
                                 Дзвінків за сьогодні
@@ -70,7 +70,7 @@ const Welcome = () => {
                                 <DoneIcon className="w-[40px] fill-[#000000]" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="flex flex-1 w-full flex-wrap justify-between gap-[20px]">

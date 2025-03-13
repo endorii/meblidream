@@ -61,10 +61,34 @@ const Categories = () => {
                 <ul className="flex flex-wrap gap-[30px]">
                     {categories.length > 0 ? (
                         categories.map((category, i) => {
+                            const createdAt = new Date(category.updatedAt);
+                            const day = createdAt
+                                .getDate()
+                                .toString()
+                                .padStart(2, "0");
+                            const month = (createdAt.getMonth() + 1)
+                                .toString()
+                                .padStart(2, "0");
+                            const year = createdAt.getFullYear();
+                            const hours = createdAt
+                                .getHours()
+                                .toString()
+                                .padStart(2, "0");
+                            const minutes = createdAt
+                                .getMinutes()
+                                .toString()
+                                .padStart(2, "0");
+                            const seconds = createdAt
+                                .getSeconds()
+                                .toString()
+                                .padStart(2, "0");
+
+                            const formattedDate = `${day}/${month}/${year} / ${hours}:${minutes}:${seconds}`;
+
                             return (
                                 <li
                                     key={i}
-                                    className="shadow-custom rounded-xl flex flex-col basis-[45%] flex-1"
+                                    className="shadow-custom rounded-xl flex flex-col basis-[48%] flex-1"
                                 >
                                     <div className="text-white font-bold bg-mainbg rounded-t-md h-[50px] text-center p-[10px] flex justify-center items-center">
                                         №<span>{i + 1}</span>
@@ -133,13 +157,7 @@ const Categories = () => {
                                                     Востаннє редаговано
                                                 </div>
                                                 <div className="w-[70%] text-darkblue text-right font-bold text-[16px] md:text-[18px]">
-                                                    {`${category.updatedAt.slice(
-                                                        0,
-                                                        10
-                                                    )} / ${category.updatedAt.slice(
-                                                        11,
-                                                        19
-                                                    )}`}
+                                                    {formattedDate}
                                                 </div>
                                             </div>
                                         </div>

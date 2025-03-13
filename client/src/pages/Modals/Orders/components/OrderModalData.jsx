@@ -1,5 +1,4 @@
 import MainButton from "../../../ui/buttons/MainButton";
-
 import ArrowLeftIcon from "../../../../assets/svg/arrow-left.svg?react";
 import MailIcon from "../../../../assets/svg/mail.svg?react";
 import PhoneIcon from "../../../../assets/svg/phone.svg?react";
