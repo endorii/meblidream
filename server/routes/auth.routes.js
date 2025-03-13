@@ -1,8 +1,8 @@
 const Router = require("express");
 const bcrypt = require("bcrypt");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 const router = new Router();
+require("dotenv").config();
 
 const authMiddleware = require("../middlewares/auth.middleware");
 const User = require("../models/User");
@@ -22,7 +22,7 @@ router.post("/login", async (req, res) => {
             return res.status(401).json({ message: "Невірний пароль" });
         }
 
-        const accessToken = jwt.sign({ _id: user._id }, config.get("secretAccessKey"), {
+        const accessToken = jwt.sign({ _id: user._id }, process.env.SECRET_ACCESS_KEY, {
             expiresIn: "59m",
         });
 
@@ -41,7 +41,7 @@ router.get("/auth", authMiddleware, async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.user._id });
 
-        const accessToken = jwt.sign({ _id: user._id }, config.get("secretAccessKey"), {
+        const accessToken = jwt.sign({ _id: user._id }, process.env.SECRET_ACCESS_KEY, {
             expiresIn: "59m",
         });
 
