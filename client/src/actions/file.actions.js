@@ -7,7 +7,7 @@ export const addPreviewImage = async (categoryId, file) => {
         formData.append("picture", file);
 
         const response = await axios.put(
-            `http://localhost:5000/api/upload-preview/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/upload-preview/${categoryId}`,
             formData,
             {
                 headers: { "Content-Type": "multipart/form-data" },
@@ -25,7 +25,7 @@ export const addPreviewImage = async (categoryId, file) => {
 export const deletePreviewImage = async (categoryId, imagePath) => {
     try {
         const response = await axios.delete(
-            `http://localhost:5000/api/delete-preview-image/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/delete-preview-image/${categoryId}`,
             {
                 params: { imagePath },
             }
@@ -45,7 +45,7 @@ export const addBgImage = async (categoryId, file) => {
         formData.append("picture", file);
 
         const response = await axios.put(
-            `http://localhost:5000/api/upload-bg/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/upload-bg/${categoryId}`,
             formData,
             {
                 headers: { "Content-Type": "multipart/form-data" },
@@ -63,7 +63,7 @@ export const addBgImage = async (categoryId, file) => {
 export const deleteBgImage = async (categoryId, imagePath) => {
     try {
         const response = await axios.delete(
-            `http://localhost:5000/api/delete-bg-image/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/delete-bg-image/${categoryId}`,
             {
                 params: { imagePath },
             }
@@ -83,7 +83,7 @@ export const addImage = async (categoryId, file) => {
         formData.append("picture", file);
 
         const response = await axios.put(
-            `http://localhost:5000/api/upload/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/upload/${categoryId}`,
             formData,
             {
                 headers: { "Content-Type": "multipart/form-data" },
@@ -101,7 +101,7 @@ export const addImage = async (categoryId, file) => {
 export const deleteImage = async (categoryId, imagePath) => {
     try {
         const response = await axios.delete(
-            `http://localhost:5000/api/delete-image/${categoryId}`,
+            `${import.meta.env.VITE_API_URL}/delete-image/${categoryId}`,
             {
                 params: { imagePath },
             }
@@ -118,7 +118,7 @@ export const deleteImage = async (categoryId, imagePath) => {
 export const deleteAllImagesFromCategory = async (categoryId) => {
     try {
         const response = await axios.delete(
-            `http://localhost:5000/api/delete-all-images/${categoryId}`
+            `${import.meta.env.VITE_API_URL}/delete-all-images/${categoryId}`
         );
 
         toast.success("Усі зображення категорії успішно видалені!");

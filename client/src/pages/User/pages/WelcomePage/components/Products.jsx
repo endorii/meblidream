@@ -35,7 +35,9 @@ const Products = () => {
                             >
                                 <img
                                     className="w-full h-[250px] object-cover object-[0px_60%] rounded-t-md"
-                                    src={`http://localhost:5000${category.previewImage}`}
+                                    src={`${import.meta.env.VITE_SERVER_URL}${
+                                        category.previewImage
+                                    }`}
                                     alt=""
                                 />
 

@@ -21,7 +21,9 @@ const ProductPage = ({ category }) => {
             <div className="relative">
                 <img
                     className="w-[100vw] h-[60vh] object-cover"
-                    src={`http://localhost:5000${category.bgImage}`}
+                    src={`${import.meta.env.VITE_SERVER_URL}${
+                        category.bgImage
+                    }`}
                     alt=""
                 />
                 <div className="absolute top-0 text-center w-full p-[50px] flex items-center justify-center h-full flex-col gap-[20px]">
@@ -52,7 +54,9 @@ const ProductPage = ({ category }) => {
                                         <img
                                             key={index}
                                             className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                            src={`http://localhost:5000${image}`}
+                                            src={`${
+                                                import.meta.env.VITE_SERVER_URL
+                                            }${image}`}
                                             alt={`Image ${index + 1}`}
                                         />
                                     ))}

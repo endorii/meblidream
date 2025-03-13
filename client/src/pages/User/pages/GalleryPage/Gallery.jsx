@@ -81,7 +81,9 @@ const Gallery = () => {
                                     <img
                                         key={index}
                                         className="w-full h-auto rounded-lg shadow-custom break-inside-avoid"
-                                        src={`http://localhost:5000${image}`}
+                                        src={`${
+                                            import.meta.env.VITE_SERVER_URL
+                                        }${image}`}
                                         alt={`Image ${index + 1}`}
                                     />
                                 ))}

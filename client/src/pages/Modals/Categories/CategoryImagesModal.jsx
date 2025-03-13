@@ -164,7 +164,10 @@ const CategoryImagesModal = ({
                                         >
                                             <img
                                                 className="w-[200px] md:w-[250px] h-[200px] md:h-[250px] rounded-md object-cover"
-                                                src={`http://localhost:5000${image}`}
+                                                src={`${
+                                                    import.meta.env
+                                                        .VITE_SERVER_URL
+                                                }${image}`}
                                                 alt="image"
                                             />
                                             <button
@@ -185,11 +188,13 @@ const CategoryImagesModal = ({
                                         [Список зображень наразі порожній]
                                     </div>
                                 )
-                            ) : currentCategory[key] ? ( // якщо це просто рядок
+                            ) : currentCategory[key] ? (
                                 <li className="relative flex shadow-custom rounded-xl items-center">
                                     <img
                                         className="w-[200px] md:w-[250px] h-[200px] md:h-[250px] rounded-md object-cover"
-                                        src={`http://localhost:5000${currentCategory[key]}`}
+                                        src={`${
+                                            import.meta.env.VITE_SERVER_URL
+                                        }${currentCategory[key]}`}
                                         alt="image"
                                     />
                                     <button

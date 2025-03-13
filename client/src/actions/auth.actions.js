@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const login = (name, password) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post(`http://localhost:5000/api/auth/login/`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login/`, {
                 name,
                 password,
             });
@@ -24,7 +24,7 @@ export const login = (name, password) => {
 export const auth = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get("http://localhost:5000/api/auth/auth", {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/auth/auth`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` },
             });
             dispatch(setUser(response.data.user));

@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 export const getOrders = async () => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/orders`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/orders`);
         return response.data.orders;
     } catch (e) {
         console.log(e);
@@ -13,7 +13,7 @@ export const getOrders = async () => {
 
 export const addOrder = async (theme, name, phone, message) => {
     try {
-        const response = await axios.post(`http://localhost:5000/api/orders`, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/orders`, {
             theme,
             name,
             phone,
@@ -29,7 +29,7 @@ export const addOrder = async (theme, name, phone, message) => {
 
 export const closeOrder = async (orderId) => {
     try {
-        const response = await axios.patch(`http://localhost:5000/api/orders/${orderId}`, {
+        const response = await axios.patch(`${import.meta.env.VITE_API_URL}/orders/${orderId}`, {
             status: "Закрите",
         });
         toast.success("Замовлення успішно закрито!");
@@ -42,7 +42,7 @@ export const closeOrder = async (orderId) => {
 
 export const deleteOrder = async (orderId) => {
     try {
-        const response = await axios.delete(`http://localhost:5000/api/orders/${orderId}`);
+        const response = await axios.delete(`${import.meta.env.VITE_API_URL}/orders/${orderId}`);
         toast.success("Замовлення успішно видалено!");
         return response.data;
     } catch (e) {

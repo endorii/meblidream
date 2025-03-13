@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 export const getCategories = async () => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/categories`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/categories`);
         return response.data.categories;
     } catch (e) {
         console.log(e);
@@ -12,7 +12,9 @@ export const getCategories = async () => {
 
 export const getCategory = async (categoryId) => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/categories/${categoryId}`);
+        const response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/categories/${categoryId}`
+        );
         return response.data.category;
     } catch (e) {
         console.log(e);
@@ -21,7 +23,7 @@ export const getCategory = async (categoryId) => {
 
 export const addCategory = async (displayName, pathName, title, subtitle, description) => {
     try {
-        const response = await axios.post(`http://localhost:5000/api/categories`, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/categories`, {
             displayName,
             pathName,
             filling: {
@@ -47,15 +49,18 @@ export const editCategory = async (
     description
 ) => {
     try {
-        const response = await axios.put(`http://localhost:5000/api/categories/${categoryId}`, {
-            displayName,
-            pathName,
-            filling: {
-                title,
-                subtitle,
-                description,
-            },
-        });
+        const response = await axios.put(
+            `${import.meta.env.VITE_API_URL}/categories/${categoryId}`,
+            {
+                displayName,
+                pathName,
+                filling: {
+                    title,
+                    subtitle,
+                    description,
+                },
+            }
+        );
         toast.success("Категорію успішно відредаговано!");
         return response.data;
     } catch (e) {
@@ -66,7 +71,9 @@ export const editCategory = async (
 
 export const deleteCategory = async (categoryId) => {
     try {
-        const response = await axios.delete(`http://localhost:5000/api/categories/${categoryId}`);
+        const response = await axios.delete(
+            `${import.meta.env.VITE_API_URL}/categories/${categoryId}`
+        );
         toast.success("Категорію успішно видалено!");
         return response.data;
     } catch (e) {
